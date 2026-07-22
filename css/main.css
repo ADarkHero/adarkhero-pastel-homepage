@@ -1,0 +1,451 @@
+/*****************************************
+Variables
+*****************************************/
+:root{
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+	--color-gray: #555555;
+	--color-yellow: #FBF8CC;
+	--color-orange: #FDE4CF;
+	--color-red: #FFCFD2;
+	--color-pink: #F1C0E8;
+	--color-violet: #CFBAF0;
+	--color-blue: #A3C4F3;
+	--color-light-blue: #90DBF4;
+	--color-turquoise: #8EECF5;
+	--color-green: #98F5E1;
+	--color-light-green: #B9FBC0;
+
+	--border-color: var(--color-blue);
+	
+	/* the following values can be overridden via settings js */
+	--sepia-value: 0.75; 
+	--hover-effect: scale(1.2) rotate(5deg);
+	--hover-effect-header: scale(1.2);
+	--background-animation: moveBackground 240s linear infinite;
+	--mops-slide-in-animation: slideIn 2s ease-out forwards;
+	--fade-in-animation: fadeInOpacity 1s ease-in 1; 
+}
+
+
+/*****************************************
+Common settings
+*****************************************/
+@font-face {
+  font-family: 'Power Clear';
+  src: local('Power Clear'),
+       url('font/pkmndp.ttf') format('ttf');
+}
+
+body{
+	font-family: "Power Clear";
+	
+	background-color: var(--color-yellow);
+	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c0e8' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+    inset: 0;
+	background-repeat: repeat;
+    animation: var(--background-animation);
+}
+
+@keyframes moveBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -1000px -1000px;
+    }
+}
+
+header{
+	height: 150px;
+	margin-top: 15px;
+	position: relative;
+	overflow: hidden; /*fix header img size */
+	position: relative;
+		
+	border: 10px var(--border-color) double;
+	border-radius: 0 25px 0 0;
+	
+	z-index: 2;
+}
+
+header img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* fits image to size without changing ratios */
+	object-position: center; /* centers image cutout */
+}
+
+nav{
+	background-color: var(--color-red);
+	text-align: center;
+	
+	display: flex;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
+}
+nav > ul{
+	margin-top: 3px; /* fixes vertical centering because of borders */
+}
+.update-nav{
+	background-color: var(--color-yellow);
+	
+	padding-left: 0;
+	padding-right: 0;
+	
+	height: 20px;
+	line-height: 20px;
+}
+
+main{	
+	background-color: var(--color-orange);
+
+    background-image: url('../img/pastel-rainbow.png');
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: right;
+	
+    display: grid;
+    grid-template-columns: 25% 50% 25%; /* 3 colums */
+}
+main > div > section{
+	display: block !important;
+}
+
+main, footer, nav, section{
+	padding: 5px;
+}
+main, footer, nav{
+	border-left: 5px var(--border-color) double;
+	border-right: 5px var(--border-color) double;
+	background-clip: padding-box;
+}
+
+footer{
+	background-color: var(--color-yellow);
+
+	border-top: 5px var(--border-color) double;
+	border-radius: 0 0 0 25px;
+	
+	margin-bottom: 15px;
+	line-height: 25px;
+}
+footer, nav{		
+	height: 30px;
+	display: flex;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
+	
+	border-bottom: 5px var(--border-color) double;
+}
+
+ul{
+	margin: 0;
+}
+
+nav > ul,  footer > ul, .horizontal-list > ul{
+	display: flex; /* horizontal list */
+	justify-content: center; /* center list */
+	flex-wrap: wrap; /* Umbruch auf mehrere Zeilen */
+	gap: 20px;     /* gap between elements */
+	list-style: none; /* No dots in front of list */
+	padding: 0;
+}
+
+
+h1, h2, h3, p{
+	margin: 0;
+}
+h1{
+	font-size: 32px;
+}
+h2{
+	font-size: 24px;
+}
+h2{
+	font-size: 18px;
+}
+
+.block-button{
+	width: 80%;
+	display: block;
+    margin: 0 auto; /* center button */
+	background-color: var(--color-light-green);
+}
+
+textarea{
+	background-color: var(--color-yellow);
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table td {
+    border-right: 1px dotted var(--border-color);
+    border-bottom: 1px dotted var(--border-color);
+	padding-left: 5px;
+}
+table td:last-child {
+    border-right: none; /* only inner borders */
+}
+table tr:last-child td {
+    border-bottom: none; /* only inner borders */
+}
+table td:first-child {    
+	font-weight: bold; /* left column bold */
+}
+
+a{
+	display: inline-block;
+	color: var(--color-black);
+}
+a:clicked{
+	color: var(--color-gray);
+}
+
+img, a{
+    transition: transform 0.3s ease;
+}
+img:hover, a:hover{
+    transform: var(--hover-effect); /* 20 % zoom + small rotate */
+	z-index: 999;
+}
+
+header > img{
+	transform-origin: right center;
+}
+header > img:hover{
+	transform: var(--hover-effect-header); /* 20 % zoom */
+}
+a > img:hover{
+	transform: scale(1) !important; /* fix double scaling of img and a*/
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden; /* schneidet überstehende Bereiche ab */
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#main-container {
+    width: 1024px;
+    flex-shrink: 0; /* fixed width */
+}
+
+#left-container,
+#right-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+#settings > a{
+	display: contents; /* fixes zoom glitch */
+}
+
+#settings-mops {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 69;
+
+    animation: var(--mops-slide-in-animation);
+}
+@keyframes slideIn {
+    from {
+        transform: translate(100%, 100%);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+.profile-img-img{
+	width: 200px;
+}
+
+
+/*****************************************
+Left column
+*****************************************/
+.profile-txt > table > tbody > tr > td{
+	width: 50%;
+}
+
+.socials > ul > li > a > img{
+	width: 25px;
+}
+
+
+/*****************************************
+Dialog (overlay for subpages)
+*****************************************/
+#dialog{
+	background-color: var(--color-yellow);
+	
+	border: 5px var(--border-color) double;
+	
+	padding: 0;
+	
+	max-width: 800px;
+	width: 80%;
+	height: 80%;
+}
+#dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#dialog-header{
+	background-color: var(--color-violet);
+	
+	border-bottom: 5px var(--border-color) double;
+	
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	
+	padding: 10px;
+	
+	height: 25px;
+	
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#dialog-header button{
+	height: 25px;
+	width: 25px;
+	border: none;
+}
+#dialog-header h1{
+	font-size: 24px;
+	display: inline;
+}
+#page-name {
+    margin: 0;
+}
+
+#dialog-content{
+	padding: 10px;
+}
+
+
+/*****************************************
+Helper classes
+*****************************************/
+.center-me{
+	text-align: center;
+	display: flex;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
+}
+
+.display-block{
+	display: block;
+}
+
+.position-absolute{
+	position: absolute;
+}
+
+.no-padding-top{
+	padding-top: 0;
+}
+
+.sepia-filter {
+    filter: sepia(var(--sepia-value));
+}
+
+.headline{
+	height: 32px;
+	font-size: 32px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.border-corner{
+	width: 200px;
+    position: relative;
+    padding: 10px;
+}
+.border-corner::before,
+.border-corner::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+/* Top left */
+.border-corner::before {
+    top: 0;
+    left: 0;
+    border-top: 5px solid var(--border-color);
+    border-left: 5px solid var(--border-color);
+}
+/* Bottom right */
+.border-corner::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 5px solid var(--border-color);
+    border-right: 5px solid var(--border-color);
+}
+
+.fade-in {
+	opacity: 1;
+	animation: var(--fade-in-animation);
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+/*****************************************
+Mobile Styles
+*****************************************/
+@media (max-width: 1024px){
+	#main-container{	
+		width: 95%;
+		max-width: 95%;
+	}
+	
+	nav{
+		height: unset;
+	}
+	
+	main{	
+		display: block;
+	}
+	main > div{
+		border-bottom: 5px double var(--border-color);
+	}
+	
+	
+	footer{
+		height: unset;
+	}
+	footer > ul{	
+		display: block;
+	}
+}
+
+/*****************************************
+XXL Styles
+*****************************************/
+@media (min-width: 1440px){
+	#main-container{	
+		width: 80%;
+		max-width: 80%;
+	}
+}
