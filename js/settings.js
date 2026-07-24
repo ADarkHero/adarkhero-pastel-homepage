@@ -7,7 +7,6 @@ function saveSettings(){
 	alert("Settings saved!");
 	
 	readSettings();
-	readDialogSettings();
 }
 
 //Read saved values
@@ -23,21 +22,11 @@ function readSettings(){
 			document.documentElement.style.setProperty('--fade-in-animation', 'unset');
 		}
 		
-	}
-}
-
-
-//Read dialog related values
-function readDialogSettings(){
-	if(localStorage.getItem("maximizeWindows") !== null){
-		var maximizeWindows = localStorage.getItem("maximizeWindows");
-
-		if(maximizeWindows === "true"){
-			resizeDialog();	
+		if(localStorage.getItem("maximizeWindows") === 'true'){
+			resizePage();
 		}
 	}
 }
-
 
 //Read saved values to form
 function readSettingsToForm(){

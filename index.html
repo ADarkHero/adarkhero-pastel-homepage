@@ -9,11 +9,11 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 
-	<body>
+	<body id="body">
 		
 		<div id="wrapper">
 			<div id="settings">
-				<a href="#" onClick="javascript:setPage('settings')" class="open-dialog">
+				<a href="#" onClick="javascript:setPage('settings')">
 					<img src="img/settings-mops.png" onmouseover="this.src='img/settings-mops-hover.png';" onmouseout="this.src='img/settings-mops.png';" alt="settings-mops" id="settings-mops" />
 				</a>
 			</div>
@@ -22,25 +22,21 @@
 				
 			</div>
 
-			<div id="main-container" class="fade-in">
-				<header>
-					<img src="img/banner/standard.jpg" alt="header img" class="sepia-filter" />
-				</header>
-				
-				<nav>
+			<div id="main-container">
+				<nav class="fade-in">
 					<ul>
 						<li>
-							<a href="index.html">
+							<a href="#" onClick="javascript:setPage('home')">
 								<img src="img/nav/root.png" alt="root - main page" />
 							</a>
 						</li>
 						<li>
-							<a href="#" onClick="javascript:setPage('stuff')" class="open-dialog">
+							<a href="#" onClick="javascript:setPage('stuff')">
 								<img src="img/nav/stuff.png" alt="stuff i did in the past" />
 							</a>
 						</li>
 						<li>
-							<a href="#" onClick="javascript:setPage('like')" class="open-dialog">
+							<a href="#" onClick="javascript:setPage('like')">
 								<img src="img/nav/like.png" alt="i like heartemoji" />
 							</a>
 						</li>
@@ -62,135 +58,22 @@
 					</ul>
 				</nav>
 				
-				<nav class="update-nav marquee">
-					<marquee onmouseover="this.stop();" onmouseout="this.start();">
-						<ul class="horizontal-ul no-flex-wrap">
-							<li>23.07.2026 - Version 26.101 - Small mobile tweaks.</li>
-							<li>22.07.2026 - Version 26.100 launch: All old content got migrated. The base layout is working flawlessly. Now it't time to add more stuff!</li>
-						</ul>
-					</marquee>
-				</nav>
-
-				<main>
-					<div>
-						<section class="wanted">
-							<div class="section-headline"><h2>WANTED</h2></div>
-						
-						<div class="center-me">
-								<img src="img/profile-img.jpg" alt="header img" class="sepia-filter profile-img-img" />
+				<header id="page-header" class="fade-in">
+					<div id="page-name">Page name</div>
+					<div id="header-buttons">
+						<button class="close-page" onClick="javascript:closePage()"> _ </button>
+						<button class="resize-page" onClick="javascript:resizePage()">[ ]</button>
+						<button class="close-page" onClick="javascript:closePage()"> x </button>
+					</div>
+				</header>
+				
+				<div id="main-content" class="fade-in">
+					<noscript>
+						<div class="error-message">
+							This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
 						</div>
-							<h3 class="center-me">MAIK•RIEDLSPERGER</h3>
-							ADarkHero
-							<table class="mt">
-								<tbody>
-									<tr>
-										<td>Level</td>
-										<td>31</td>
-									</tr>
-									<tr>
-										<td>Pronouns</td>
-										<td>they/them</td>
-									</tr>
-									<tr>
-										<td>Location</td>
-										<td>Lower Saxony, Germany</td>
-									</tr>
-									<tr>
-										<td>Occupation</td>
-										<td>E-Commerce Specialist</td>
-									</tr>
-								</tbody>
-							</table>
-						
-							<span class="socials center-me horizontal-list mt">
-								<ul>
-									<li>
-										<a href="https://www.instagram.com/adarkhero/" target="_blank">
-											<img src="img/sm/instagram.png" alt="icon of instagram"/>
-										</a>
-									</li>
-									<li>
-										<a href="http://steamcommunity.com/id/adarkhero" target="_blank">
-											<img src="img/sm/steam.png" alt="icon of steam"/>
-										</a>
-									</li>
-									<li>
-										<a href="mailto:maik.riedlsperger@gmail.com" target="_blank">
-											<img src="img/sm/mail.png" alt="icon of an envelope - mail"/>
-										</a>
-									</li>
-								</ul>
-							</span>
-						</section>
-					</div>
-					<div>
-						<noscript>
-							<div class="error-message">
-								This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
-							</div>
-						</noscript>
-					
-						<section class="headline">
-							Welcome to ADarkHero.de
-						</section>
-						
-						<section class="welcome-txt no-padding-top">
-							<p>
-								I love those generic modern websites as much as the guy next to me, but handmade personal retro homepages, hand-coded in Notepad++, have unbeatable charm. After walking with the modern trends for years, I decided to use current HTML/CSS standards and a "desktop first" approach to create a playful new - but familiar - experience.
-							</p>
-						</section>
-					
-						<section class="welcome-txt">
-							<div class="section-headline"><h2>Things I do</h2></div>
-							<p>
-								Welcome. :3
-							</p>
-							
-							<p>
-								➡️ Find more things I did in the past <a href="#" onClick="javascript:setPage('stuff')" class="open-dialog">here</a>!
-							</p>
-						</section>
-						
-						<section class="welcome-txt">
-							<div class="section-headline"><h2>ToDo</h2></div>
-							<ul>
-								<li>Different Header imgs</li>
-								<li>Likes</li>
-								<li>Thinks I do</li>
-								<li>enby flag</li>
-								<li>Maybe dog sound? + dog close?</li>
-								<li>Discord socials</li>
-								<li>Buttons front page</li>
-							</ul>
-						</section>
-					</div>
-					<div>
-						<section class="link-me">
-							<div class="section-headline"><h2>Link me :3</h2></div>
-
-							<p class="center-me">
-								<img src="img/link-me.png" alt="cool homepage - adarkhero" />
-							</p>
-							<p class="center-me">	
-								<textarea rows="4"><a href="https://adarkhero.de" target="_blank"><img src="https://adarkhero.de/img/link-me.png" alt="cool homepage - adarkhero"/></a></textarea>
-							</p>
-						</section>
-						
-						<section class="stay-in-contact">
-							<div class="section-headline"><h2>Stay in Contact</h2></div>
-							<p>
-								You can reliably reach me via E-Mail, Discord or Instagram. Please note, that I won't accept friend requests without an introductionary message. If you want to sell me something you will be ignored. No exceptions.
-							</p>
-						</section>
-						
-						<section class="hire-me">
-							<div class="section-headline"><h2>Hire me</h2></div>
-							<p>
-								If you want to work with me, you can drop me an e-mail. Please don't get your hopes up tho.
-							</p>
-						</section>
-					</div>
-				</main>
+					</noscript>
+				</div>
 				
 				<footer>
 					<ul>
@@ -200,21 +83,6 @@
 						<li>Handmade with ♥️ (and pure html/css/js) without 🍪 and tracking</li>
 					</ul>
 				</footer>
-				
-				
-				<dialog id="dialog">
-					<div id="dialog-container">
-						<div id="dialog-header">
-							<h1 id="page-name">Page name</h1>
-							<div>
-								<button class="close-dialog" onClick="javascript:closeDialog()"> _ </button>
-								<button class="resizeDialog" onClick="javascript:resizeDialog()">[ ]</button>
-								<button class="close-dialog" onClick="javascript:closeDialog()"> x </button>
-							</div>
-						</div>
-						<div id="dialog-content"></div>
-					</div>
-				</dialog>
 			</div>
 
 			<div id="right-container">
@@ -226,10 +94,11 @@
 		
 	</body>
 
-	<script src="js/dialog.js" />
-	<script src="js/settings.js" />
+	<script src="js/navigation.js"></script>
+	<script src="js/settings.js"></script>
 	<script>
 		readSettings();
+		setPage("home");
 	</script>
 
 </html>

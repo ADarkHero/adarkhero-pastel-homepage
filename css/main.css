@@ -2,6 +2,12 @@
 Variables
 *****************************************/
 :root{
+	--distance: 5px;
+	--distance-2: calc(var(--distance) * 2);
+	--distance-3: calc(var(--distance) * 3);
+	--distance-4: calc(var(--distance) * 4);
+	--distance-5: calc(var(--distance) * 5);
+	
 	--color-white: #FFFFFF;
 	--color-black: #000000;
 	--color-gray: #555555;
@@ -18,6 +24,14 @@ Variables
 
 	--border-color: var(--color-blue);
 	
+	--base-width: 1024px; /* can be changed via js */
+	--base-height: 768px; /*  can be changed via js */
+	--footer-height: var(--distance-5);
+	--header-height: var(--distance-5);
+	--title-height: var(--distance-5);
+	--content-height: calc(var(--base-height) - var(--header-height) - var(--title-height) - (var(--distance) * 6));
+	
+
 	/* the following values can be overridden via settings js */
 	--sepia-value: 0.75; 
 	--hover-effect: scale(1.2) rotate(5deg);
@@ -25,6 +39,9 @@ Variables
 	--background-animation: moveBackground 240s linear infinite;
 	--mops-slide-in-animation: slideIn 2s ease-out forwards;
 	--fade-in-animation: fadeInOpacity 1s ease-in 1; 
+	/* reset values for js */
+	--base-width-const: 1024px;
+	--base-height-const: 768px;
 }
 
 
@@ -40,11 +57,8 @@ Common settings
 body{
 	font-family: "Power Clear";
 	
-	background-color: var(--color-yellow);
+	background-color: var(--color-orange);
 	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c0e8' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
-    inset: 0;
-	background-repeat: repeat;
-    animation: var(--background-animation);
 }
 
 @keyframes moveBackground {
@@ -57,16 +71,29 @@ body{
 }
 
 header{
-	height: 150px;
-	margin-top: 15px;
-	position: relative;
-	overflow: hidden; /*fix header img size */
-		
-	border: 10px var(--border-color) double;
-	border-radius: 0 25px 0 0;
+	background-color: var(--color-violet);
+	height: var(--header-height);
+	font-size: 18px;
+	font-weight: bold;
 }
 
-header img{
+#page-header{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-nav, .header-img{
+	border-bottom: var(--distance) var(--border-color) double;
+}
+
+.header-img{
+	height: 150px;
+	position: relative;
+	overflow: hidden; /*fix header img size */	
+}
+
+.header-img img{
 	width: 100%;
 	height: 100%;
 	object-fit: cover; /* fits image to size without changing ratios */
@@ -90,68 +117,88 @@ nav > ul{
 	padding-left: 0;
 	padding-right: 0;
 	
-	height: 20px;
-	line-height: 20px;
+	height: var(--distance-4);
+	line-height: var(--distance-4);
 }
 
-main{	
-	background-color: var(--color-orange);
-
-    background-image: url('../img/pastel-rainbow.png');
-    background-repeat: no-repeat;
-    background-position-y: bottom;
-    background-position-x: right;
-	
-    display: grid;
-    grid-template-columns: 25% 50% 25%; /* 3 colums */
-}
-main > div > section{
+section{
 	display: block !important;
 	
+	background-color: var(--color-orange);
+	
 	border: 1px var(--border-color) solid;
-	border-radius: 10px;
-	margin-top: 10px;
+	border-radius: var(--distance-2);
+	margin-top: var(--distance-2);
 	margin-left: 2.5%;
 	width: 90%;
-	background-color: var(--color-orange);
 }
-section{
-	padding: 5px;
+section, header{
+	padding: var(--distance);
 }
 .section-headline{
 	background-color: var(--color-violet);
-	margin: -5px;
-	margin-bottom: 5px;
-	padding-left: 5px;
+	margin: calc(var(--distance)*-1);
+	margin-bottom: var(--distance);
+	padding-left: var(--distance);
 	border-bottom: 1px var(--border-color) solid;
-	border-radius: 10px 10px 0 0;
+	border-radius: var(--distance-2) var(--distance-2) 0 0;
 }
 
-main, footer, nav{
-	border-left: 5px var(--border-color) double;
-	border-right: 5px var(--border-color) double;
+#main-container{
+	margin-top: var(--distance-3);
+	
+    
+	border: calc(var(--distance)) var(--border-color) double;
+	
+		/*
+		border: calc(var(--distance-5)) solid transparent;
+    border-image-source: url("../img/border.jpg");
+	  border-image-slice: 23 33 50 36;
+border-image-width: 50px 50px 50px 50px;
+border-image-outset: 0px 0px 0px 0px;
+border-image-repeat: stretch stretch; 
+*/
+
+	background-color: var(--color-yellow);
+	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c0e8' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+    inset: 0;
+	background-repeat: repeat;
+    animation: var(--background-animation);
+}
+
+main{
+	margin-bottom: var(--distance-2);
+}
+
+header{
+	border-bottom: var(--distance) var(--border-color) double;
 	background-clip: padding-box;
 }
 
 footer{
+	width: 100%;
+	
 	background-color: var(--color-yellow);
 
-	border-top: 5px var(--border-color) double;
-	border-radius: 0 0 0 25px;
+	border-top: 1px black solid;
 	
-	margin-bottom: 15px;
-	line-height: 25px;
+	line-height: var(--footer-height);
+	
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 67; /* below settings */
 }
-footer, nav{		
-	height: 30px;
+nav{		
+	height: var(--header-height);
 	display: flex;
 	align-items: center; /* center content */
 	justify-content: center; /* center content */
 	
-	border-bottom: 5px var(--border-color) double;
+	border-bottom: var(--distance) var(--border-color) double;
 }
 footer, nav{
-	padding: 5px;
+	padding: var(--distance);
 }
 
 ul{
@@ -162,7 +209,7 @@ nav > ul,  footer > ul, .horizontal-list > ul, .horizontal-ul{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
 	flex-wrap: wrap; /* Umbruch auf mehrere Zeilen */
-	gap: 20px;     /* gap between elements */
+	gap: var(--distance-4);     /* gap between elements */
 	list-style: none; /* No dots in front of list */
 	padding: 0;
 }
@@ -201,7 +248,7 @@ table{
 table td {
     border-right: 1px dotted var(--border-color);
     border-bottom: 1px dotted var(--border-color);
-	padding-left: 5px;
+	padding-left: var(--distance);
 }
 table td:last-child {
     border-right: none; /* only inner borders */
@@ -229,10 +276,10 @@ img:hover, a:hover{
 	z-index: 999;
 }
 
-header > img{
+.header-img > img{
 	transform-origin: right center;
 }
-header > img:hover{
+.header-img > img:hover{
 	transform: var(--hover-effect-header); /* 20 % zoom */
 }
 a > img:hover{
@@ -251,8 +298,19 @@ body {
 }
 
 #main-container {
-    width: 1024px;
-    flex-shrink: 0; /* fixed width */
+    width: var(--base-width);
+	height: var(--base-height);
+}
+
+#main-content {
+	height: var(--content-height);
+	overflow: auto;
+	overflow-x: hidden;
+	
+	background-image: url('../img/pastel-rainbow.png');
+	background-position-y: bottom;
+    background-position-x: right;
+	background-repeat: no-repeat;
 }
 
 #left-container,
@@ -269,7 +327,7 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
-    z-index: 69;
+    z-index: 69; 
 
     animation: var(--mops-slide-in-animation);
 }
@@ -288,73 +346,36 @@ body {
 
 
 /*****************************************
-Left column
+Left column on home
 *****************************************/
 .profile-txt > table > tbody > tr > td{
 	width: 50%;
 }
 
 .socials > ul > li > a > img{
-	width: 25px;
+	width: var(--distance-5);
 }
 
-
-/*****************************************
-Dialog (overlay for subpages)
-*****************************************/
-#dialog{
-	background-color: var(--color-yellow);
-	
-	border: 5px var(--border-color) double;
-	
-	padding: 0;
-	
-	max-width: 800px;
-	width: 80%;
-	height: 80%;
-}
-#dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-#dialog-header{
-	background-color: var(--color-violet);
-	
-	border-bottom: 5px var(--border-color) double;
-	
-	position: sticky;
-	top: 0;
-	z-index: 10;
-	
-	padding: 10px;
-	
-	height: 25px;
-	
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#dialog-header button{
-	height: 25px;
-	width: 25px;
-	border: none;
-}
-#dialog-header h1{
-	font-size: 24px;
-	display: inline;
-}
-#page-name {
-    margin: 0;
-}
-
-#dialog-content{
-	padding: 10px;
-}
 
 
 /*****************************************
 Helper classes
 *****************************************/
+@keyframes crt-scanline-flicker {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.92;
+    }
+}
+
+.colum-3{
+	display: grid;
+    grid-template-columns: 25% 50% 25%; /* 3 colums */
+}
+
 .center-me{
 	text-align: center;
 	display: flex;
@@ -375,7 +396,7 @@ Helper classes
 }
 
 .mt{
-	margin-top: 10px;
+	margin-top: var(--distance);
 }
 
 .sepia-filter {
@@ -391,7 +412,7 @@ Helper classes
 	font-size: 24px;
 	font-weight: bold;
 	margin: 0;
-	margin-bottom: 5px;
+	margin-bottom: var(--distance);
     border-bottom: 1px var(--border-color) dotted;
     background-clip: padding-box;
 }
@@ -399,28 +420,28 @@ Helper classes
 .border-corner{
 	width: 200px;
     position: relative;
-    padding: 10px;
+    padding: var(--distance-2);
 }
 .border-corner::before,
 .border-corner::after {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: var(--distance-4);
+    height: var(--distance-4);
 }
 /* Top left */
 .border-corner::before {
     top: 0;
     left: 0;
-    border-top: 5px solid var(--border-color);
-    border-left: 5px solid var(--border-color);
+    border-top: var(--distance) solid var(--border-color);
+    border-left: var(--distance) solid var(--border-color);
 }
 /* Bottom right */
 .border-corner::after {
     bottom: 0;
     right: 0;
-    border-bottom: 5px solid var(--border-color);
-    border-right: 5px solid var(--border-color);
+    border-bottom: var(--distance) solid var(--border-color);
+    border-right: var(--distance) solid var(--border-color);
 }
 
 .fade-in {
@@ -442,25 +463,37 @@ Helper classes
 Mobile Styles
 *****************************************/
 @media (max-width: 1024px){
+	#wrapper {
+		display: block;
+	}
+	
 	#main-container{	
 		width: 90%;
 		max-width: 90%;
+		height: unset;
+		margin: auto;
+		margin-top: var(--distance-3);
+	}
+	
+	#main-content{
+		overflow: unset;
+		height: unset;
+		padding-bottom: var(--distance-3);
+	}
+	
+	#header-buttons{
+		display: none;
 	}
 	
 	nav{
 		height: unset;
-	}
-	
-	main{	
-		display: block;
-	}
-	main > div{
-		border-bottom: 5px double var(--border-color);
-	}
-	
+	}	
 	
 	footer{
 		height: unset;
+		position: unset;
+		width: unset;
+		border-top: var(--distance) double var(--border-color);
 	}
 	footer > ul{	
 		display: block;
@@ -469,14 +502,18 @@ Mobile Styles
 	.headline{
 		height: unset;
 	}
+	
+	.colum-3{
+		display: block;
+	}
 }
 
 /*****************************************
 XXL Styles
 *****************************************/
 @media (min-width: 1440px){
-	#main-container{	
-		width: 80%;
-		max-width: 80%;
+	:root{
+		--base-width-const: 75%;
+		--base-width: 75%;
 	}
 }
