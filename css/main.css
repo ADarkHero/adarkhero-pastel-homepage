@@ -34,7 +34,7 @@ Common settings
 @font-face {
   font-family: 'Power Clear';
   src: local('Power Clear'),
-       url('font/pkmndp.ttf') format('ttf');
+       url('../font/pkmndp.ttf') format('ttf');
 }
 
 body{
@@ -61,19 +61,16 @@ header{
 	margin-top: 15px;
 	position: relative;
 	overflow: hidden; /*fix header img size */
-	position: relative;
 		
 	border: 10px var(--border-color) double;
 	border-radius: 0 25px 0 0;
-	
-	z-index: 2;
 }
 
 header img{
 	width: 100%;
 	height: 100%;
 	object-fit: cover; /* fits image to size without changing ratios */
-	object-position: center; /* centers image cutout */
+	object-position: right; /* centers image cutout */
 }
 
 nav{
@@ -110,11 +107,26 @@ main{
 }
 main > div > section{
 	display: block !important;
+	
+	border: 1px var(--border-color) solid;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-left: 2.5%;
+	width: 90%;
+	background-color: var(--color-orange);
 }
-
-main, footer, nav, section{
+section{
 	padding: 5px;
 }
+.section-headline{
+	background-color: var(--color-violet);
+	margin: -5px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	border-bottom: 1px var(--border-color) solid;
+	border-radius: 10px 10px 0 0;
+}
+
 main, footer, nav{
 	border-left: 5px var(--border-color) double;
 	border-right: 5px var(--border-color) double;
@@ -138,12 +150,15 @@ footer, nav{
 	
 	border-bottom: 5px var(--border-color) double;
 }
+footer, nav{
+	padding: 5px;
+}
 
 ul{
 	margin: 0;
 }
 
-nav > ul,  footer > ul, .horizontal-list > ul{
+nav > ul,  footer > ul, .horizontal-list > ul, .horizontal-ul{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
 	flex-wrap: wrap; /* Umbruch auf mehrere Zeilen */
@@ -175,6 +190,7 @@ h2{
 
 textarea{
 	background-color: var(--color-yellow);
+	width: 100%;
 }
 
 table{
@@ -358,15 +374,26 @@ Helper classes
 	padding-top: 0;
 }
 
+.mt{
+	margin-top: 10px;
+}
+
 .sepia-filter {
     filter: sepia(var(--sepia-value));
 }
 
+.no-flex-wrap{
+	flex-wrap: unset;
+}
+
 .headline{
-	height: 32px;
-	font-size: 32px;
+	height: 24px;
+	font-size: 24px;
 	font-weight: bold;
 	margin: 0;
+	margin-bottom: 5px;
+    border-bottom: 1px var(--border-color) dotted;
+    background-clip: padding-box;
 }
 
 .border-corner{
@@ -416,8 +443,8 @@ Mobile Styles
 *****************************************/
 @media (max-width: 1024px){
 	#main-container{	
-		width: 95%;
-		max-width: 95%;
+		width: 90%;
+		max-width: 90%;
 	}
 	
 	nav{
@@ -437,6 +464,10 @@ Mobile Styles
 	}
 	footer > ul{	
 		display: block;
+	}
+	
+	.headline{
+		height: unset;
 	}
 }
 

@@ -18,6 +18,9 @@ const dialog = document.getElementById('dialog');
 	
 	
 	function setPage(page){
+		//Reset content first. Looks cleaner while loading.
+		document.getElementById('dialog-content').innerHTML = "";
+		
 		//fetch(page + '.html')
 		fetch('html/' + page + '.html', { cache: 'no-store'})
 			.then(response => response.text())
@@ -26,7 +29,7 @@ const dialog = document.getElementById('dialog');
 			})
 			.catch(error => console.error('Error:', error));
 			
-		document.getElementById('page-name').innerHTML = '<a href="html/' + page + '.html" target="_blank">html/' + page + '.html</a>';
+		document.getElementById('page-name').innerHTML = '<a href="/' + page + '.html" target="_blank">html/' + page + '.html</a>';
 		dialog.showModal();
 		
 		//Wait until the modal was completly loaded

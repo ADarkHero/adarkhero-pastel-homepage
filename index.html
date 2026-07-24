@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<title>ADarkHero.de - The best personal homepage in 2026</title>
+	
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -12,7 +14,7 @@
 		<div id="wrapper">
 			<div id="settings">
 				<a href="#" onClick="javascript:setPage('settings')" class="open-dialog">
-					<img src="img/settings-mops.png" onmouseover="this.src='img/settings-mops-hover.png';" onmouseout="this.src='img/settings-mops.png';" alt="settings-mops" href="index.html" id="settings-mops" />
+					<img src="img/settings-mops.png" onmouseover="this.src='img/settings-mops-hover.png';" onmouseout="this.src='img/settings-mops.png';" alt="settings-mops" id="settings-mops" />
 				</a>
 			</div>
 		
@@ -22,7 +24,7 @@
 
 			<div id="main-container" class="fade-in">
 				<header>
-					<img src="img/banner/standard.jpg" alt="header img" href="index.html" class="sepia-filter" />
+					<img src="img/banner/standard.jpg" alt="header img" class="sepia-filter" />
 				</header>
 				
 				<nav>
@@ -48,6 +50,11 @@
 							</a>
 						</li>
 						<li>
+							<a href="https://cv.adarkhero.de" target="_blank">
+								<img src="img/nav/cv.png" alt="external link to blog" />
+							</a>
+						</li>
+						<li>
 							<a href="https://github.com/ADarkHero" target="_blank">
 								<img src="img/nav/code.png" alt="external link to github - coding" />
 							</a>
@@ -55,31 +62,26 @@
 					</ul>
 				</nav>
 				
-				<nav class="update-nav">
-					<marquee>
-						22.07.2026 - Version 26.100 launch: All old content got migrated. The base layout is working flawlessly. Now it't time to add more stuff!
+				<nav class="update-nav marquee">
+					<marquee onmouseover="this.stop();" onmouseout="this.start();">
+						<ul class="horizontal-ul no-flex-wrap">
+							<li>23.07.2026 - Version 26.101 - Small mobile tweaks.</li>
+							<li>22.07.2026 - Version 26.100 launch: All old content got migrated. The base layout is working flawlessly. Now it't time to add more stuff!</li>
+						</ul>
 					</marquee>
 				</nav>
 
 				<main>
 					<div>
-						<section class="headline no-padding-top center-me">
-							WANTED
-						</section>
+						<section class="wanted">
+							<div class="section-headline"><h2>WANTED</h2></div>
 						
 						<div class="center-me">
-							<section class="profile-img border-corner center-me">
-								<img src="img/profile-img.jpg" alt="header img" href="index.html" class="sepia-filter profile-img-img" />
-							</section>
+								<img src="img/profile-img.jpg" alt="header img" class="sepia-filter profile-img-img" />
 						</div>
-						
-						<section class="no-padding-top center-me">
-							<h3>MAIK•RIEDLSPERGER</h3>
+							<h3 class="center-me">MAIK•RIEDLSPERGER</h3>
 							ADarkHero
-						</section>
-						
-						<section class="profile-txt">
-							<table>
+							<table class="mt">
 								<tbody>
 									<tr>
 										<td>Level</td>
@@ -99,47 +101,47 @@
 									</tr>
 								</tbody>
 							</table>
-						</section>
 						
-						<section class="socials center-me horizontal-list">
-							<ul>
-								<li>
-									<a href="https://www.instagram.com/adarkhero/" target="_blank">
-										<img src="img/sm/instagram.png" alt="icon of instagram"/>
-									</a>
-								</li>
-								<li>
-									<a href="http://steamcommunity.com/id/adarkhero" target="_blank">
-										<img src="img/sm/steam.png" alt="icon of steam"/>
-									</a>
-								</li>
-								<li>
-									<a href="mailto:maik.riedlsperger@gmail.com" target="_blank">
-										<img src="img/sm/mail.png" alt="icon of an envelope - mail"/>
-									</a>
-								</li>
-							</ul>
+							<span class="socials center-me horizontal-list mt">
+								<ul>
+									<li>
+										<a href="https://www.instagram.com/adarkhero/" target="_blank">
+											<img src="img/sm/instagram.png" alt="icon of instagram"/>
+										</a>
+									</li>
+									<li>
+										<a href="http://steamcommunity.com/id/adarkhero" target="_blank">
+											<img src="img/sm/steam.png" alt="icon of steam"/>
+										</a>
+									</li>
+									<li>
+										<a href="mailto:maik.riedlsperger@gmail.com" target="_blank">
+											<img src="img/sm/mail.png" alt="icon of an envelope - mail"/>
+										</a>
+									</li>
+								</ul>
+							</span>
 						</section>
 					</div>
 					<div>
 						<noscript>
 							<div class="error-message">
-								This website needs basic javascript to run correctly. Please enable it. We won't track you and we won't steal your cookies. We also won't kill you. Pinky promise. uwu
+								This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
 							</div>
 						</noscript>
 					
-						<section class="headline no-padding-top center-me">
+						<section class="headline">
 							Welcome to ADarkHero.de
 						</section>
 						
-						<section class="welcome-txt no-padding-top typewriter-container">
-							<p id="typewriter">
-								I love those generic modern websites as much as the guy next to me, but handmade personal retro homepages, hand-coded in Notepad++ have unbeatable charm. After walking with the modern trends for years, I decided to use current HTML/CSS standards and a "desktop first" approach to create a playful new - but familiar - experience.
+						<section class="welcome-txt no-padding-top">
+							<p>
+								I love those generic modern websites as much as the guy next to me, but handmade personal retro homepages, hand-coded in Notepad++, have unbeatable charm. After walking with the modern trends for years, I decided to use current HTML/CSS standards and a "desktop first" approach to create a playful new - but familiar - experience.
 							</p>
 						</section>
 					
 						<section class="welcome-txt">
-							<h2>Things I do</h2>
+							<div class="section-headline"><h2>Things I do</h2></div>
 							<p>
 								Welcome. :3
 							</p>
@@ -150,27 +152,42 @@
 						</section>
 						
 						<section class="welcome-txt">
-							<h2>ToDo</h2>
+							<div class="section-headline"><h2>ToDo</h2></div>
 							<ul>
 								<li>Different Header imgs</li>
 								<li>Likes</li>
 								<li>Thinks I do</li>
 								<li>enby flag</li>
 								<li>Maybe dog sound? + dog close?</li>
+								<li>Discord socials</li>
+								<li>Buttons front page</li>
 							</ul>
 						</section>
 					</div>
 					<div>
-						<section class="headline no-padding-top center-me">
-							Link me :3
-						</section>
-					
-						<section class="button center-me">
-							<img src="img/link-me.png" alt="cool homepage - adarkhero - frog icon" href="index.html" />
+						<section class="link-me">
+							<div class="section-headline"><h2>Link me :3</h2></div>
+
+							<p class="center-me">
+								<img src="img/link-me.png" alt="cool homepage - adarkhero" />
+							</p>
+							<p class="center-me">	
+								<textarea rows="4"><a href="https://adarkhero.de" target="_blank"><img src="https://adarkhero.de/img/link-me.png" alt="cool homepage - adarkhero"/></a></textarea>
+							</p>
 						</section>
 						
-						<section class="button-text-field center-me">
-							<textarea rows="4"><a href="https://adarkhero.de" target="_blank"><img src="https://adarkhero.de/img/link-me.png" alt="cool homepage - adarkhero - frog icon" href="index.html" /></a></textarea>
+						<section class="stay-in-contact">
+							<div class="section-headline"><h2>Stay in Contact</h2></div>
+							<p>
+								You can reliably reach me via E-Mail, Discord or Instagram. Please note, that I won't accept friend requests without an introductionary message. If you want to sell me something you will be ignored. No exceptions.
+							</p>
+						</section>
+						
+						<section class="hire-me">
+							<div class="section-headline"><h2>Hire me</h2></div>
+							<p>
+								If you want to work with me, you can drop me an e-mail. Please don't get your hopes up tho.
+							</p>
 						</section>
 					</div>
 				</main>
@@ -209,9 +226,8 @@
 		
 	</body>
 
-	<script src="js/main.js"></script>
-	<script src="js/dialog.js"></script>
-	<script src="js/settings.js"></script>
+	<script src="js/dialog.js" />
+	<script src="js/settings.js" />
 	<script>
 		readSettings();
 	</script>
