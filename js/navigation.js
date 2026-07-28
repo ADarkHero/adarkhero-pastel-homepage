@@ -7,7 +7,7 @@
 			})
 			.catch(error => console.error('Error:', error));
 			
-		document.getElementById('page-name').innerHTML = '<a href="html/' + page + '.html" target="_blank">html/' + page + '.html</a>';
+		document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html/' + page + '.html</a>';
 		
 		//Wait until the modal was completly loaded
 		requestAnimationFrame(() => {

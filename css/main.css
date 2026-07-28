@@ -55,8 +55,8 @@ Common settings
 
 body{
 	font-family: "Power Clear";
-	font-size: 12px;
-	line-height: 14px;
+	font-size: 16px;
+	line-height: 20px;
 	
 	background-color: var(--color-orange);
 	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c0e8' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
@@ -132,9 +132,10 @@ section{
 	
 	border: 1px var(--border-color) solid;
 	border-radius: var(--distance-2);
-	margin-top: var(--distance-2);
-	margin-left: 2.5%;
-	width: 90%;
+	margin: var(--distance-2);
+}
+section > section{
+	background-color: var(--color-yellow);
 }
 section, header{
 	padding: var(--distance);
@@ -171,6 +172,7 @@ border-image-repeat: stretch stretch;
 }
 
 main{
+	padding: var(--distance-2);
 	margin-bottom: var(--distance-2);
 }
 
@@ -226,11 +228,11 @@ h1{
 	font-size: 32px;
 }
 h2{
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 }
 h3{
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 22px;
 }
 
@@ -274,12 +276,25 @@ a:clicked{
 	color: var(--color-gray);
 }
 
+img{
+	max-width: 100%;
+}
+
 img, a{
     transition: transform 0.3s ease;
 }
 img:hover, a:hover{
     transform: var(--hover-effect); /* 20 % zoom + small rotate */
 	z-index: 999;
+}
+
+.fslightbox-source:hover{
+	transform: unset; 
+}
+
+section > img, section > p > img, section > p > a > img{
+	max-width: 70%;
+	max-height: 200px;
 }
 
 .header-img > img{
@@ -366,6 +381,37 @@ Left column on home
 }
 
 
+/*****************************************
+Lightbox
+*****************************************/
+dialog[open]{
+	display: flex;
+}
+
+#lightbox{
+	text-align: center;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
+	
+	background-color: var(--color-yellow);
+	
+	border: 5px var(--border-color) double;
+	
+	padding: 0;
+	
+	width: 80%;
+	height: 80%;
+	
+	overflow: hidden;
+}
+
+#lightbox::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#lightbox > img:hover{
+	transform: unset !important;
+}
 
 /*****************************************
 Helper classes
@@ -380,7 +426,7 @@ Helper classes
     }
 }
 
-.colum-3{
+.column-3{
 	display: grid;
     grid-template-columns: 25% 50% 25%; /* 3 colums */
 }
@@ -406,6 +452,13 @@ Helper classes
 
 .mt{
 	margin-top: var(--distance);
+}
+
+.mb{
+	margin-bottom: var(--distance);
+}
+.mb-3{
+	margin-bottom: var(--distance-3);
 }
 
 .sepia-filter {

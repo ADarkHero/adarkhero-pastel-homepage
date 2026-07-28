@@ -26,17 +26,17 @@
 				<nav class="fade-in">
 					<ul>
 						<li>
-							<a href="#" onClick="javascript:setPage('home')">
+							<a href="index.html">
 								<img src="img/nav/root.png" alt="root - main page" />
 							</a>
 						</li>
 						<li>
-							<a href="#" onClick="javascript:setPage('stuff')">
+							<a href="?page=stuff">
 								<img src="img/nav/stuff.png" alt="stuff i did in the past" />
 							</a>
 						</li>
 						<li>
-							<a href="#" onClick="javascript:setPage('like')">
+							<a href="?page=likes">
 								<img src="img/nav/like.png" alt="i like heartemoji" />
 							</a>
 						</li>
@@ -77,9 +77,9 @@
 				
 				<footer>
 					<ul>
-						<li>⭐ <a href="#" onClick="javascript:setPage('imprint')" class="open-dialog">ADarkHero</a> {current-year}</li>
-						<li><a href="#" onClick="javascript:setPage('imprint')" class="open-dialog">Imprint / Contact</a></li>
-						<li><a href="#" onClick="javascript:setPage('credits')" class="open-dialog">Credits</a></li>
+						<li>⭐ <a href="?page=imprint">ADarkHero</a> {current-year}</li>
+						<li><a href="?page=imprint">Imprint / Contact</a></li>
+						<li><a href="?page=credits">Credits</a></li>
 						<li>Handmade with ♥️ (and pure html/css/js) without 🍪 and tracking</li>
 					</ul>
 				</footer>
@@ -89,16 +89,21 @@
 				
 			</div>
 		</div>
-
-	
 		
-	</body>
+		<dialog id="lightbox"></dialog>
+		
 
-	<script src="js/navigation.js"></script>
-	<script src="js/settings.js"></script>
-	<script>
-		readSettings();
-		setPage("home");
-	</script>
+		<script src="js/main.js"></script>
+		<script src="js/navigation.js"></script>
+		<script src="js/settings.js"></script>
+		<script src="js/lightbox.js"></script>
+
+		<script>
+			readSettings();
+			
+			var page = findGetParameter("page") || "home"; <!-- home is default page -->
+			setPage(page);
+		</script>
+	</body>
 
 </html>
