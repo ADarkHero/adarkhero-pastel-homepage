@@ -29,7 +29,7 @@ Variables
 	--footer-height: var(--distance-5);
 	--header-height: var(--distance-5);
 	--title-height: var(--distance-5);
-	--content-height: calc(var(--base-height) - var(--header-height) - var(--title-height) - (var(--distance) * 6));
+	--content-height: calc(var(--base-height) - var(--header-height) - var(--title-height) - (var(--distance) * 4));
 	
 
 	/* the following values can be overridden via settings js */
@@ -111,9 +111,6 @@ nav{
 	
 	border-radius: 0 var(--distance-4) 0 0;
     background-clip: padding-box;
-}
-nav > ul{
-	margin-top: 3px; /* fixes vertical centering because of borders */
 }
 .update-nav{
 	background-color: var(--color-yellow);
@@ -203,7 +200,36 @@ nav{
 	
 	border-bottom: var(--distance) var(--border-color) double;
 }
-footer, nav{
+.nav-button{
+	text-decoration: none;
+	font-weight: bold;
+	
+	height: var(--header-height);
+	width: calc(100px - var(--distance));
+	text-align: left;
+	padding-left: var(--distance);
+	
+	background-color: var(--color-pink);
+	cursor: pointer;
+	border: 0;
+	background-clip: padding-box; /* tranparent background behind border gap */
+}
+nav > ul > li{
+    border-left: var(--distance) var(--border-color) double;
+    border-right: var(--distance) var(--border-color) double;
+    margin-left: calc(var(--distance) *-1); /* no duplicate borders */
+}
+
+#header-buttons{
+	font-weight: bold;
+}
+#header-buttons > button{
+	background-color: transparent;
+	border: 0;
+}
+
+
+footer{
 	padding: var(--distance);
 }
 
@@ -211,13 +237,16 @@ ul{
 	margin: 0;
 }
 
-nav > ul,  footer > ul, .horizontal-list > ul, .horizontal-ul{
+nav ul, footer > ul, .horizontal-list > ul, .horizontal-ul{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
-	flex-wrap: wrap; /* Umbruch auf mehrere Zeilen */
+	flex-wrap: wrap; /* multiple lines */
 	gap: var(--distance-4);     /* gap between elements */
 	list-style: none; /* No dots in front of list */
 	padding: 0;
+}
+nav ul{
+	gap: 0     /* gap between elements */
 }
 
 
@@ -413,6 +442,65 @@ dialog[open]{
 	transform: unset !important;
 }
 
+
+/*****************************************
+Headline bgs
+*****************************************/
+.headline-bg{
+	background-position: right;
+    background-repeat: no-repeat;
+	background-size: 50px;
+}
+.bg-coding {
+    background-image: url("../img/headline-bg/github.svg");
+}
+.bg-server {
+    background-image: url("../img/headline-bg/server.svg");
+}
+.bg-game {
+    background-image: url("../img/headline-bg/dice.svg");
+}
+.bg-clothing {
+    background-image: url("../img/headline-bg/shirt.svg");
+}
+.bg-design {
+    background-image: url("../img/headline-bg/pen-fancy.svg");
+}
+.bg-writing {
+    background-image: url("../img/headline-bg/paragraph.svg");
+}
+.bg-spreadsheet {
+    background-image: url("../img/headline-bg/file-excel.svg");
+}
+.bg-guide {
+    background-image: url("../img/headline-bg/compass.svg");
+}
+
+.header-bg{
+	background-position: right;
+    background-repeat: no-repeat;
+	background-size: calc(var(--header-height) + var(--distance));
+}
+.bg-root {
+    background-image: url("../img/headline-bg/square-root.svg");
+}
+.bg-projects {
+    background-image: url("../img/headline-bg/bars-progress.svg");
+}
+.bg-likes {
+    background-image: url("../img/headline-bg/heart.svg");
+}
+.bg-blog {
+    background-image: url("../img/headline-bg/wordpress.svg");
+}
+.bg-cv {
+    background-image: url("../img/headline-bg/file.svg");
+}
+.bg-external {
+    background-image: url("../img/headline-bg/arrow-up-right-from-square.svg");
+}
+
+
 /*****************************************
 Helper classes
 *****************************************/
@@ -565,7 +653,7 @@ Mobile Styles
 		height: unset;
 	}
 	
-	.colum-3{
+	.column-3{
 		display: block;
 	}
 }

@@ -22,46 +22,23 @@
 				
 			</div>
 
-			<div id="main-container">
-				<nav class="fade-in">
+			<div id="main-container">				
+				<nav>
 					<ul>
-						<li>
-							<a href="index.html">
-								<img src="img/nav/root.png" alt="root - main page" />
-							</a>
-						</li>
-						<li>
-							<a href="?page=stuff">
-								<img src="img/nav/stuff.png" alt="stuff i did in the past" />
-							</a>
-						</li>
-						<li>
-							<a href="?page=likes">
-								<img src="img/nav/like.png" alt="i like heartemoji" />
-							</a>
-						</li>
-						<li>
-							<a href="https://www.heldendenken.de" target="_blank">
-								<img src="img/nav/blog.png" alt="external link to blog" />
-							</a>
-						</li>
-						<li>
-							<a href="https://cv.adarkhero.de" target="_blank">
-								<img src="img/nav/cv.png" alt="external link to blog" />
-							</a>
-						</li>
-						<li>
-							<a href="https://github.com/ADarkHero" target="_blank">
-								<img src="img/nav/code.png" alt="external link to github - coding" />
-							</a>
-						</li>
+						<li><a href="?page=root" class="nav-button header-bg bg-root">/root</a></li>
+						<li><a href="?page=projects" class="nav-button header-bg bg-projects">/projects</a></li>
+						<li><a href="?page=likes" class="nav-button header-bg bg-likes">/likes</a></li>
+						<li><a href="https://www.heldendenken.de" target="_blank" class="nav-button header-bg bg-blog">/blog</a></li>
+						<li><a href="https://github.com/ADarkHero" target="_blank" class="nav-button header-bg bg-coding">/code</a></li>
+						<li><a href="https://cv.adarkhero.de" target="_blank" class="nav-button header-bg bg-cv">/cv</a></li>
 					</ul>
 				</nav>
+				
 				
 				<header id="page-header" class="fade-in">
 					<div id="page-name">Page name</div>
 					<div id="header-buttons">
-						<button class="close-page" onClick="javascript:setPage('home')"> _ </button>
+						<button class="close-page" onClick="javascript:setPage('root')"> _ </button>
 						<button class="resize-page" onClick="javascript:resizePage()">[ ]</button>
 						<button class="close-page" onClick="javascript:closePage()"> x </button>
 					</div>
@@ -101,7 +78,7 @@
 		<script>
 			readSettings();
 			
-			var page = findGetParameter("page") || "home"; <!-- home is default page -->
+			var page = findGetParameter("page") || "root"; <!-- root is default page -->
 			setPage(page);
 		</script>
 	</body>
