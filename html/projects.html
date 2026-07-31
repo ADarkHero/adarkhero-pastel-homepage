@@ -1,7 +1,24 @@
+<nav class="nav-flex-width no-round-borders nav-secondary" id="nav-secondary">
+	<ul>
+		<li class="nav-button tablink tab-selected"><a onclick="openTab(event,'overview')">overview</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2026')">2026</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2025')">2025</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2024')">2024</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2023')">2023</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2022')">2022</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2021')">2021</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2020')">2020</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2019')">2019</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2018')">2018</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2017')">2017</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2016')">2016</a></li>
+		<li class="nav-button tablink"><a onclick="openTab(event,'2015')">2015-1995</a></li>
+	</ul>
+</nav>
+
 <main>
-	<section class="stuff horizontal-list">
+	<section id="overview" class="horizontal-list tab">
 		<div class="section-headline"><h2>Stuff I did in the past</h2></div>
-		
 		<p>
 			Please note that this subpage is work in progress. Not all my projects are listed currently and most of them are missing a description. 😅
 		</p>
@@ -15,26 +32,11 @@
 		</p>
 		<br>
 		<p>
-			My projects are ordered by the year I started working on them. For faster navigation, you can use the following links:
+			My projects are ordered by the year I started working on them. Use the nav on top to navigate throught the years.
 		</p>
-		
-		<ul>
-			<li><a href="#2026">2026</a></li>
-			<li><a href="#2025">2025</a></li>
-			<li><a href="#2024">2024</a></li>
-			<li><a href="#2023">2023</a></li>
-			<li><a href="#2022">2022</a></li>
-			<li><a href="#2021">2021</a></li>
-			<li><a href="#2020">2020</a></li>
-			<li><a href="#2019">2019</a></li>
-			<li><a href="#2018">2018</a></li>
-			<li><a href="#2017">2017</a></li>
-			<li><a href="#2016">2016</a></li>
-			<li><a href="#2015">2015-1995</a></li>
-		</ul>
-	</section>
-	
-	<section class="stuff" id="2026">
+  </section>
+  
+  <section id="2026" class="tab" style="display:none">
 		<div class="section-headline"><h2>2026</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -47,8 +49,8 @@
 			</p>
 			
 			<p class="section-images center-me">
-				<a href="#" onclick="javascript:setLightboxImg('img/stuff/webpage2026.jpg')">
-					<img class="section-image sepia-filter" src="img/stuff/webpage2026.jpg" alt="Screenshot of the index site, of the page you currently are visiting" />
+				<a href="javascript:void(0)" onclick="javascript:setLightboxImg('img/projects/webpage2026.jpg')">
+					<img loading="lazy" class="section-image sepia-filter" src="img/projects/webpage2026.jpg" alt="Screenshot of the index site, of the page you currently are visiting" />
 				</a>
 			</p>
 		</section>
@@ -58,8 +60,6 @@
 			<p>
 				A little python Script, that automatically retrieves available therapy-slots from eternmin.net. Headless support, Docker support and Discord webhook support.
 			</p>
-			
-			<br>
 			
 			<p>
 				➡️ <a href="https://github.com/ADarkHero/therapie-py" target="_blank">therapy.py on GitHub</a>
@@ -74,7 +74,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2025">
+	<section id="2025" class="tab" style="display:none">
 		<div class="section-headline headline-bg"><h2>2025</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -87,9 +87,10 @@
 			</p>
 		</section>
 		
-		<section class="stuff">
+		<section class="stuff" id="umalator-addon">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 umalator-addon</h2></div>
 			<p>
+				An extension to the "umalator" website. That website allows you to calculate racing times for the game "Umamusume". My addon calculates an efficiency value for each skill (how many skill points you get for how much faster racing times).
 			</p>
 			
 			<p>
@@ -100,26 +101,49 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 umamusu-scraper</h2></div>
 			<p>
+				Scrapes the skill list from the umamusume wiki and saves to to json. Was used in combination with <a href="#umalator-addon">umalator-addon</a> to calculate skill costs and skill efficiency.
 			</p>
 			
 			<p>
-				➡️ <a href="https://github.com/ADarkHero/umamusu-scraper" target="_blank">umamusu-scraperon GitHub</a>
+				➡️ <a href="https://github.com/ADarkHero/umamusu-scraper" target="_blank">umamusu-scraper on GitHub</a>
+			</p>
+		</section>
+		
+		<section class="stuff">
+			<div class="section-headline headline-bg bg-spreadsheet"><h2>🟢 Uma PvP</h2></div>
+			<p>
+				A spreadsheet that gives me overview of my PvP Umas. It calculates their total stats and ranks them on a tier list automatically. You can easyly see, which Uma should be trained next.
+			</p>
+			
+			<p class="section-images center-me">
+				<a href="javascript:void(0)" onclick="javascript:setLightboxImg('img/projects/umapvp1.jpg')">
+					<img loading="lazy" class="section-image sepia-filter" src="img/projects/umapvp1.jpg" alt="" />
+				</a>
+				<a href="javascript:void(0)" onclick="javascript:setLightboxImg('img/projects/umapvp2.jpg')">
+					<img loading="lazy" class="section-image sepia-filter" src="img/projects/umapvp2.jpg" alt="" />
+				</a>
 			</p>
 		</section>
 		
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 Top-Games-Social-Media</h2>(kinda on hold - never shared all content)</div>
 			<p>
+				Inspired by SuperEyepatchWolf, I set out to create a "Top 100 Video Games" list. I collected all the video games I've ever played (and hopefully didn't forget any), sorted them (and removed entries that would never have made it into the Top 100), and then pitted them against each other in a battle to the death (using an ELO system). Legal disclaimer: No games actually "died" in this process. Once I'd significantly reduced the number, I manually re-sorted them. I guess the result is a list that makes reasonably good sense to me. :3
 			</p>
 			
+			<p>
+				This script generates social media pictures from the list, that was generated in my <a href="#top-games">Top-Games</a> project.
+			</p>
+				
 			<p>
 				➡️ <a href="https://github.com/ADarkHero/Top-Games-Social-Media" target="_blank">Top-Games on GitHub</a>
 			</p>
 		</section>
 		
-		<section class="stuff">
+		<section class="stuff" id="top-games">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 Top-Games</h2></div>
 			<p>
+				Scrapes my played games from steam and adds them to a list. Then it shows me a gui, where games "fight" with each other. I can choose, which game would win (which game I like more). The script calculates elo for every game. Then I can sort by elo and get an ordered list of my favorite games.
 			</p>
 			
 			<p>
@@ -130,12 +154,18 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-writing"><h2>🔴 Das Spiel der Todesgötter</h2></div>
 			<p>
+				The concept was: 12 girls in a school-dorm like environment. They find an ancient board/card game and decide to play it. Every chapter, the focus is on one of them. We learn about their backstory, likes, dislikes, friends, foes etc. At the end of each chapter, that girl dies, until only one remains...
 			</p>
 		</section>
 		
-		<section class="stuff">
+		<section class="stuff" id="paper-mario-ttyd-startpage">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 paper-mario-ttyd-startpage</h2>(could use more love tho)</div>
 			<p>
+				The first two Paper Mario games are still my favorite video-games of all time. For my <a href="#selfhosting">selfhosted</a>-services I wanted to create a start page, that shows links to all my applications. Also I wanted to add some nice features, like todos or the weather report.
+			</p>
+			
+			<p>
+				I also used this project to get better at javascript. So almost everything on this project required js to run. I didn't use any server side languages.
 			</p>
 			
 			<p>
@@ -146,6 +176,7 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 psutil_api</h2></div>
 			<p>
+				I wanted to read out some server variables (cpu, ram, storage...) via an api. So I used python, docker and the psutil functions to realise this project. I included support for it in <a href="#paper-mario-ttyd-startpage">paper-mario-ttyd-startpage</a>.
 			</p>
 			
 			<p>
@@ -163,14 +194,14 @@
 			</p>
 		</section>
 		
-		<section class="stuff">
+		<section class="stuff" id="selfhosting">
 			<div class="section-headline headline-bg bg-server"><h2>🔵 Self hosting</h2>(the eternal project)</div>
 			<p>
 			</p>
 		</section>
 	</section>
 	
-	<section class="stuff" id="2024">
+	<section id="2024" class="tab" style="display:none">
 		<div class="section-headline"><h2>2024</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -221,7 +252,7 @@
 		</section>
 	</section>
 		
-	<section class="stuff" id="2023">
+	<section id="2023" class="tab" style="display:none">
 		<div class="section-headline"><h2>2023</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -234,7 +265,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2022">
+	<section id="2022" class="tab" style="display:none">
 		<div class="section-headline"><h2>2022</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -244,6 +275,7 @@
 			<div class="section-headline headline-bg bg-guide"><h2>🔴 I Was a Teenage Exocolonist
 100% guide</h2></div>
 			<p>
+				Man, I loved that game back in the day. I didn't like the few available guides. Everyone was missing some of the content. So I decided to make my own. I never had the motivation to 100% it myself because the last two achievements would have taken an eternity. Also I didn't update it for future patches.
 			</p>
 			
 			<p>
@@ -278,7 +310,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2021">
+	<section id="2021" class="tab" style="display:none">
 		<div class="section-headline"><h2>2021</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -355,7 +387,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2020">
+	<section id="2020" class="tab" style="display:none">
 		<div class="section-headline"><h2>2020</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -392,7 +424,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2019">
+	<section id="2019" class="tab" style="display:none">
 		<div class="section-headline"><h2>2019</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -449,7 +481,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2018">
+	<section id="2018" class="tab" style="display:none">
 		<div class="section-headline"><h2>2018</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -576,7 +608,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2017">
+	<section id="2017" class="tab" style="display:none">
 		<div class="section-headline"><h2>2017</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -633,7 +665,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2016">
+	<section id="2016" class="tab" style="display:none">
 		<div class="section-headline"><h2>2016</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -650,7 +682,7 @@
 		</section>
 	</section>
 	
-	<section class="stuff" id="2015">
+	<section id="2015" class="tab" style="display:none">
 		<div class="section-headline"><h2>2015</h2></div>
 		<p>
 			Cupcake ipsum dolor sit amet. Muffin gummi bears tiramisu jelly beans sweet roll. I love donut dragée I love fruitcake chupa chups. Gummi bears muffin danish dessert cake dragée pie gingerbread dessert. Candy donut chupa chups cake jujubes. Icing ice cream icing jelly dessert. Sesame snaps pudding cheesecake tart chocolate cake I love. Ice cream oat cake I love bonbon pastry. Pastry I love brownie tootsie roll candy carrot cake.
@@ -749,6 +781,7 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🔴 Drunken-Media</h2></div>
 			<p>
+				I thought, I could create a better Audacity. Guess not. It technically worked tho, but it wasn't very capable.
 			</p>
 			
 			<p>
@@ -759,6 +792,13 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 Good-Morning-WhatsApp-Bot</h2></div>
 			<p>
+				The one time I leaked some of my families phone numbers on GitHub. Good old times.
+			</p>
+			<p>
+				WhatsApp didn't have an official API back in the day. So I used the unofficial WhatsAppProt project to send a cute "good morning" message to some people every day.
+			</p>
+			<p>
+				"Our days are happier, when we give people a bit of our heart rather than a piece of our mind."
 			</p>
 			
 			<p>
@@ -769,6 +809,7 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 EAN-Codegenerator</h2></div>
 			<p>
+				A simple programming exercise in php. Nothing special but cute and functional.
 			</p>
 			
 			<p>
@@ -779,6 +820,17 @@
 		<section class="stuff">
 			<div class="section-headline headline-bg bg-coding"><h2>🟢 ADarkHero-Nyu</h2></div>
 			<p>
+				My Windows-8 metro style inspired homepage. I still think, it looks nice, even in 2026. It was codeded horrobly tho. In my opinion, with a bit of love, you could revive something similar in the mordern ages.
+			</p>
+			
+			<p>
+				Oh lol. I published my database password publicly. I was really smart back then.
+			</p>
+			
+			<p class="section-images center-me">
+				<a href="javascript:void(0)" onclick="javascript:setLightboxImg('img/projects/adarkhero-nyu.jpg')">
+					<img loading="lazy" class="section-image sepia-filter" src="img/projects/adarkhero-nyu.jpg" alt="" />
+				</a>
 			</p>
 			
 			<p>

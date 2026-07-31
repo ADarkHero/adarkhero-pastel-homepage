@@ -14,3 +14,12 @@ function findGetParameter(parameterName) {
         });
     return result;
 }
+
+
+function scrollToTop(){
+	var container = document.getElementById('main-content');
+	container.scrollTo({
+		top: 0,
+		behavior: 'smooth'
+	});
+}

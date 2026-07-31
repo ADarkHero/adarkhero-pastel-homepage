@@ -28,19 +28,19 @@
 						<li><a href="?page=root" class="nav-button header-bg bg-root">/root</a></li>
 						<li><a href="?page=projects" class="nav-button header-bg bg-projects">/projects</a></li>
 						<li><a href="?page=likes" class="nav-button header-bg bg-likes">/likes</a></li>
-						<li><a href="https://www.heldendenken.de" target="_blank" class="nav-button header-bg bg-blog">/blog</a></li>
-						<li><a href="https://github.com/ADarkHero" target="_blank" class="nav-button header-bg bg-coding">/code</a></li>
-						<li><a href="https://cv.adarkhero.de" target="_blank" class="nav-button header-bg bg-cv">/cv</a></li>
+						<li><a href="https://www.heldendenken.de" target="_blank" class="nav-button header-bg bg-blog">/blog <span class="x-small">&nbsp;(ext)</span></a></li>
+						<li><a href="https://cv.adarkhero.de" target="_blank" class="nav-button header-bg bg-cv">/cv <span class="x-small">&nbsp;(ext)</span></a></li>
 					</ul>
 				</nav>
 				
 				
 				<header id="page-header" class="fade-in">
 					<div id="page-name">Page name</div>
-					<div id="header-buttons">
-						<button class="close-page" onClick="javascript:setPage('root')"> _ </button>
-						<button class="resize-page" onClick="javascript:resizePage()">[ ]</button>
-						<button class="close-page" onClick="javascript:closePage()"> x </button>
+					<div id="header-buttons" class="horizontal-list">
+						<ul>
+							<li><a onClick="javascript:scrollToTop()">⬆️</a></li>
+							<li><a onClick="javascript:resizePage()">⏹️</a></li>
+						</ul>
 					</div>
 				</header>
 				
@@ -54,7 +54,13 @@
 				
 				<footer>
 					<ul>
-						<li>⭐ <a href="?page=imprint">ADarkHero</a> {current-year}</li>
+						<li>⭐ <a href="#">Scroll back to top</a></li>
+					</ul>
+				</footer>
+				
+				<footer>
+					<ul>
+						<li><a href="?page=imprint">ADarkHero</a> {current-year}</li>
 						<li><a href="?page=imprint">Imprint / Contact</a></li>
 						<li><a href="?page=credits">Credits</a></li>
 						<li>Handmade with ♥️ (and pure html/css/js) without 🍪 and tracking</li>
@@ -74,6 +80,7 @@
 		<script src="js/navigation.js"></script>
 		<script src="js/settings.js"></script>
 		<script src="js/lightbox.js"></script>
+		<script src="js/tabs.js"></script>
 
 		<script>
 			readSettings();
