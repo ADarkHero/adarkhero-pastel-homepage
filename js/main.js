@@ -23,3 +23,10 @@ function scrollToTop(){
 		behavior: 'smooth'
 	});
 }
+
+
+function checkBtnForward(){
+	if(!navigation.canGoForward){
+		document.getElementById('btn-forward').classList.add("isDisabled");
+	}
+}

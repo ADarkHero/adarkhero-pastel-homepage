@@ -25,9 +25,9 @@
 			<div id="main-container">				
 				<nav>
 					<ul>
-						<li><a href="?page=root" class="nav-button header-bg bg-root">/root</a></li>
-						<li><a href="?page=projects" class="nav-button header-bg bg-projects">/projects</a></li>
-						<li><a href="?page=likes" class="nav-button header-bg bg-likes">/likes</a></li>
+						<li><a href="?page=root" id="root" class="nav-button header-bg bg-root">/root</a></li>
+						<li><a href="?page=projects" id="projects" class="nav-button header-bg bg-projects">/projects</a></li>
+						<li><a href="?page=likes" id="likes" class="nav-button header-bg bg-likes">/likes</a></li>
 						<li><a href="https://www.heldendenken.de" target="_blank" class="nav-button header-bg bg-blog">/blog <span class="x-small">&nbsp;(ext)</span></a></li>
 						<li><a href="https://cv.adarkhero.de" target="_blank" class="nav-button header-bg bg-cv">/cv <span class="x-small">&nbsp;(ext)</span></a></li>
 					</ul>
@@ -37,10 +37,14 @@
 				<header id="page-header" class="fade-in">
 					<div id="page-name">Page name</div>
 					<div id="header-buttons" class="horizontal-list">
-						<ul>
-							<li><a onClick="javascript:scrollToTop()">⬆️</a></li>
-							<li><a onClick="javascript:resizePage()">⏹️</a></li>
-						</ul>
+						<nav class="no-border-bottom no-round-borders">
+							<ul class="last-no-borders">
+								<li><a onClick="javascript:history.back()" class="nav-button">⬅️ Back</a></li>
+								<li><a onClick="javascript:scrollToTop()" class="nav-button">⬆️ Top</a></li>
+								<li><a onClick="javascript:resizePage()" class="nav-button">⏹️ Resize</a></li>
+								<li><a onClick="javascript:history.forward()" class="nav-button" id="btn-forward">➡️ Forward</a></li>
+							</ul>
+						</nav>
 					</div>
 				</header>
 				
@@ -84,6 +88,7 @@
 
 		<script>
 			readSettings();
+			checkBtnForward();
 			
 			var page = findGetParameter("page") || "root"; <!-- root is default page -->
 			setPage(page);

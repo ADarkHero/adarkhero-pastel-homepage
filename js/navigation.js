@@ -9,6 +9,9 @@
 			
 		document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html/' + page + '.html</a>';
 		
+		//Highlights selected page
+		document.getElementById(page).classList.add("tab-selected");
+		
 		//Wait until the modal was completly loaded
 		requestAnimationFrame(() => {
 			requestAnimationFrame(() => {
