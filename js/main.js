@@ -29,6 +29,7 @@ function scrollToTop(){
 function checkBtnForward(){
 	if(!navigation.canGoForward){
 		document.getElementById('btn-forward').classList.add("isDisabled");
+		document.getElementById('btn-forward').classList.add("isDisabled");
 	}
 }
 
