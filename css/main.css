@@ -37,8 +37,10 @@ Variables
 	--hover-effect: scale(1.2) rotate(5deg);
 	--hover-effect-header: scale(1.2);
 	--background-animation: moveBackground 240s linear infinite;
-	--mops-slide-in-animation: slideIn 2s ease-out forwards;
+	--mops-slide-in-animation: slideInMops 2s ease-out forwards;
 	--fade-in-animation: fadeInOpacity 1s ease-in 1; 
+	--slide-in-animation: slideInAnimation 1s ease 0s 1 normal forwards; 
+	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
 	/* reset values for js */
 	--base-width-const: 1024px;
 	--base-height-const: 768px;
@@ -275,7 +277,7 @@ Keyframes (animations)
     }
 }
 
-@keyframes slideIn {
+@keyframes slideInMops {
     from {
         transform: translate(100%, 100%);
     }
@@ -303,6 +305,23 @@ Keyframes (animations)
 	}
 }
 
+@keyframes slideInAnimation {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutAnimation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 
 
 /*****************************************
@@ -570,6 +589,20 @@ Classes - Helper classes
 	display: block;
     margin: 0 auto; /* center button */
 	background-color: var(--color-light-green);
+	cursor: pointer;
+}
+
+.inline-button{
+	text-decoration: none;
+	
+	text-align: center;
+	padding: var(--distance);
+
+	border: 1px var(--border-color) solid;
+	
+	background-color: var(--color-light-green);
+	cursor: pointer;
+	background-clip: padding-box; /* tranparent background behind border gap */
 }
 
 .column-2{
@@ -706,8 +739,24 @@ Classes - Helper classes
 	animation: var(--fade-in-animation);
 }
 
+.no-fade-in{
+	animation: unset;
+}
+
+.slide-in{
+	animation: var(--slide-in-animation);
+}
+
+.slide-out{
+	animation: var(--slide-out-animation);
+}
+
 .last-no-borders > li:last-child{
 	border: 0;
+}
+
+.width-unset{
+	width: unset;
 }
 
 
@@ -733,7 +782,7 @@ Pages - root
 Lightbox
 *****************************************/
 dialog[open]{
-	display: flex;
+	display: block;
 }
 
 #lightbox{
@@ -745,9 +794,10 @@ dialog[open]{
 	
 	border: 5px var(--border-color) double;
 	
-	padding: 0;
+	padding: var(--distance-2);
 	
-	width: 80%;
+	max-width: 80%;
+	max-height: 80%;
 	
 	overflow: hidden;
 }

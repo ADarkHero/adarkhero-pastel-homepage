@@ -20,6 +20,8 @@ function readSettings(){
 			document.documentElement.style.setProperty('--background-animation', 'unset');
 			document.documentElement.style.setProperty('--mops-slide-in-animation', 'unset');
 			document.documentElement.style.setProperty('--fade-in-animation', 'unset');
+			document.documentElement.style.setProperty('--slide-in-animation', 'unset');
+			document.documentElement.style.setProperty('--slide-out-animation', 'unset');
 		}
 		
 		if(localStorage.getItem("maximizeWindows") === 'true'){

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.adarkhero.de</loc>
+    </url>
+    <url>
+        <loc>https://www.adarkhero.de?page=credits</loc>
+    </url>
+    <url>
+        <loc>https://www.adarkhero.de?page=imprint</loc>
+    </url>
+    <url>
+        <loc>https://www.adarkhero.de?page=likes</loc>
+    </url>
+    <url>
+        <loc>https://www.adarkhero.de?page=projects</loc>
+    </url>
+    <url>
+        <loc>https://www.adarkhero.de?page=root</loc>
+    </url>
+</urlset>

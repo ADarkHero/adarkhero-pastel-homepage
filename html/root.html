@@ -1,18 +1,19 @@
-<div class="header-img">
+<div class="header-img fade-in">
 	<img src="img/banner/standard.jpg" alt="header img" class="sepia-filter" />
 </div>
 
-<div class="update-nav marquee">
+<div class="update-nav marquee fade-in">
 	<marquee onmouseover="this.stop();" onmouseout="this.start();">
 		<ul class="horizontal-ul no-flex-wrap">
-			<li>29.07.2026 - Version 26.300 - Added likes.html</li>
+			<li>03.08.2026 - Version 26.310 - New animations, small clean ups</li>
+			<li>31.07.2026 - Version 26.300 - Added likes.html</li>
 			<li>29.07.2026 - Version 26.200 - Added projects.html (past projects) and reworked menu.</li>
 			<li>22.07.2026 - Version 26.100 launch: All old content got migrated. The base layout is working flawlessly. Now it't time to add more stuff!</li>
 		</ul>
 	</marquee>
 </div>
 
-<main class="column-3">
+<main class="column-3 fade-in">
 	<div>
 		<section class="wanted">
 			<div class="section-headline"><h2>WANTED</h2></div>
@@ -63,7 +64,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" onclick="javascript:setLightboxText('Discord Username: ADarkHero<br>Please note, that I won\'t accept friend requests without an introductionary message.')">
+						<a href="#" onclick="javascript:setLightboxText('<p>Discord Username: ADarkHero <a onclick=&quot;copyToClipboard(\'ADarkHero\', \'copy-btn-discord\')&quot; class=&quot;inline-button&quot; id=&quot;copy-btn-discord&quot;>copy</a></p><br><p>Please note, that I won´t accept friend requests without an introductionary message.</p>')">
 							<img src="img/sm/discord.svg" alt="icon of discord"/>
 						</a>
 					</li>
@@ -87,8 +88,8 @@
 		<section class="statistics">
 			<div class="section-headline"><h2>Statistics</h2></div>
 			<p>
-				🌟 Version 26.300<br>
-				🕚 22+ hours of work<br>
+				🌟 Version 26.310<br>
+				🕚 25+ hours of work<br>
 				📝 2.100+ lines of code<br>
 				📏 52kb+ w/o img; 2mb+ with imgs
 			</p>
@@ -104,7 +105,8 @@
 			<div class="section-headline"><h2>Link me :3</h2></div>
 
 			<p class="center-me">
-				<img src="img/link-me.png" alt="cool homepage - adarkhero" class="no-sepia-filter"/>
+				<img src="img/link-me.png" alt="cool homepage - adarkhero" class="no-sepia-filter"/>&nbsp;
+				<a onclick="copyToClipboard('<a href=&quot;https://adarkhero.de&quot; target=&quot;_blank&quot;><img src=&quot;https://adarkhero.de/img/link-me.png&quot; alt=&quot;cool homepage - adarkhero&quot;/></a>', 'copy-btn-linkme')" class="inline-button" id="copy-btn-linkme">copy</a>
 			</p>
 			<p class="center-me mt">	
 				<textarea rows="4"><a href="https://adarkhero.de" target="_blank"><img src="https://adarkhero.de/img/link-me.png" alt="cool homepage - adarkhero"/></a></textarea>
