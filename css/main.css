@@ -45,6 +45,7 @@ Variables
 	--fade-in-animation: fadeInOpacity 1s ease-in 1; 
 	--slide-in-animation: slideInAnimation 0.5s ease 0s 1 normal forwards; 
 	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
+	--marquee-animation: marquee 45s linear infinite;
 	/* reset values for js */
 	--base-width-const: 1024px;
 	--base-height-const: 768px;
@@ -325,6 +326,15 @@ Keyframes (animations)
     }
 }
 
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
 
 /*****************************************
 Div ids - header
@@ -450,8 +460,11 @@ Classes - nav
 	padding-left: 0;
 	padding-right: 0;
 	
-	height: var(--distance-4);
-	line-height: var(--distance-4);
+	height: var(--distance-5);
+	line-height: var(--distance-5);
+
+	display: flex;
+    align-items: center;
 }
 
 .update-nav, .header-img{
@@ -539,6 +552,27 @@ Classes - scrollbar
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--color-light-blue);
+}
+
+
+
+/*****************************************
+Classes - marquee
+*****************************************/
+.marquee {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+.marquee > span {
+	display: inline-block;
+	padding-left: 100%;
+	animation: var(--marquee-animation);
+}
+.marquee:hover > span {
+	animation-play-state: paused; /* pause on hover */
 }
 
 
@@ -802,6 +836,12 @@ Classes - Helper classes
 .overflow-clip, .overflow-clip li{
 	overflow: clip;
 }
+
+.list-distance{
+	padding-left: var(--distance-5);
+}
+
+
 
 /*****************************************
 Pages - root

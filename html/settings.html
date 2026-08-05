@@ -1,33 +1,38 @@
-<form id="settingsForm">
-	<table>
-		<tbody>
-			<tr>
-				<td>always maximize windows</td>
-				<td><input type="checkbox" id="maximizeWindows" name="maximizeWindows"></td>
-			</tr>
-			<tr>
-				<td>disable animations</td>
-				<td><input type="checkbox" id="disableAnimations" name="disableAnimations"></td>
-			</tr>
-			<tr>
-				<td>sepia effect</td>
-				<td>
-					<input id="sepiaEffect" 
-				   type="range" 
-				   min="0" 
-				   max="1" 
-				   step="0.05"
-				   value="0.75">
-			   </td>
-			</tr>
 
-		</tbody>
-	</table>
-	
-	<br>
-</form>
-<button onClick="javascript:saveSettings()" class="block-button">Save</button>
+<main>
+	<section>
+		<form id="settingsForm">
+			<table>
+				<tbody>
+					<tr>
+						<td>always maximize windows</td>
+						<td><input type="checkbox" id="maximizeWindows" name="maximizeWindows"></td>
+					</tr>
+					<tr>
+						<td>disable animations</td>
+						<td><input type="checkbox" id="disableAnimations" name="disableAnimations"></td>
+					</tr>
+					<tr>
+						<td>sepia effect</td>
+						<td>
+							<input id="sepiaEffect" 
+						type="range" 
+						min="0" 
+						max="1" 
+						step="0.05"
+						value="0.75">
+					</td>
+					</tr>
 
-<br><br>
+				</tbody>
+			</table>
+			
+			<br>
+		</form>
+		<button onClick="javascript:saveSettings()" class="block-button">Save</button>
 
-Please note, that this feature uses your browsers local storage to save values semi-permanently. No cookies are eaten during this process.
+		<br><br>
+
+		Please note, that this feature uses your browsers local storage to save values semi-permanently. No cookies are eaten during this process.
+	</section>
+</main>
