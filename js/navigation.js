@@ -1,14 +1,23 @@
-	function setPage(page){		
+	function setPage(page, id="main-content"){		
 		//fetch(page + '.html')
 		fetch('html/' + page + '.html', { cache: 'no-store'})
 			.then(response => response.text())
 			.then(html => {
-				document.getElementById('main-content').innerHTML = html;
+				document.getElementById(id).innerHTML = html;
 			})
 			.catch(error => console.error('Error:', error));
 			
-		document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html/' + page + '.html</a>';
+		//Set page-name
+		var slash = "/";
+		if(page.startsWith("/")){ slash = "" } //Always add exactly one slash at the beginning
+		document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html' + slash + page + '.html</a>';
 		
+		//Select all tablinks and remove the highlights from them
+		const tablinks = document.getElementsByClassName("tablink");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].classList.remove("tab-selected");
+		}
+
 		//Highlights selected page
 		document.getElementById(page).classList.add("tab-selected");
 		
