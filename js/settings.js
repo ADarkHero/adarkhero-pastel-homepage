@@ -3,10 +3,11 @@ function saveSettings(){
     localStorage.setItem("maximizeWindows", document.getElementById("maximizeWindows").checked);
     localStorage.setItem("sepiaEffect", document.getElementById("sepiaEffect").value);
     localStorage.setItem("disableAnimations", document.getElementById("disableAnimations").checked);
+    localStorage.setItem("disablePokeneko", document.getElementById("disablePokeneko").checked);
 	
 	alert("Settings saved!");
 	
-	readSettings();
+	window.location.replace("?page=settings");
 }
 
 //Read saved values
@@ -22,6 +23,7 @@ function readSettings(){
 			document.documentElement.style.setProperty('--fade-in-animation', 'unset');
 			document.documentElement.style.setProperty('--slide-in-animation', 'unset');
 			document.documentElement.style.setProperty('--slide-out-animation', 'unset');
+			document.documentElement.style.setProperty('--oppacity-animation', 'unset');
 		}
 		
 		if(localStorage.getItem("maximizeWindows") === 'true'){
@@ -39,6 +41,10 @@ function readSettingsToForm(){
 		
 		if(localStorage.getItem("disableAnimations") === "true"){
 			document.getElementById("disableAnimations").checked = true;
+		}
+
+		if(localStorage.getItem("disablePokeneko") === "true"){
+			document.getElementById("disablePokeneko").checked = true;
 		}
 
 		document.getElementById("sepiaEffect").value = localStorage.getItem("sepiaEffect");

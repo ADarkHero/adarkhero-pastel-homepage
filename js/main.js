@@ -40,3 +40,17 @@ function copyToClipboard(text, id) {
     navigator.clipboard.writeText(text);
     document.getElementById(id).innerHTML = "copied :)";
 }
+
+
+function showSpeechbubble(text){
+    document.getElementById("speech-bubble").innerHTML = text;
+    
+    const bubble = document.getElementById("speech-bubble");
+    bubble.classList.remove("hidden");
+}
+
+function closeSpeechbubble(text){
+    const bubble = document.getElementById("speech-bubble");
+
+    bubble.classList.add("hidden");
+}

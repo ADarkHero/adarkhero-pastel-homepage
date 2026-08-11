@@ -8,7 +8,7 @@ document.addEventListener('mousemove', function(event) {
     var settingsHeight = 128;
     var settingsWidth = 128;
 
-    console.log(settingsLook);
+    //console.log(settingsLook);
 
     //look left
     if(event.clientY > windowHeight - settingsHeight && event.clientX < windowWidth - settingsWidth){

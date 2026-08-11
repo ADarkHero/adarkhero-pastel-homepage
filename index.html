@@ -13,7 +13,11 @@
 		
 		<div id="wrapper">
 			<div id="settings">
-				<a href="#" onClick="javascript:setPage('settings')">
+				<a href="javascript:void(0)" onclick="javascript:closeSpeechbubble()">
+					<div class="speech-bubble hidden" id="speech-bubble"></div>
+				</a>
+
+				<a href="javascript:void(0)"  onClick="javascript:setPage('settings')">
 					<img src="img/settings-mops.png" alt="settings-mops" id="settings-mops" class="no-sepia-filter" />
 				</a>
 			</div>
@@ -92,6 +96,7 @@
 		<script src="js/lightbox.js"></script>
 		<script src="js/tabs.js"></script>
 		<script src="js/mouse.js"></script>
+		<script src="js/pokeneko.js"></script>
 
 		<script>
 			readSettings();
@@ -100,6 +105,7 @@
 			var page = findGetParameter("page") || "root"; <!-- root is default page -->
 			setPage(page);
 		</script>
+
 	</body>
 
 </html>

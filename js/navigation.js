@@ -22,16 +22,14 @@
 		document.getElementById(page).classList.add("tab-selected");
 		
 		//Wait until the modal was completly loaded
-		requestAnimationFrame(() => {
-			requestAnimationFrame(() => {
-				if (page === "settings") {
-					readSettingsToForm();
-				}
-			});
-		});
+		if (page === "settings") {
+			waitForElement("maximizeWindows", readSettingsToForm);
+		}
 		
 	}
 	
+
+
 	function resizePage(){
 		var baseWidth = document.documentElement.style.getPropertyValue('--base-width');
 		
@@ -45,8 +43,23 @@
 		}	
 	}
 	
+
+
 	function closePage(){
 		document.getElementById('main-content').innerHTML = "";
 		document.getElementById('page-name').innerHTML = ':(';
 	}
 	
+
+
+	function waitForElement(id, callback) {
+		const interval = setInterval(() => {
+			const element = document.getElementById(id);
+
+			if (element) {
+				clearInterval(interval);
+				callback();
+			}
+		}, 10);
+	}
+
