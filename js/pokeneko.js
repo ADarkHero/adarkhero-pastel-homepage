@@ -7,7 +7,8 @@
 // This snippet uses sprites from https://sprites.pmdcollab.org/#/0279
 
 //lets you disable the script via settings
-if(localStorage.getItem("disablePokeneko") === 'false' || localStorage.getItem("disablePokeneko") === null){
+//disable on mobile
+if((localStorage.getItem("disablePokeneko") === 'false' || localStorage.getItem("disablePokeneko") === null) && window.innerWidth >= 1024){
     var pokemon = {"pokedex":"0279","shiny":false,"animData":{"Walk":{"$":{},"Name":"Walk","Index":"0","FrameWidth":"32","FrameHeight":"40","Durations":{"$":{},"Duration":["10","4","8","10","4","8"]},"animURL":"https://jamesschoch.github.io/Pokeneko/sprite/0279/Walk-Anim.png"},"Idle":{"$":{},"Name":"Idle","Index":"7","FrameWidth":"32","FrameHeight":"40","Durations":{"$":{},"Duration":["10","10"]},"animURL":"https://jamesschoch.github.io/Pokeneko/sprite/0279/Idle-Anim.png"}}};
     var trackerjson;
         pokemon.state = "none";

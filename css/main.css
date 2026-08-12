@@ -153,7 +153,9 @@ footer{
     left: 0;
     z-index: 67; /* below settings */
 }
-
+footer li, .horizontal-list li, .horizontal-ul li{
+	list-style-image: none; /* No dots in front of list */
+}
 
 section{
 	display: block;
@@ -230,6 +232,7 @@ img, a{
 img:hover, a:hover{
     transform: var(--hover-effect); /* 20 % zoom + small rotate */
 	z-index: 999;
+	filter: unset; /* hover removes sepia filter */
 }
 
 
@@ -269,6 +272,10 @@ textarea{
 
 ul{
 	margin: 0;
+}
+
+li{
+	list-style-image: url("../img/smileys/snowflake.gif");
 }
 
 
@@ -586,76 +593,92 @@ Classes - marquee
 Classes - Background images
 *****************************************/
 .headline-bg, .header-bg, .table-bg{
-	background-position: right;
+	background-position: 99%;
     background-repeat: no-repeat;
-}
-
-.headline-bg{
-	background-size: 50px;
-}
-.headline-bg h2{
-	max-width: 85%;
-}
-.bg-coding {
-    background-image: url("../img/bg-img/github.svg");
-}
-.bg-server {
-    background-image: url("../img/bg-img/server.svg");
-}
-.bg-game {
-    background-image: url("../img/bg-img/dice.svg");
-}
-.bg-clothing {
-    background-image: url("../img/bg-img/shirt.svg");
-}
-.bg-design {
-    background-image: url("../img/bg-img/pen-fancy.svg");
-}
-.bg-writing {
-    background-image: url("../img/bg-img/paragraph.svg");
-}
-.bg-spreadsheet {
-    background-image: url("../img/bg-img/file-excel.svg");
-}
-.bg-guide {
-    background-image: url("../img/bg-img/compass.svg");
+	image-rendering: pixelated; /* pixelated upscaling */
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
 }
 
 .header-bg{
 	background-size: calc(var(--header-height) + var(--distance));
 }
+
+.headline-bg{
+	background-size: 30px;
+}
+.headline-bg h2{
+	max-width: 85%;
+}
+
+/* main menu backgrounds */
 .bg-root {
-    background-image: url("../img/bg-img/square-root.svg");
+    background-image: url("../img/smileys/frog.gif");
 }
 .bg-projects {
-    background-image: url("../img/bg-img/bars-progress.svg");
+    background-image: url("../img/smileys/scroll.gif");
 }
 .bg-likes {
-    background-image: url("../img/bg-img/heart.svg");
+    background-image: url("../img/smileys/heart.gif");
 }
-.bg-blog {
-    background-image: url("../img/bg-img/wordpress.svg");
-}
-.bg-cv {
-    background-image: url("../img/bg-img/file.svg");
-}
-.bg-education {
-    background-image: url("../img/bg-img/education.svg");
+.bg-lifegoals {
+    background-image: url("../img/smileys/lifepreserver.gif");
 }
 .bg-fun {
-    background-image: url("../img/bg-img/fun.svg");
-}
-.bg-achievement {
-    background-image: url("../img/bg-img/achievement.svg");
-}
-.bg-collecting {
-    background-image: url("../img/bg-img/collecting.svg");
-}
-.bg-work {
-    background-image: url("../img/bg-img/work.svg");
+    background-image: url("../img/smileys/sun.gif");
 }
 .bg-external {
-    background-image: url("../img/bg-img/arrow-up-right-from-square.svg");
+    background-image: url("../img/smileys/esckey.gif");
+}
+.bg-blog {
+    background-image: url("../img/smileys/pencil.gif");
+}
+.bg-cv {
+    background-image: url("../img/smileys/document.gif");
+}
+
+/* headline backgrounds */
+.bg-achievement {
+    background-image: url("../img/smileys/star.gif");
+}
+.bg-audio {
+    background-image: url("../img/smileys/note.gif");
+}
+.bg-clothing {
+    background-image: url("../img/smileys/necktie.gif");
+}
+.bg-coding {
+    background-image: url("../img/smileys/folder.gif");
+}
+.bg-collecting {
+    background-image: url("../img/smileys/treasure.gif");
+}
+.bg-design {
+    background-image: url("../img/bg-img/palette.svg");
+}
+.bg-education {
+    background-image: url("../img/smileys/graduatescap.gif");
+}
+.bg-game {
+    background-image: url("../img/smileys/dice.gif");
+}
+.bg-guide {
+    background-image: url("../img/smileys/point.gif");
+}
+.bg-server {
+    background-image: url("../img/smileys/computer.gif");
+}
+.bg-spreadsheet {
+    background-image: url("../img/smileys/calendar.gif");
+}
+.bg-video {
+    background-image: url("../img/smileys/filmstrip.gif");
+}
+.bg-work {
+    background-image: url("../img/smileys/toolbox.gif");
+}
+.bg-writing {
+    background-image: url("../img/smileys/book.gif");
 }
 
 .table-bg{
@@ -874,6 +897,7 @@ Classes - Helper classes
 	height: var(--font-size);
 	max-width: unset;
 }
+
 
 
 /*****************************************
