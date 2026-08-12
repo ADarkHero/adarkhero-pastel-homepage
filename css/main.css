@@ -696,7 +696,7 @@ Classes - Background images
 
 
 /*****************************************
-Classes - Helper classes
+Classes - Buttons
 *****************************************/
 .block-button{
 	width: 80%;
@@ -718,6 +718,11 @@ Classes - Helper classes
 	cursor: pointer;
 }
 
+
+
+/*****************************************
+Classes - Columns
+*****************************************/
 .column-2{
 	display: grid;
     grid-template-columns: 50% 50%; /* 2 colums */
@@ -733,28 +738,17 @@ Classes - Helper classes
     grid-template-columns: 25% 25% 25% 25%; /* 5 colums */
 }
 
-.isDisabled {
-	color: currentColor;
-	cursor: not-allowed;
-	opacity: 0.5;
-	text-decoration: none;
-	filter: grayscale(1);
-}
-.isDisabled:hover{
-	animation: none;
-	transition: none;
-	transform: none;
-}
 
-.center-me{
-	text-align: center;
-	display: flex;
-	align-items: center; /* center content */
-	justify-content: center; /* center content */
-}
 
+/*****************************************
+Classes - Display & Position
+*****************************************/
 .display-block{
 	display: block;
+}
+
+.mobile-only{
+	display: none;
 }
 
 .position-absolute{
@@ -765,10 +759,11 @@ Classes - Helper classes
 	position: fixed;
 }
 
-.no-padding-top{
-	padding-top: 0;
-}
 
+
+/*****************************************
+Classes - margin padding
+*****************************************/
 .mt-0{
 	margin-top: 0;
 }
@@ -792,43 +787,11 @@ Classes - Helper classes
 	margin-bottom: var(--distance-3);
 }
 
-.no-round-borders{
-	border-radius: 0;
-}
 
-.x-small{
-	font-size: x-small;
-}
 
-.sepia-filter {
-    filter: sepia(var(--sepia-value));
-}
-
-.no-sepia-filter {
-    filter: unset;
-}
-
-.no-flex-wrap{
-	flex-wrap: unset;
-}
-
-.always-on-top{
-	z-index: 9001;
-}
-
-.headline{
-	height: 24px;
-	font-size: 24px;
-	font-weight: bold;
-	margin: 0;
-	margin-bottom: var(--distance);
-    border-bottom: 1px var(--border-color) dotted;
-}
-
-.no-border-bottom{
-	border-bottom: 0;
-}
-
+/*****************************************
+Classes - borders
+*****************************************/
 .border-corner{
 	width: 200px;
     position: relative;
@@ -856,13 +819,18 @@ Classes - Helper classes
     border-right: var(--distance) solid var(--border-color);
 }
 
+.last-no-right-borders > li:last-child{
+	border-right: 0;
+}
+
+
+
+/*****************************************
+Classes - animations
+*****************************************/
 .fade-in {
 	opacity: 1;
 	animation: var(--fade-in-animation);
-}
-
-.no-fade-in{
-	animation: unset;
 }
 
 .slide-in{
@@ -873,29 +841,106 @@ Classes - Helper classes
 	animation: var(--slide-out-animation);
 }
 
-.last-no-right-borders > li:last-child{
-	border-right: 0;
+
+
+/*****************************************
+Classes - headline
+*****************************************/
+.headline{
+	height: 24px;
+	font-size: 24px;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: var(--distance);
+    border-bottom: 1px var(--border-color) dotted;
 }
 
-.width-unset{
-	width: unset;
+
+
+/*****************************************
+Classes - Helper classes
+*****************************************/
+.always-on-top{
+	z-index: 9001;
 }
 
-.mobile-only{
-	display: none;
+.center-me{
+	text-align: center;
+	display: flex;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
 }
 
-.overflow-clip, .overflow-clip li{
-	overflow: clip;
+.inline-img{
+	height: var(--font-size);
+	max-width: unset;
 }
 
 .list-distance{
 	padding-left: var(--distance-5);
 }
 
-.inline-img{
-	height: var(--font-size);
-	max-width: unset;
+.nowrap{
+	white-space: nowrap;
+}
+
+.overflow-clip, .overflow-clip li{
+	overflow: clip;
+}
+
+.sepia-filter {
+    filter: sepia(var(--sepia-value));
+}
+
+.x-small{
+	font-size: x-small;
+}
+
+
+
+
+/*****************************************
+Classes - disable stuff
+*****************************************/
+.isDisabled {
+	color: currentColor;
+	cursor: not-allowed;
+	opacity: 0.5;
+	text-decoration: none;
+	filter: grayscale(1);
+}
+.isDisabled:hover{
+	animation: none;
+	transition: none;
+	transform: none;
+}
+
+.no-border-bottom{
+	border-bottom: 0;
+}
+
+.no-flex-wrap{
+	flex-wrap: unset;
+}
+
+.no-padding-top{
+	padding-top: 0;
+}
+
+.no-round-borders{
+	border-radius: 0;
+}
+
+.no-sepia-filter {
+    filter: unset;
+}
+
+.no-fade-in{
+	animation: unset;
+}
+
+.width-unset{
+	width: unset;
 }
 
 
@@ -1029,8 +1074,8 @@ XXL Styles
 *****************************************/
 @media (min-width: 1440px){
 	:root{
-		--base-width-const: 75%;
-		--base-width: 75%;
+		--base-width-const: 70%;
+		--base-width: 70%;
 	}
 }
 
