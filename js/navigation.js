@@ -1,12 +1,4 @@
-	function setPage(page, id="main-content"){		
-		//fetch(page + '.html')
-		fetch('html/' + page + '.html', { cache: 'no-store'})
-			.then(response => response.text())
-			.then(html => {
-				document.getElementById(id).innerHTML = html;
-			})
-			.catch(error => console.error('Error:', error));
-			
+	function setPage(page, id="main-content"){	
 		//Set page-name
 		var slash = "/";
 		if(page.startsWith("/")){ slash = "" } //Always add exactly one slash at the beginning
@@ -18,9 +10,25 @@
 			tablinks[i].classList.remove("tab-selected");
 		}
 
-		//Highlights selected page
-		document.getElementById(page).classList.add("tab-selected");
-		
+		//Play animation if it's inside the page (tab like system)
+		if(id !== "main-content"){
+			elem = document.getElementById(id);
+
+			//Hides current tab and shows a new one via callback function
+			//Shows page, after old tab disappeared
+			hideTab(elem, () => {
+				showTab(elem);
+				fetchPage(page, id);
+			});
+
+			//Highlights selected page
+			document.getElementById(page).classList.add("tab-selected");
+		}
+		//Page reloads. We don't care about animation timing
+		else{
+			fetchPage(page, id);
+		}
+			
 		//Wait until the modal was completly loaded
 		if (page === "settings") {
 			waitForElement("maximizeWindows", readSettingsToForm);
@@ -28,6 +36,16 @@
 		
 	}
 	
+	function fetchPage(page, id){
+		//Fetch page content
+		//fetch(page + '.html')
+		fetch('html/' + page + '.html', { cache: 'no-store'})
+			.then(response => response.text())
+			.then(html => {
+				document.getElementById(id).innerHTML = html;
+			})
+			.catch(error => console.error('Error:', error));
+	}
 
 
 	function resizePage(){
@@ -60,6 +78,27 @@
 				clearInterval(interval);
 				callback();
 			}
-		}, 10);
+		}, 100); //check every 100 ms if the element was loaded successfully
 	}
 
+
+
+	function hideTab(tab, callback) {
+		tab.classList.remove("slide-in");
+		tab.classList.add("slide-out");
+
+		tab.addEventListener("animationend", function () {
+			tab.classList.remove("slide-out");
+
+			if (callback) {
+				callback();
+			}
+		}, { once: true });
+	}
+
+
+
+	function showTab(tab) {
+		tab.classList.remove("slide-out");
+		tab.classList.add("slide-in");
+	}

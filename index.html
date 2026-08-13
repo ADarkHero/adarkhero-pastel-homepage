@@ -10,7 +10,10 @@
 	</head>
 
 	<body id="body">
-		
+		<video autoplay muted loop id="bg-video">
+			<source src="#" type="video/mp4">
+		</video>
+
 		<div id="wrapper">
 			<div id="settings">
 				<a href="javascript:void(0)" onclick="javascript:closeSpeechbubble()">
@@ -34,7 +37,7 @@
 						<li class="nav-button header-bg bg-likes" id="likes"><a href="?page=likes">/likes</a></li>
 						<li class="nav-button header-bg bg-lifegoals" id="lifegoals"><a href="?page=lifegoals">/lifegoals</a></li>
 						<li class="nav-button header-bg bg-fun" id="fun-corner"><a href="?page=fun-corner">/fun</a></li>
-						<li class="nav-button header-bg bg-external" id="fun-corner"><a href="?page=links">/links</a></li>
+						<li class="nav-button header-bg bg-external" id="links"><a href="?page=links">/links</a></li>
 						<li class="nav-button header-bg bg-blog"><a href="https://www.heldendenken.de" target="_blank">/blog <span class="x-small">&nbsp;(ext)</span></a></li>
 					</ul>
 				</nav>
@@ -48,13 +51,13 @@
 								<li class="nav-button"><a onClick="javascript:history.back()"><img src="img/smileys/arrow-l.gif" class="inline-img no-sepia-filter"/>&nbsp;Back</a></li>
 								<li class="nav-button"><a onClick="javascript:scrollToTop()"><img src="img/smileys/up.gif" class="inline-img no-sepia-filter"/>&nbsp;Top</a></li>
 								<li class="nav-button"><a onClick="javascript:resizePage()"><img src="img/smileys/waffle.gif" class="inline-img no-sepia-filter"/>&nbsp;Resize</a></li>
-								<li class="nav-button"><a onClick="javascript:history.forward()" id="btn-forward"><img src="img/smileys/arrow.gif" class="inline-img no-sepia-filter"/>&nbsp;Forward</a></li>
+								<li class="nav-button"><a onClick="javascript:history.forward()" id="btn-forward"><img src="img/smileys/arrow.gif" class="inline-img"/>&nbsp;Forward</a></li>
 							</ul>
 						</nav>
 					</div>
 				</header>
 				
-				<div id="main-content" class="scrollbar">
+				<div id="main-content" class="scrollbar fade-in">
 					<noscript>
 						<div class="error-message">
 							This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
@@ -82,19 +85,13 @@
 				
 			</div>
 		</div>
-
-		
-
-		
 		
 		<dialog id="lightbox"></dialog>
-		
 
 		<script src="js/main.js"></script>
 		<script src="js/navigation.js"></script>
 		<script src="js/settings.js"></script>
 		<script src="js/lightbox.js"></script>
-		<script src="js/tabs.js"></script>
 		<script src="js/mouse.js"></script>
 		<script src="js/pokeneko.js"></script>
 
