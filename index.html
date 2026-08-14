@@ -30,15 +30,16 @@
 			</div>
 
 			<div id="main-container">				
-				<nav class="overflow-clip">
+				<nav class="overflow-clip main-nav">
 					<ul>
 						<li class="nav-button header-bg bg-root" id="root"><a href="?page=root">/root</a></li>
 						<li class="nav-button header-bg bg-projects" id="projects"><a href="?page=projects">/projects</a></li>
 						<li class="nav-button header-bg bg-likes" id="likes"><a href="?page=likes">/likes</a></li>
 						<li class="nav-button header-bg bg-lifegoals" id="lifegoals"><a href="?page=lifegoals">/lifegoals</a></li>
-						<li class="nav-button header-bg bg-fun" id="fun-corner"><a href="?page=fun-corner">/fun</a></li>
+						<li class="nav-button header-bg bg-fun" id="fun-corner"><a href="?page=fun-corner">/fun-corner</a></li>
 						<li class="nav-button header-bg bg-external" id="links"><a href="?page=links">/links</a></li>
-						<li class="nav-button header-bg bg-blog"><a href="https://www.heldendenken.de" target="_blank">/blog <span class="x-small">&nbsp;(ext)</span></a></li>
+						<li class="nav-button header-bg bg-book"><a href="?page=guestbook">/gbook</a></li>
+						<li class="nav-button header-bg bg-blog"><a href="?page=blog">/blog</a></li>
 					</ul>
 				</nav>
 				
@@ -98,6 +99,7 @@
 		<script>
 			readSettings();
 			checkBtnForward();
+			changeRootIcon();
 			
 			var page = findGetParameter("page") || "root"; <!-- root is default page -->
 			setPage(page);

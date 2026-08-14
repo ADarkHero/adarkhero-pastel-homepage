@@ -14,19 +14,20 @@ Variables
 	
 	--color-white: #FAF9F6;
 	--color-black: #343231;
-	--color-gray: #555555;
-	--color-yellow: #FBF8CC;
-	--color-orange: #FDE4CF;
-	--color-red: #FFCFD2;
-	--color-pink: #F1C0E8;
-	--color-violet: #CFBAF0;
-	--color-blue: #A3C4F3;
-	--color-light-blue: #90DBF4;
-	--color-turquoise: #8EECF5;
-	--color-green: #98F5E1;
-	--color-light-green: #B9FBC0;
+	--color-gray: #555555; /* clicked link */
+	--color-yellow: #FBF8CC; /* footer, section, textarea, main-container, speech-bubble, update-nav, lightbox */
+	--color-orange: #FDE4CF; /* body, section>section */
+	--color-red: #FFCFD2; /* nav, scrollbar */
+	--color-pink: #F1C0E8; /* nav button */
+	--color-violet: #CFBAF0; /* header, section headline */
+	--color-blue: #A3C4F3; /* border, tab-selected, scrollbar */
+	--color-light-blue: #90DBF4; /* scrollbar-hover */
+	--color-turquoise: #8EECF5; /* unused */
+	--color-green: #98F5E1; /* unused */
+	--color-light-green: #B9FBC0; /* block-button, inline-button */
 
 	--border-color: var(--color-blue);
+	--font-color: var(--color-black);
 
 	--font-size: 16px;
 	
@@ -74,12 +75,24 @@ body{
 	font-family: "Power Clear";
 	font-size: var(--font-size);
 	line-height: calc(var(--font-size) + var(--distance));
-	
+	color: var(--font-color);
+
 	background-color: var(--color-orange);
-	background-image: var(--background-image); /* via heropatterns.com */
 
 	margin: 0;
     overflow-x: hidden; /* trims off overhanging areas */
+}
+body::before {
+	content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-yellow);
+
+    -webkit-mask: var(--background-image) repeat;
+    mask: var(--background-image) repeat;
+
+	pointer-events: none;
 }
 
 header{
@@ -97,10 +110,6 @@ nav{
 	background-color: var(--color-red);
 	text-align: center;
 	
-	display: flex;
-	align-items: center; /* center content */
-	justify-content: center; /* center content */
-	
 	border-radius: 0 var(--distance-4) 0 0;
 	
 	height: var(--header-height);
@@ -109,11 +118,16 @@ nav{
 	justify-content: center; /* center content */
 	
 	border-bottom: var(--distance) var(--border-color) double;
+
+	position: relative;
+	z-index: 2;
 }
 nav > ul > li{
     border-left: var(--distance) var(--border-color) double;
     border-right: var(--distance) var(--border-color) double;
     margin-left: calc(var(--distance) *-1); /* no duplicate borders */
+	flex: 1; /* everything in one line */
+    text-align: center;
 }
 nav > ul > li > a{
 	/* vertical centering / horizontal left */
@@ -121,7 +135,7 @@ nav > ul > li > a{
 	align-items: center;
 	justify-content: flex-start;
 }
-nav ul, footer > ul, .horizontal-list > ul, .horizontal-ul{
+footer > ul, .horizontal-list > ul, .horizontal-ul{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
 	flex-wrap: wrap; /* multiple lines */
@@ -130,7 +144,12 @@ nav ul, footer > ul, .horizontal-list > ul, .horizontal-ul{
 	padding: 0;
 }
 nav ul{
-	gap: 0     /* gap between elements */
+	display: flex; /* every li same size */
+	flex-wrap: wrap;
+    width: 100%; /* full size */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 main{
@@ -180,6 +199,9 @@ section > img, section > p > img, section > p > a > img{
 	max-height: 200px;
 }
 
+iframe{
+	border: 0;
+}
 
 
 /*****************************************
@@ -207,7 +229,7 @@ HTML Tags - a / Links
 *****************************************/
 a{
 	display: inline-block;
-	color: var(--color-black);
+	color: var(--font-color);
 	cursor: pointer;
 }
 a:clicked{
@@ -286,9 +308,13 @@ Keyframes (animations)
 @keyframes moveBackground {
     from {
         background-position: 0 0;
+		-webkit-mask-position: 0 0;
+		mask-position: 0 0;
     }
     to {
         background-position: -1000px -1000px;
+		-webkit-mask-position: -1000px -1000px;
+		mask-position: -1000px -1000px;
     }
 }
 
@@ -355,6 +381,9 @@ Div ids - header
 	display: flex;
     justify-content: space-between;
     align-items: center;
+
+	position: relative;
+	z-index: 2;
 }
 
 #header-buttons{
@@ -401,16 +430,30 @@ Div ids - container
 	*/
 
 	background-color: var(--color-yellow);
-	/*
-	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c0e8' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E"); /* via heropatterns.com */
-	background-image: url(../img/background.png);
 	background-repeat: repeat;
-    animation: var(--background-animation);
 	
 	width: var(--base-width);
 	height: var(--base-height);
 	
 	border-radius: 0 var(--distance-5) 0 var(--distance-5);
+	position: relative;
+	overflow: hidden;
+
+}
+#main-container::before {
+	content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-orange);
+
+    -webkit-mask: url('../img/background.png') repeat;
+    mask: url('../img/background.png') repeat;
+
+	pointer-events: none;
+
+	animation: var(--background-animation);
+	overflow: hidden;
 }
 
 #left-container, #right-container {
@@ -424,7 +467,7 @@ Div ids - container
 Div ids - content
 *****************************************/
 #main-content {
-	background-image: url(../img/pastel-rainbow.png);
+	/*background-image: url(../img/pastel-rainbow.png);*/
 	background-position-y: bottom;
     background-position-x: right;
 	background-repeat: no-repeat;
@@ -432,9 +475,21 @@ Div ids - content
 	height: var(--content-height);
 	overflow: auto;
 	overflow-x: hidden;
+
+	position: relative;
+
+	background: linear-gradient(
+        150deg,
+        transparent 0 85%,
+        var(--color-red) 85% 87.5%,
+        var(--color-orange) 87.5% 90%,
+        var(--color-yellow) 90% 92.5%,
+        var(--color-green) 92.5% 95%,
+        var(--color-blue) 95% 97.5%,
+        var(--color-violet) 97.5% 100%
+    );
+
 }
-
-
 
 /*****************************************
 Div ids - settings
@@ -688,6 +743,9 @@ Classes - Background images
 .bg-external {
     background-image: url("../img/smileys/esckey.gif");
 }
+.bg-book {
+    background-image: url("../img/smileys/book.gif");
+}
 .bg-blog {
     background-image: url("../img/smileys/pencil.gif");
 }
@@ -886,7 +944,7 @@ Classes - borders
     border-right: var(--distance) solid var(--border-color);
 }
 
-.last-no-right-borders > li:last-child{
+.last-no-right-borders > li:last-child, nav > ul > li:last-child{
 	border-right: 0;
 }
 
@@ -940,11 +998,17 @@ Classes - Helper classes
 	z-index: 9001;
 }
 
-.center-me{
+.center-me, .nav-secondary a{
 	text-align: center;
 	display: flex;
 	align-items: center; /* center content */
 	justify-content: center; /* center content */
+}
+
+.full-size{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 
 .inline-img{
@@ -1086,8 +1150,19 @@ Mobile Styles
 		height: unset;
 	}	
 	nav > ul > li{
+		flex: 1 1 25%; /* 3 entries per line */
 		border-bottom: var(--distance) var(--border-color) double;
 	}
+	nav > ul > li:nth-child(3n) {
+		border-right: none;
+	}
+	.main-nav > ul > li:nth-child(7n), .main-nav > ul > li:nth-child(8n) {
+		border-bottom: none;
+	}	
+	.nav-secondary{
+		border-bottom: 0;
+	}
+
 	
 	footer{
 		height: unset;
@@ -1167,8 +1242,3 @@ Support for none mobile devices with small height
 		}
 	}
 }
-
-
-
-
-
