@@ -57,22 +57,26 @@ function closeSpeechbubble(text){
 
 
 function changeRootIcon(){
-    // Source - https://stackoverflow.com/a/8619946
-    // Posted by Alex Turpin, modified by community. See post 'Timeline' for change history
-    // Retrieved 2026-08-14, License - CC BY-SA 3.0
+    try{
+        // Source - https://stackoverflow.com/a/8619946
+        // Posted by Alex Turpin, modified by community. See post 'Timeline' for change history
+        // Retrieved 2026-08-14, License - CC BY-SA 3.0
 
-    var now = new Date();
-    var start = new Date(now.getFullYear(), 0, 0);
-    var diff = now - start;
-    var oneDay = 1000 * 60 * 60 * 24;
-    var day = Math.floor(diff / oneDay);
+        var now = new Date();
+        var start = new Date(now.getFullYear(), 0, 0);
+        var diff = now - start;
+        var oneDay = 1000 * 60 * 60 * 24;
+        var day = Math.floor(diff / oneDay);
 
-    const smileys = [];
-    smileys.push("1star.gif", "2stars.gif", "3stars.gif", "4stars.gif", "alert.gif", "arrow.gif", "arrow-l.gif", "awesome.gif", "balloon.gif", "bandaid.gif", "bat.gif", "battery.gif", "beggarshat.gif", "bell.gif", "biggrin.gif", "birthday.gif", "blockhead.gif", "bomb.gif", "book.gif", "brokenheart.gif", "cactus.gif", "calendar.gif", "candyheart.gif", "cd.gif", "censored.gif", "checkeredflag.gif", "checkmark.gif", "circustent.gif", "clock.gif", "cloud.gif", "clover.gif", "clown.gif", "coinflip.gif", "cold.gif", "colon3.gif", "companioncube.gif", "computer.gif", "computermouse.gif", "cookie.gif", "crackup.gif", "cutie.gif", "dandelion.gif", "darkside.gif", "dice.gif", "document.gif", "donotenter.gif", "down.gif", "earth.gif", "easteregg.gif", "envelope.gif", "esckey.gif", "eye-popping.gif", "facemask.gif", "filmstrip.gif", "fire.gif", "flask.gif", "flowers.gif", "fluffy.gif", "flyingspaghetti.gif", "folder.gif", "forbidden.gif", "fortuneteller.gif", "frog.gif", "ghost.gif", "graduatescap.gif", "greedy.gif", "half.gif", "headinsand.gif", "heart.gif", "heartbeat.gif", "hourglass.gif", "house.gif", "hyper.gif", "hypnotized.gif", "indifferent.gif", "innocent.gif", "jack-o-lantern.gif", "jester.gif", "jestershat.gif", "jigsaw.gif", "jump.gif", "key.gif", "knockout.gif", "lawnmower.gif", "lgbtpride.gif", "lifepreserver.gif", "lock.gif", "loser.gif", "loveletter.gif", "magnet.gif", "mailbox.gif", "mallet.gif", "mp3.gif", "necktie.gif", "newspaper.gif", "nosmoking.gif", "note.gif", "ocarina.gif", "owl.gif", "package.gif", "palette.gif", "paperbag.gif", "paperbag2.gif", "paperclip.gif", "partyhat.gif", "paw.gif", "peace.gif", "pencil.gif", "piechart.gif", "pig.gif", "pinky.gif", "pinocchio.gif", "point.gif", "pokeball.gif", "pokerchip.gif", "present.gif", "privateeye.gif", "propeller.gif", "rabbit.gif", "rainbow.gif", "raindrop.gif", "reminder.gif", "ring.gif", "rocket.gif", "rollingeyes.gif", "rotfl.gif", "ruler.gif", "sarcastic.gif", "scissors.gif", "scroll.gif", "shark.gif", "shoppingcart.gif", "shy.gif", "silenced.gif", "skull.gif", "slipper.gif", "slug.gif", "smallcraftwarning.gif", "snail.gif", "snowflake.gif", "socks.gif", "speaker.gif", "spin.gif", "star.gif", "stopsign.gif", "stormwarning.gif", "sun.gif", "sunrise.gif", "sweatdrop.gif", "telephone.gif", "thumbsup.gif", "tired.gif", "toiletpaper.gif", "toolbox.gif", "tornado.gif", "trafficcone.gif", "trash.gif", "treasure.gif", "tree.gif", "tropicalfish.gif", "tv.gif", "twocents.gif", "umbrella.gif", "up.gif", "upsidedown.gif", "violet.gif", "waffle.gif", "washingmachine.gif", "wide-eyed.gif", "wink.gif", "wizard.gif", "worm.gif", "wrench.gif", "yarn.gif", "yes.gif");
+        const smileys = [];
+        smileys.push("1star.gif", "2stars.gif", "3stars.gif", "4stars.gif", "alert.gif", "arrow.gif", "arrow-l.gif", "awesome.gif", "balloon.gif", "bandaid.gif", "bat.gif", "battery.gif", "beggarshat.gif", "bell.gif", "biggrin.gif", "birthday.gif", "blockhead.gif", "bomb.gif", "book.gif", "brokenheart.gif", "cactus.gif", "calendar.gif", "candyheart.gif", "cd.gif", "censored.gif", "checkeredflag.gif", "checkmark.gif", "circustent.gif", "clock.gif", "cloud.gif", "clover.gif", "clown.gif", "coinflip.gif", "cold.gif", "colon3.gif", "companioncube.gif", "computer.gif", "computermouse.gif", "cookie.gif", "crackup.gif", "cutie.gif", "dandelion.gif", "darkside.gif", "dice.gif", "document.gif", "donotenter.gif", "down.gif", "earth.gif", "easteregg.gif", "envelope.gif", "esckey.gif", "eye-popping.gif", "facemask.gif", "filmstrip.gif", "fire.gif", "flask.gif", "flowers.gif", "fluffy.gif", "flyingspaghetti.gif", "folder.gif", "forbidden.gif", "fortuneteller.gif", "frog.gif", "ghost.gif", "graduatescap.gif", "greedy.gif", "half.gif", "headinsand.gif", "heart.gif", "heartbeat.gif", "hourglass.gif", "house.gif", "hyper.gif", "hypnotized.gif", "indifferent.gif", "innocent.gif", "jack-o-lantern.gif", "jester.gif", "jestershat.gif", "jigsaw.gif", "jump.gif", "key.gif", "knockout.gif", "lawnmower.gif", "lgbtpride.gif", "lifepreserver.gif", "lock.gif", "loser.gif", "loveletter.gif", "magnet.gif", "mailbox.gif", "mallet.gif", "mp3.gif", "necktie.gif", "newspaper.gif", "nosmoking.gif", "note.gif", "ocarina.gif", "owl.gif", "package.gif", "palette.gif", "paperbag.gif", "paperbag2.gif", "paperclip.gif", "partyhat.gif", "paw.gif", "peace.gif", "pencil.gif", "piechart.gif", "pig.gif", "pinky.gif", "pinocchio.gif", "point.gif", "pokeball.gif", "pokerchip.gif", "present.gif", "privateeye.gif", "propeller.gif", "rabbit.gif", "rainbow.gif", "raindrop.gif", "reminder.gif", "ring.gif", "rocket.gif", "rollingeyes.gif", "rotfl.gif", "ruler.gif", "sarcastic.gif", "scissors.gif", "scroll.gif", "shark.gif", "shoppingcart.gif", "shy.gif", "silenced.gif", "skull.gif", "slipper.gif", "slug.gif", "smallcraftwarning.gif", "snail.gif", "snowflake.gif", "socks.gif", "speaker.gif", "spin.gif", "star.gif", "stopsign.gif", "stormwarning.gif", "sun.gif", "sunrise.gif", "sweatdrop.gif", "telephone.gif", "thumbsup.gif", "tired.gif", "toiletpaper.gif", "toolbox.gif", "tornado.gif", "trafficcone.gif", "trash.gif", "treasure.gif", "tree.gif", "tropicalfish.gif", "tv.gif", "twocents.gif", "umbrella.gif", "up.gif", "upsidedown.gif", "violet.gif", "waffle.gif", "washingmachine.gif", "wide-eyed.gif", "wink.gif", "wizard.gif", "worm.gif", "wrench.gif", "yarn.gif", "yes.gif");
 
-    while(smileys.length < day){
-        day = day - smileys.length; //Support for less than 365 smileys
+        while(smileys.length < day){
+            day = day - smileys.length; //Support for less than 365 smileys
+        }
+
+        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "')";
+    }catch(error){
+        alert(error);
     }
-
-    document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "')";
 }

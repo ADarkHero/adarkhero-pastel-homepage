@@ -9,9 +9,7 @@ function saveSettings(){
     localStorage.setItem("backgroundVideo", document.getElementById("backgroundVideo").checked);
 
     localStorage.setItem("color_scheme", document.querySelector('input[name="color_scheme"]:checked').value);
-	
-	alert("Settings saved!");
-	
+		
 	window.location.replace("?page=settings");
 }
 

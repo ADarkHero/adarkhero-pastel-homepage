@@ -1,50 +1,57 @@
 	function setPage(page, id="main-content"){	
-		//Set page-name
-		var slash = "/";
-		if(page.startsWith("/")){ slash = "" } //Always add exactly one slash at the beginning
-		document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html' + slash + page + '.html</a>';
+		try{
+			//Set page-name
+			var slash = "/";
+			if(page.startsWith("/")){ slash = "" } //Always add exactly one slash at the beginning
+			document.getElementById('page-name').innerHTML = '<a href="?page=' + page + '" target="_blank">html' + slash + page + '.html</a>';
 
-		//Play animation if it's inside the page (tab like system)
-		if(id !== "main-content"){
-			elem = document.getElementById(id);
+			//Play animation if it's inside the page (tab like system)
+			if(id !== "main-content"){
+				elem = document.getElementById(id);
 
-			//Select all tablinks and remove the highlights from them
-			const tablinks = document.getElementsByClassName("tablink");
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].classList.remove("tab-selected");
+				//Select all tablinks and remove the highlights from them
+				const tablinks = document.getElementsByClassName("tablink");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].classList.remove("tab-selected");
+				}
+
+				//Hides current tab and shows a new one via callback function
+				//Shows page, after old tab disappeared
+				hideTab(elem, () => {
+					showTab(elem);
+					fetchPage(page, id);
+				});
+			}
+			//Page reloads. We don't care about animation timing
+			else{
+				fetchPage(page, id);
 			}
 
-			//Hides current tab and shows a new one via callback function
-			//Shows page, after old tab disappeared
-			hideTab(elem, () => {
-				showTab(elem);
-				fetchPage(page, id);
-			});
+			//Highlights selected page
+			document.getElementById(page).classList.add("tab-selected");
+				
+			//Wait until the modal was completly loaded
+			if (page === "settings") {
+				waitForElement("maximizeWindows", readSettingsToForm);
+			}	
+		}catch(error){
+			alert(error);
 		}
-		//Page reloads. We don't care about animation timing
-		else{
-			fetchPage(page, id);
-		}
-
-		//Highlights selected page
-		document.getElementById(page).classList.add("tab-selected");
-			
-		//Wait until the modal was completly loaded
-		if (page === "settings") {
-			waitForElement("maximizeWindows", readSettingsToForm);
-		}
-	
 	}
 	
 	function fetchPage(page, id){
-		//Fetch page content
-		//fetch(page + '.html')
-		fetch('html/' + page + '.html', { cache: 'no-store'})
-			.then(response => response.text())
-			.then(html => {
-				document.getElementById(id).innerHTML = html;
-			})
-			.catch(error => console.error('Error:', error));
+		try{
+			//Fetch page content
+			//fetch(page + '.html')
+			fetch('html/' + page + '.html', { cache: 'no-store'})
+				.then(response => response.text())
+				.then(html => {
+					document.getElementById(id).innerHTML = html;
+				})
+				.catch(error => console.error('Error:', error));	
+		}catch(error){
+			alert(error);
+		}
 	}
 
 

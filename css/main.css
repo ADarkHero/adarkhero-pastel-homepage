@@ -201,6 +201,7 @@ section > img, section > p > img, section > p > a > img{
 
 iframe{
 	border: 0;
+	min-height: 768px;
 }
 
 
@@ -478,16 +479,17 @@ Div ids - content
 
 	position: relative;
 
-	background: linear-gradient(
-        150deg,
-        transparent 0 85%,
-        var(--color-red) 85% 87.5%,
-        var(--color-orange) 87.5% 90%,
-        var(--color-yellow) 90% 92.5%,
-        var(--color-green) 92.5% 95%,
-        var(--color-blue) 95% 97.5%,
-        var(--color-violet) 97.5% 100%
-    );
+	background:
+		linear-gradient(
+			150deg,
+			transparent calc(100% - 12rem),
+			var(--color-red) calc(100% - 12rem) calc(100% - 10rem),
+			var(--color-orange) calc(100% - 10rem) calc(100% - 8rem),
+			var(--color-yellow) calc(100% - 8rem) calc(100% - 6rem),
+			var(--color-green) calc(100% - 6rem) calc(100% - 4rem),
+			var(--color-blue) calc(100% - 4rem) calc(100% - 2rem),
+			var(--color-violet) calc(100% - 2rem) 100%
+		);
 
 }
 
@@ -1166,10 +1168,12 @@ Mobile Styles
 	
 	footer{
 		height: unset;
-		position: unset;
+		position: relative;
 		width: unset;
 		background-color: unset;
 		border-top: var(--distance) double var(--border-color);
+
+		z-index: 1;
 	}
 	footer > ul{	
 		display: block;
@@ -1190,6 +1194,9 @@ Mobile Styles
 	#main-content{
 		height: unset;
 		padding-bottom: var(--distance-3);
+	}
+	#main-content:has(> .full-size) {
+		overflow: clip;
 	}
 	
 	#header-buttons{
