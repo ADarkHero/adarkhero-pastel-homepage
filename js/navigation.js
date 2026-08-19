@@ -35,7 +35,7 @@
 				waitForElement("maximizeWindows", readSettingsToForm);
 			}	
 		}catch(error){
-			alert(error);
+			console.log(error);
 		}
 	}
 	
@@ -50,7 +50,7 @@
 				})
 				.catch(error => console.error('Error:', error));	
 		}catch(error){
-			alert(error);
+			console.log(error);
 		}
 	}
 

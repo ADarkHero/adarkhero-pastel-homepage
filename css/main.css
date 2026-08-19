@@ -84,7 +84,7 @@ body{
 }
 body::before {
 	content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
 
     background-color: var(--color-yellow);
@@ -299,7 +299,7 @@ ul{
 }
 
 li{
-	list-style-image: url("../img/smileys/snowflake.gif");
+	list-style-image: url("../img/smileys/cd.gif");
 }
 
 
@@ -785,6 +785,9 @@ Classes - Background images
 }
 .bg-love {
     background-image: url("../img/smileys/candyheart.gif");
+}
+.bg-music {
+    background-image: url("../img/smileys/note.gif");
 }
 .bg-server {
     background-image: url("../img/smileys/computer.gif");

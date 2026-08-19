@@ -77,6 +77,6 @@ function changeRootIcon(){
 
         document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "')";
     }catch(error){
-        alert(error);
+        console.log(error);
     }
 }
