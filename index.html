@@ -36,6 +36,7 @@
 						<li class="nav-button header-bg bg-projects" id="projects"><a href="?page=projects">/projects</a></li>
 						<li class="nav-button header-bg bg-likes" id="likes"><a href="?page=likes">/likes</a></li>
 						<li class="nav-button header-bg bg-lifegoals" id="lifegoals"><a href="?page=lifegoals">/lifegoals</a></li>
+						<li class="nav-button header-bg bg-rabbit-holes" id="rabbit-holes"><a href="?page=rabbit-holes">/rabbit-holes</a></li>
 						<li class="nav-button header-bg bg-fun" id="fun-corner"><a href="?page=fun-corner">/fun-corner</a></li>
 						<li class="nav-button header-bg bg-external" id="links"><a href="?page=links">/links</a></li>
 						<li class="nav-button header-bg bg-book" id="guestbook"><a href="?page=guestbook">/gbook</a></li>
@@ -91,20 +92,28 @@
 		
 		<dialog id="lightbox"></dialog>
 
-		<script src="js/main.js?v=26.440"></script>
-		<script src="js/navigation.js?v=26.440"></script>
-		<script src="js/settings.js?v=26.440"></script>
+		<script src="js/main.js?v=26.452"></script>
+		<script src="js/navigation.js?v=26.450"></script>
+		<script src="js/settings.js?v=26.450"></script>
 		<script src="js/lightbox.js?v=26.440"></script>
 		<script src="js/mouse.js?v=26.440"></script>
 		<script src="js/pokeneko.js?v=26.440"></script>
 
 		<script type="text/javascript">
+			//Should catch rare errors / debug
+			window.onerror = function(msg, source, lineno, colno, error) {
+				console.error("GLOBAL ERROR:", error);
+			};
+			window.addEventListener('unhandledrejection', function(event) {
+				console.error('UNHANDLED PROMISE:', event.reason);
+			});
+
 			readSettings();
 			checkBtnForward();
 			changeRootIcon();
 			
-			var page = findGetParameter("page") || "root"; <!-- root is default page -->
-			setPage(page);
+			const page = findGetParameter("page") || "root"; //root is default page
+			setPage(page);	
 		</script>
 
 	</body>

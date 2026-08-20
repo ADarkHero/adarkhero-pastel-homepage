@@ -7,6 +7,7 @@ function saveSettings(){
     localStorage.setItem("disableAnimations", document.getElementById("disableAnimations").checked);
     localStorage.setItem("disablePokeneko", document.getElementById("disablePokeneko").checked);
     localStorage.setItem("backgroundVideo", document.getElementById("backgroundVideo").checked);
+    localStorage.setItem("disableSounds", document.getElementById("disableSounds").checked);
 
     localStorage.setItem("color_scheme", document.querySelector('input[name="color_scheme"]:checked').value);
 		
@@ -82,6 +83,20 @@ function readSettings(){
 			document.documentElement.style.setProperty('--color-green', '#2B5748');
 			document.documentElement.style.setProperty('--color-light-green', '#2B5748');
 		}
+		else if(color_scheme === "grey"){
+			document.documentElement.style.setProperty('--sepia-filter', 'grayscale(var(--sepia-value))');
+			document.documentElement.style.setProperty('--font-color', '#FAF9F6');
+			document.documentElement.style.setProperty('--color-yellow', '#656565');
+			document.documentElement.style.setProperty('--color-orange', '#4d4d4d');
+			document.documentElement.style.setProperty('--color-red', '#656565');
+			document.documentElement.style.setProperty('--color-pink', '#4d4d4d');
+			document.documentElement.style.setProperty('--color-violet', '#222222');
+			document.documentElement.style.setProperty('--color-blue', '#000000');
+			document.documentElement.style.setProperty('--color-light-blue', '#000000');
+			document.documentElement.style.setProperty('--color-turquoise', '#000000');
+			document.documentElement.style.setProperty('--color-green', '#222222');
+			document.documentElement.style.setProperty('--color-light-green', '#222222');
+		}
 	}
 }
 
@@ -102,6 +117,10 @@ function readSettingsToForm(){
 
 		if(localStorage.getItem("backgroundVideo") === "true"){
 			document.getElementById("backgroundVideo").checked = true;
+		}
+
+		if(localStorage.getItem("disableSounds") === "true"){
+			document.getElementById("disableSounds").checked = true;
 		}
 
 		document.getElementById("sepiaEffect").value = localStorage.getItem("sepiaEffect");

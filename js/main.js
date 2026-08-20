@@ -80,3 +80,42 @@ function changeRootIcon(){
         console.log(error);
     }
 }
+
+//Used at links.html
+function randomButton(){
+    //Change variables accordingly
+    var iterations = 15;
+    var speed = 100;
+
+    //Don't change these variables
+    const buttonWall = document.getElementById('button-wall');
+    var randomLink, randomImg = "";
+    var i = 0;
+
+    //search div buttonwall for a hrefs and imgs
+    const imageLinks = Array.from(
+        buttonWall.querySelectorAll('a[href] img')
+    )
+    .map(img => ({
+        img: img.src,
+        link: img.closest('a').href
+    }));
+
+    //Show X different buttons / button roulette
+    for(i; i < iterations; i++){
+        setTimeout(function(){
+            randomImg = Math.floor(Math.random() * imageLinks.length);
+            randomLink = imageLinks[randomImg]["link"];
+
+            document.getElementById('randomButton-link').href = randomLink;
+            document.getElementById('randomButton-img').src = imageLinks[randomImg]["img"];
+        }, i * speed);
+    }
+
+    //Open link in new tab
+    if(document.getElementById("autoOpen").checked){
+        setTimeout(function(){
+            window.open(randomLink, '_blank');
+        }, i * speed);
+    }
+}

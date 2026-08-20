@@ -1,4 +1,4 @@
-	function setPage(page, id="main-content"){	
+	async function setPage(page, id="main-content"){	
 		try{
 			//Set page-name
 			var slash = "/";
@@ -39,19 +39,22 @@
 		}
 	}
 	
-	function fetchPage(page, id){
-		try{
+	async function fetchPage(page, id){
 			//Fetch page content
 			//fetch(page + '.html')
 			fetch('html/' + page + '.html', { cache: 'no-store'})
-				.then(response => response.text())
-				.then(html => {
-					document.getElementById(id).innerHTML = html;
-				})
-				.catch(error => console.error('Error:', error));	
-		}catch(error){
-			console.log(error);
-		}
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP ${response.status}`);
+				}
+				return response.text();
+			})
+			.then(html => {
+				document.getElementById(id).innerHTML = html;
+			})
+			.catch(error => {
+				console.error('Fetch error:', error);
+			});
 	}
 
 

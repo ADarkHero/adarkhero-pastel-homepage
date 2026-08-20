@@ -17,6 +17,7 @@ document.addEventListener('mousemove', function(event) {
             settingsLook = "left";
         }
     }
+    //look lefttop
     else if(event.clientX < windowWidth - settingsWidth){
             if(settingsLook !== "lefttop"){
                 document.getElementById("settings-mops").src = "img/settings-mops-lefttop.png";
@@ -30,10 +31,16 @@ document.addEventListener('mousemove', function(event) {
             settingsLook = "top";
         }
     }
+    //hover animation
     else{
         if(settingsLook !== "animation"){
             document.getElementById("settings-mops").src = "img/settings-mops-animation.gif";
             settingsLook = "animation";
+
+            //Play bark sound effect, if not disabled
+            if(localStorage.getItem("disableSounds") !== 'true'){
+                new Audio('mp3/bark.mp3').play();
+            }  
         }
     }
       
