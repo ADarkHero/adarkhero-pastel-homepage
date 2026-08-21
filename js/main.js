@@ -108,6 +108,7 @@ function randomButton(){
             randomLink = imageLinks[randomImg]["link"];
 
             document.getElementById('randomButton-link').href = randomLink;
+            document.getElementById('randomButton-link').removeAttribute("onclick");
             document.getElementById('randomButton-img').src = imageLinks[randomImg]["img"];
         }, i * speed);
     }

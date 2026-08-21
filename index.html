@@ -46,7 +46,7 @@
 				
 				
 				<header id="page-header" class="overflow-clip">
-					<div id="page-name">If you see this, press F5</div>
+					<div id="page-name">I AM ERROR</div>
 					<div id="header-buttons" class="horizontal-list">
 						<nav class="no-border-bottom no-round-borders">
 							<ul class="last-no-right-borders">
@@ -61,12 +61,21 @@
 				
 				<div id="main-content" class="scrollbar fade-in">
 					<noscript>
-						<div class="error-message">
-							This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
-						</div>
+						<section class="noscript">
+							<div class="section-headline"><h2>noscript</h2></div>
+							<p>
+								This website needs basic javascript to run correctly. Please enable it. I won't track you and I won't steal your cookies. I also won't kill you. Pinky promise. uwu
+							</p>
+						</section>
 					</noscript>
 
-					If you see this, you found a very weird bug, that I'm currently investigating. Reloading the page (F5) should fix the issue.
+					<section class="error">
+						<div class="section-headline"><h2>Congrats! You found an SSR error!</h2></div>
+						<p>
+							If you can read this, you've stumbled upon an super rare error. Force reloading the page with CTRL+F5 (or any similar method) should fix this issue. Or you just visit the page, you wanted to look at, again.<br>
+							If this issue consists, please contact me with as much detail as possible. Thank you!
+						</p>
+					</section>
 				</div>
 
 				<footer class="mobile-only center-me">
@@ -93,29 +102,12 @@
 		<dialog id="lightbox"></dialog>
 
 		<script src="js/main.js?v=26.452"></script>
-		<script src="js/navigation.js?v=26.450"></script>
+		<script src="js/navigation.js?v=26.452"></script>
 		<script src="js/settings.js?v=26.450"></script>
-		<script src="js/lightbox.js?v=26.440"></script>
+		<script src="js/lightbox.js?v=26.452"></script>
 		<script src="js/mouse.js?v=26.440"></script>
 		<script src="js/pokeneko.js?v=26.440"></script>
-
-		<script type="text/javascript">
-			//Should catch rare errors / debug
-			window.onerror = function(msg, source, lineno, colno, error) {
-				console.error("GLOBAL ERROR:", error);
-			};
-			window.addEventListener('unhandledrejection', function(event) {
-				console.error('UNHANDLED PROMISE:', event.reason);
-			});
-
-			readSettings();
-			checkBtnForward();
-			changeRootIcon();
-			
-			const page = findGetParameter("page") || "root"; //root is default page
-			setPage(page);	
-		</script>
-
+		<script src="js/onload.js?v=26.452"></script> <!--important functions triggered on page load -->
 	</body>
 
 </html>
