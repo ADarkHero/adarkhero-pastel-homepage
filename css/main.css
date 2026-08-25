@@ -51,7 +51,7 @@ Variables
 	--slide-in-animation: slideInAnimation 0.5s ease 0s 1 normal forwards; 
 	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
 	--opacity-animation: opacity 0.5s ease; 
-	--marquee-animation: marquee 45s linear infinite;
+	--marquee-animation: marquee 60s linear infinite;
 	/* reset values for js */
 	--base-width-const: 1024px;
 	--base-height-const: 768px;
@@ -186,14 +186,13 @@ section{
 	border: 1px var(--border-color) solid;
 	border-radius: var(--distance-2);
 	margin: var(--distance-2);
+	padding: var(--distance-2);
+	padding-bottom: var(--distance);
 	
 	filter: drop-shadow(3px 3px 5px var(--color-black));
 }
 section > section{
 	background-color: var(--color-yellow); /* diffent bg-colors for stacked sections */
-}
-section{
-	padding: var(--distance-2);
 }
 section > img, section > p > img, section > p > a > img{
 	max-width: 70%;
@@ -461,6 +460,10 @@ Div ids - container
 #left-container, #right-container {
     flex: 1;
     overflow: hidden;
+	margin-top: var(--distance-5);
+}
+#right-container{
+	margin-left: var(--distance-3);
 }
 
 
@@ -645,6 +648,13 @@ Classes - sections
 	padding-left: var(--distance);
 	border-bottom: 1px var(--border-color) solid;
 	border-radius: var(--distance-2) var(--distance-2) 0 0;
+}
+
+.section-image{
+	padding-right: var(--distance-2);
+}
+.section-image img{
+	max-width: 100%;
 }
 
 
@@ -874,6 +884,12 @@ Classes - Columns
     grid-template-columns: 50% 50%; /* 2 colums */
 }
 
+/* smaller picture on left, text on right */
+.column-2-smallbig{
+	display: grid;
+    grid-template-columns: 150px 1fr; /* 2 colums */
+}
+
 .column-3{
 	display: grid;
     grid-template-columns: 25% 50% 25%; /* 3 colums */
@@ -1008,6 +1024,41 @@ Classes - headline
 *****************************************/
 .img-200px img{
 	max-width: 200px;
+}
+
+
+
+/*****************************************
+Classes - stamps
+*****************************************/
+.stamp {
+  --r: 2px; /* control the radius */
+
+  border: 2px solid var(--border-color);
+
+  width: calc(99px - var(--r) - var(--r));
+  height: calc(56px - var(--r) - var(--r));
+  padding: var(--r);
+  background: #b3b39c;
+  mask: 
+    radial-gradient(50% 50%,#0000 66%,#000 67%) round 
+     var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), 
+    conic-gradient(#000 0 0) content-box;
+}
+
+.stamp-background-image{
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-stamp-music{
+	background-image: url(../img/likes/currently_listening.webp)
+}
+.bg-stamp-game{
+	background-image: url(../img/likes/currently_playing.webp)
+}
+.bg-stamp-watch{
+	background-image: url(../img/likes/currently_watching.webp)
 }
 
 
@@ -1243,7 +1294,7 @@ Mobile Styles
 		height: unset;
 	}
 	
-	.column-2, .column-3, .column-4{
+	.column-2, .column-3, .column-4, .column-2-smallbig{
 		display: block;
 	}
 
