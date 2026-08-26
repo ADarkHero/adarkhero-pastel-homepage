@@ -51,7 +51,7 @@ Variables
 	--slide-in-animation: slideInAnimation 0.5s ease 0s 1 normal forwards; 
 	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
 	--opacity-animation: opacity 0.5s ease; 
-	--marquee-animation: marquee 60s linear infinite;
+	--marquee-animation: marquee 15s linear infinite;
 	/* reset values for js */
 	--base-width-const: 1024px;
 	--base-height-const: 768px;
@@ -657,6 +657,17 @@ Classes - sections
 	max-width: 100%;
 }
 
+.section-full-size-img{
+	background-color: transparent;
+	border: 0;
+	padding-top: 0;
+}
+.section-full-size-img > img{
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+}
+
 
 
 /*****************************************
@@ -1083,6 +1094,10 @@ Classes - Helper classes
 	overflow: hidden;
 }
 
+.height-100{
+	height: 100%
+}
+
 .inline-img{
 	height: var(--font-size);
 	max-width: unset;
@@ -1090,6 +1105,11 @@ Classes - Helper classes
 
 .list-distance{
 	padding-left: var(--distance-5);
+}
+
+.mirror{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
 }
 
 .nowrap{
@@ -1128,12 +1148,28 @@ Classes - disable stuff
 	filter: grayscale(1); /* overwrite sepia filter */
 }
 
+.no-animation{
+	animation: none;
+	transition: none;
+	transform: none;
+}
+.no-animation:hover{
+	animation: none;
+	transition: none;
+	transform: none;
+}
+
 .no-border-bottom{
 	border-bottom: 0;
 }
 
 .no-flex-wrap{
 	flex-wrap: unset;
+}
+
+.no-hover{
+	pointer-events: none;
+
 }
 
 .no-padding-top{
@@ -1182,7 +1218,7 @@ dialog[open]{
 	display: block;
 }
 
-#lightbox{
+.lightbox{
 	text-align: center;
 	align-items: center; /* center content */
 	justify-content: center; /* center content */
@@ -1199,26 +1235,30 @@ dialog[open]{
 	overflow: hidden;
 }
 
-#lightbox::backdrop {
+.lightbox::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#lightbox > img{
+.lightbox > img{
 	filter: unset;
 	max-width: 80vw;
 	max-height: 80vh;
 }
-#lightbox > img:hover, #lightbox > a:hover{
+.lightbox > img:hover, #lightbox > a:hover{
 	transform: unset !important;
 }
 
-#lightbox > a{
+.lightbox > a{
 	text-decoration: none;
 }
 
-#lightbox .list-distance::before{
+.lightbox .list-distance::before{
 	content: "";
 	display: block;
+}
+
+.lightbox:has(> ul) {
+    text-align: left;
 }
 
 
@@ -1293,6 +1333,10 @@ Mobile Styles
 	.headline{
 		height: unset;
 	}
+
+	.section-full-size-img{
+		padding-top: var(--distance-2);
+	}
 	
 	.column-2, .column-3, .column-4, .column-2-smallbig{
 		display: block;
@@ -1327,4 +1371,15 @@ Support for none mobile devices with small height
 			--base-height: 480px;
 		}
 	}
+}
+
+
+.draggable{
+	user-select: all;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	cursor: move;
+}
+.dress-up-char{
+	height: 560px;
 }

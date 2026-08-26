@@ -120,3 +120,40 @@ function randomButton(){
         }, i * speed);
     }
 }
+
+
+function draggable(){
+    console.log("draggable");
+    let activeElement = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    document.querySelectorAll(".draggable").forEach(img => {
+
+        img.style.position = "absolute";
+        img.style.cursor = "grab";
+
+        img.addEventListener("mousedown", (e) => {
+            activeElement = img;
+
+            offsetX = e.clientX - img.offsetLeft;
+            offsetY = e.clientY - img.offsetTop;
+
+            img.style.cursor = "grabbing";
+        });
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (!activeElement) return;
+
+        activeElement.style.left = (e.clientX - offsetX) + "px";
+        activeElement.style.top = (e.clientY - offsetY) + "px";
+    });
+
+    document.addEventListener("mouseup", () => {
+        if (!activeElement) return;
+
+        activeElement.style.cursor = "grab";
+        activeElement = null;
+    });
+}
