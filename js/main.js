@@ -130,27 +130,27 @@ function draggable(){
 
     document.querySelectorAll(".draggable").forEach(img => {
 
-        img.style.position = "absolute";
-        img.style.cursor = "grab";
+        img.style.position = "absolute"; //Set position
+        img.style.cursor = "grab"; //Set cursor
 
-        img.addEventListener("mousedown", (e) => {
+        img.addEventListener("pointerdown", (e) => {
             activeElement = img;
 
-            offsetX = e.clientX - img.offsetLeft;
-            offsetY = e.clientY - img.offsetTop;
+            offsetX = e.clientX - img.offsetLeft; //move leftright
+            offsetY = e.clientY - img.offsetTop; //move updown
 
             img.style.cursor = "grabbing";
         });
     });
 
-    document.addEventListener("mousemove", (e) => {
+    document.addEventListener("pointermove", (e) => {
         if (!activeElement) return;
 
         activeElement.style.left = (e.clientX - offsetX) + "px";
         activeElement.style.top = (e.clientY - offsetY) + "px";
     });
 
-    document.addEventListener("mouseup", () => {
+    document.addEventListener("pointerup", () => {
         if (!activeElement) return;
 
         activeElement.style.cursor = "grab";

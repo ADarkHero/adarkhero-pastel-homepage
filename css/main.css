@@ -1231,8 +1231,6 @@ dialog[open]{
 	
 	max-width: 80vw;
 	max-height: 80vh;
-	
-	overflow: hidden;
 }
 
 .lightbox::backdrop {
@@ -1241,8 +1239,8 @@ dialog[open]{
 
 .lightbox > img{
 	filter: unset;
-	max-width: 80vw;
-	max-height: 80vh;
+	max-width: 79vw; 
+	max-height: 79vh; /* one smaller than lightbox size to remove scroll bar */
 }
 .lightbox > img:hover, #lightbox > a:hover{
 	transform: unset !important;
@@ -1260,6 +1258,54 @@ dialog[open]{
 .lightbox:has(> ul) {
     text-align: left;
 }
+
+
+
+/*****************************************
+Dress-Up
+*****************************************/
+.draggable{
+	user-select: all;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	cursor: grab;
+	touch-action: none;
+}
+.dress-up-char{
+	height: 560px;
+}
+
+.shirt1{ z-index: 100; top:  25px; }
+.shirt2{ z-index: 101; top:  25px; left: 100px; }
+.shirt3{ z-index: 102; top:  75px; }
+.shirt4{ z-index: 103; top:  75px; left: 100px; }
+.shirt5{ z-index: 104; top: 125px; }
+.shirt6{ z-index: 105; top: 125px; left: 100px; }
+.shirt7{ z-index: 106; top: 175px; }
+.shirt8{ z-index: 107; top: 175px; left: 100px; }
+.shirt9{ z-index: 108; top: 225px; }
+.shirt10{ z-index: 109; top: 255px; left: 100px; }
+/* pants always below tops */
+.pants1{ z-index: 50; top:  25px; right: 0; }
+.pants2{ z-index: 51; top:  75px; right: 0; }
+.pants3{ z-index: 52; top:  125px; right: 0; }
+.pants4{ z-index: 53; top:  175px; right: 0; }
+/* skirts always above pants but below shirts */
+.skirt1{ z-index: 71; top: 225px; right: 0; }
+.skirt2{ z-index: 72; top: 275px; right: 0; }
+.skirt3{ z-index: 73; top: 325px; right: 0; }
+/* hats above all */
+.hat1{ z-index: 150; top: 375px; right: 0; }
+.hat2{ z-index: 151; top: 375px; right: 100px; }
+.hat3{ z-index: 152; top: 425px; right: 0; }
+.hat4{ z-index: 153; top: 425px; right: 100px; }
+/* shoes always below everything else */
+.shoe1{ z-index: 10; top: 525px; right: 0; }
+.shoe2{ z-index: 11; top: 525px; right: 50px; }
+.shoe3{ z-index: 12; top: 550px; right: 0; }
+.shoe4{ z-index: 13; top: 550px; right: 50px; }
+.shoe5{ z-index: 14; top: 575px; right: 0; }
+.shoe6{ z-index: 15; top: 575px; right: 50px; }
 
 
 
@@ -1349,6 +1395,11 @@ Mobile Styles
 	.desktop-only{
 		display: none;
 	}
+
+	.dress-up-left, .dress-up-right{
+		height: 600px; /* specific boxes for the dress-up items */
+		position: relative;
+	}
 }
 
 /*****************************************
@@ -1374,12 +1425,3 @@ Support for none mobile devices with small height
 }
 
 
-.draggable{
-	user-select: all;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
-	cursor: move;
-}
-.dress-up-char{
-	height: 560px;
-}
