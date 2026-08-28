@@ -231,7 +231,6 @@ HTML Tags - a / Links
 a{
 	display: inline-block;
 	color: var(--font-color);
-	cursor: pointer;
 }
 a:clicked{
 	color: var(--color-gray);
@@ -301,6 +300,49 @@ ul{
 li{
 	list-style-image: url("../img/smileys/cd.gif");
 }
+
+
+
+/*****************************************
+Custom cursors
+*****************************************/
+body{
+	cursor: url('../cursor/Normal.cur'), default;
+}
+
+p,
+input,
+textarea,
+[contenteditable="true"] {
+    cursor: url('../cursor/Text.cur'), text;
+}
+
+button,
+.block-button,
+.inline-button,
+label,
+input[type="radio"],
+input[type="checkbox"],
+input[type="range"]{
+	cursor: url('../cursor/Link.cur'), pointer;
+}
+
+img{
+	cursor: url('../cursor/Normal.cur'), default;
+}
+
+a, a img{
+	cursor: url('../cursor/Link.cur'), pointer;
+}
+
+.isDisabled{
+	cursor: url('../cursor/NotAllowed.cur'), not-allowed;
+}
+
+.draggable{
+	cursor: url('../cursor/Move_2.cur'), grab;
+}
+
 
 
 /*****************************************
@@ -461,9 +503,6 @@ Div ids - container
     flex: 1;
     overflow: hidden;
 	margin-top: var(--distance-5);
-}
-#right-container{
-	margin-left: var(--distance-3);
 }
 
 
@@ -661,6 +700,8 @@ Classes - sections
 	background-color: transparent;
 	border: 0;
 	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: calc(var(--distance) * -1);
 }
 .section-full-size-img > img{
 	width: 100%;
@@ -859,7 +900,6 @@ Classes - Buttons
 	display: block;
     margin: 0 auto; /* center button */
 	background-color: var(--color-light-green);
-	cursor: pointer;
 }
 
 .inline-button{
@@ -871,7 +911,6 @@ Classes - Buttons
 	border: 1px var(--border-color) solid;
 	
 	background-color: var(--color-light-green);
-	cursor: pointer;
 }
 
 .button-size, .button-wall img{
@@ -1094,6 +1133,10 @@ Classes - Helper classes
 	overflow: hidden;
 }
 
+.grayscale { 
+	filter: grayscale(100%); 
+}
+
 .height-100{
 	height: 100%
 }
@@ -1136,7 +1179,6 @@ Classes - disable stuff
 *****************************************/
 .isDisabled {
 	color: currentColor;
-	cursor: not-allowed;
 	text-decoration: none;
 	opacity: 0.5;
 	filter: grayscale(1);
@@ -1174,6 +1216,11 @@ Classes - disable stuff
 
 .no-padding-top{
 	padding-top: 0;
+}
+
+.no-pb-mb{
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 .no-round-borders{
@@ -1268,7 +1315,6 @@ Dress-Up
 	user-select: all;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
-	cursor: grab;
 	touch-action: none;
 }
 .dress-up-char{
@@ -1381,7 +1427,8 @@ Mobile Styles
 	}
 
 	.section-full-size-img{
-		padding-top: var(--distance-2);
+		margin: var(--distance-2);
+    	padding: var(--distance-2);
 	}
 	
 	.column-2, .column-3, .column-4, .column-2-smallbig{

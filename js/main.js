@@ -123,7 +123,6 @@ function randomButton(){
 
 
 function draggable(){
-    console.log("draggable");
     let activeElement = null;
     let offsetX = 0;
     let offsetY = 0;
@@ -131,7 +130,7 @@ function draggable(){
     document.querySelectorAll(".draggable").forEach(img => {
 
         img.style.position = "absolute"; //Set position
-        img.style.cursor = "grab"; //Set cursor
+        img.style.cursor = "url('cursor/Move_2.cur'), grab"; //Set cursor
 
         img.addEventListener("pointerdown", (e) => {
             activeElement = img;
@@ -139,7 +138,7 @@ function draggable(){
             offsetX = e.clientX - img.offsetLeft; //move leftright
             offsetY = e.clientY - img.offsetTop; //move updown
 
-            img.style.cursor = "grabbing";
+            img.style.cursor = "url('cursor/Move_1.cur'), grabbing";
         });
     });
 
@@ -153,7 +152,7 @@ function draggable(){
     document.addEventListener("pointerup", () => {
         if (!activeElement) return;
 
-        activeElement.style.cursor = "grab";
+        activeElement.style.cursor = "url('cursor/Move_2.cur'), grab";
         activeElement = null;
     });
 }
