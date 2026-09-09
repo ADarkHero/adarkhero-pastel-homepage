@@ -6,6 +6,8 @@ Variables
 }
 
 :root{
+	interpolate-size: allow-keywords; /* allows animation from 100px => content-width or similar */
+
 	--distance: 5px;
 	--distance-2: calc(var(--distance) * 2);
 	--distance-3: calc(var(--distance) * 3);
@@ -50,6 +52,7 @@ Variables
 	--fade-in-animation: fadeInOpacity 1s ease-in 1; 
 	--slide-in-animation: slideInAnimation 0.5s ease 0s 1 normal forwards; 
 	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
+	--resize-button-animation: all 0.25s linear;
 	--opacity-animation: opacity 0.5s ease; 
 	--marquee-animation: marquee 15s linear infinite;
 	/* reset values for js */
@@ -155,7 +158,8 @@ nav ul{
 
 main{
 	padding: var(--distance-2);
-	margin-bottom: var(--distance-2);
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 footer{
@@ -289,8 +293,14 @@ table td:first-child {
 
 
 /*****************************************
-HTML Tags - Other
+HTML Tags - Other / misc
 *****************************************/
+hr {
+    border: 0;
+    border-top: 1px dotted var(--border-color);
+}
+
+
 textarea{
 	background-color: var(--color-yellow);
 	width: 100%;
@@ -505,7 +515,7 @@ Div ids - container
 #left-container, #right-container {
     flex: 1;
     overflow: hidden;
-	margin-top: var(--distance-5);
+	margin-top: 85px;
 }
 
 
@@ -542,7 +552,7 @@ Div ids - content
 /*****************************************
 Div ids - settings
 *****************************************/
-#settings > a{
+#settings-footer > a{
 	display: contents; /* fixes zoom glitch */
 }
 
@@ -711,6 +721,7 @@ Classes - sections
 .section-full-size-img > img{
 	width: 100%;
 	max-width: 100%;
+	max-height: unset;
 	position: relative;
 }
 
@@ -720,7 +731,7 @@ Classes - sections
 Classes - tabs
 *****************************************/
 .tab-selected{
-	background-color: var(--color-blue);
+	background-color: var(--color-blue) !important;
 }
 
 
@@ -834,6 +845,9 @@ Classes - Background images
 .bg-audio {
     background-image: url("../img/smileys/note.gif");
 }
+.bg-button {
+    background-image: url("../img/button88x31.gif");
+}
 .bg-clothing {
     background-image: url("../img/smileys/necktie.gif");
 }
@@ -855,6 +869,9 @@ Classes - Background images
 .bg-guide {
     background-image: url("../img/smileys/point.gif");
 }
+.bg-link {
+    background-image: url("../img/smileys/link.gif");
+}
 .bg-love {
     background-image: url("../img/smileys/candyheart.gif");
 }
@@ -867,6 +884,9 @@ Classes - Background images
 .bg-spreadsheet {
     background-image: url("../img/smileys/calendar.gif");
 }
+.bg-stopwatch {
+	background-image: url("../img/smileys/clock.gif");
+}
 .bg-video {
     background-image: url("../img/smileys/filmstrip.gif");
 }
@@ -875,6 +895,10 @@ Classes - Background images
 }
 .bg-writing {
     background-image: url("../img/smileys/book.gif");
+}
+
+.bg-size-unset{
+	background-size: unset;
 }
 
 .table-bg{
@@ -930,6 +954,55 @@ Classes - Buttons
 	height: 25px;
 }
 
+.button-right{
+	position: relative;
+	z-index: 10;
+	background-color: var(--color-pink);
+
+	text-decoration: none;
+    font-weight: bold;
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+
+	margin-top: var(--distance);
+	padding: var(--distance);
+
+	border: 5px var(--border-color) double;
+	border-radius: 0 var(--distance-2) var(--distance-2) 0;
+	border-left: 0;
+
+	overflow: clip;
+	text-wrap: nowrap;
+
+	transition: var(--resize-button-animation);
+}
+.button-right:hover{
+	width: fit-content;
+	padding-right: var(--distance-3);
+	transition: var(--resize-button-animation);
+}
+.button-right a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 1;
+	gap: calc(var(--distance-2) + 1px);
+}
+.button-right img{
+	image-rendering: crisp-edges;
+	image-rendering: -moz-crisp-edges;
+
+	width: 25px;
+
+	max-width: 25px;
+	max-height: 25px;
+}
+
 
 /*****************************************
 Classes - Columns
@@ -975,6 +1048,9 @@ Classes - Display & Position
 .position-fixed{
 	position: fixed;
 }
+.position-relative{
+	position: relative;
+}
 
 
 
@@ -1002,6 +1078,10 @@ Classes - margin padding
 }
 .mb-3{
 	margin-bottom: var(--distance-3);
+}
+
+.pr-10{
+	padding-right: calc(var(--distance-5) + var(--distance-5));
 }
 
 
@@ -1120,10 +1200,26 @@ Classes - stamps
 
 
 /*****************************************
+Classes - hr
+*****************************************/
+.hr-double{
+	border-top: 3px double var(--border-color);
+}
+
+
+
+/*****************************************
 Classes - Helper classes
 *****************************************/
 .always-on-top{
 	z-index: 9001;
+}
+
+.align-right{
+	text-align: right;
+	display: flex;
+	align-items: center; /* center imgs */
+	justify-content: end; /* end content */
 }
 
 .center-me, .nav-secondary a{
@@ -1233,6 +1329,14 @@ Classes - disable stuff
 	margin-bottom: 0;
 }
 
+.no-margin{
+	margin: 0;
+}
+
+.no-padding{
+	padding: 0;
+}
+
 .no-round-borders{
 	border-radius: 0;
 }
@@ -1264,6 +1368,40 @@ Pages - root
 
 .profile-img-img{
 	width: 200px;
+}
+
+
+
+/*****************************************
+Pages - snail-race
+*****************************************/
+.snail-race{
+	height: 500px;
+}
+.snail{
+	position: absolute;
+	transition: left 10s linear;
+	left: 2%;
+	top: var(--snail-pos);
+}
+.snail-track{
+	border-bottom: 1px dotted var(--border-color);
+	width: 100%;
+	left: 0;
+}
+.snail-start{
+	border-right: 1px solid var(--border-color);
+	width: 20%;
+}
+.snail-act{
+	border-left: 1px dotted var(--border-color);
+	border-right: 1px dotted var(--border-color);
+}
+.snail-end{
+	margin-left: 80%;
+	border-left: 1px solid var(--border-color);
+	
+	background-image: url("../img/fun-corner/snail-race/goal-flag.png");
 }
 
 
@@ -1457,6 +1595,10 @@ Mobile Styles
 		height: 600px; /* specific boxes for the dress-up items */
 		position: relative;
 	}
+
+	.snail-race{
+		display: grid;
+	}
 }
 
 /*****************************************
@@ -1473,12 +1615,44 @@ XXL Styles
 Support for none mobile devices with small height
 *****************************************/
 @media (min-width: 1024px){
-	@media (max-height: 768px){
+	@media (max-height: 825px){
 		:root{
-			--base-height-const: 480px;
-			--base-height: 480px;
+			--base-height-const: calc(90vh - var(--distance-3));
+			--base-height: calc(90vh - var(--distance-3));
 		}
 	}
+}
+
+
+
+
+
+
+.cafe-item {
+    display: flex;
+    align-items: center;
+}
+
+.cafe-title, .cafe-price {
+    white-space: nowrap;
+}
+
+.cafe-dots {
+    flex: 1;
+    overflow: hidden;
+	margin: 0 var(--distance-2);
+}
+
+.cafe-dots::before {
+    content: "........................................................................................................................................................................................................................................................................................................................................................................................";
+    white-space: nowrap;
+    display: block;
+	
+}
+
+.flex-left-spacebetween {
+  display: flex;
+  justify-content: space-between;
 }
 
 

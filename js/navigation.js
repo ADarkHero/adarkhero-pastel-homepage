@@ -1,14 +1,12 @@
 	async function setPage(page, id="main-content"){	
 		try{
-console.log("nav start");
 			//Set page-name
 			var slash = "/";
 			if(page.startsWith("/")){ slash = "" } //Always add exactly one slash at the beginning
 			document.getElementById('page-name').innerHTML = '<a href="javascript:void(0)" onclick="javascript:shareMe()">html' + slash + page + '.html</a>';
-console.log("nav set page-name");
+
 			//Play animation if it's inside the page (tab like system)
 			if(id !== "main-content"){
-console.log("nav id !== main content");
 				elem = document.getElementById(id);
 
 				//Select all tablinks and remove the highlights from them
@@ -16,32 +14,25 @@ console.log("nav id !== main content");
 				for (i = 0; i < tablinks.length; i++) {
 					tablinks[i].classList.remove("tab-selected");
 				}
-console.log("nav tablinks remove highlight");
+
 				//Hides current tab and shows a new one via callback function
 				//Shows page, after old tab disappeared
 				hideTab(elem, () => {
 					showTab(elem);
-console.log("nav show tab");
 					fetchPage(page, id);
-console.log("nav fetch page");
 				});
-console.log("nav hide tab");
 			}
 			//Page reloads. We don't care about animation timing
 			else{
 				fetchPage(page, id);
-console.log("nav fetch page");
 			}
 
 			//Highlights selected page
 			document.getElementById(page).classList.add("tab-selected");
-console.log("nav highlight selected");
 				
 			//Wait until the modal was completly loaded
 			if (page === "settings") {
-console.log("nav page = settings");
 				waitForElement("maximizeWindows", readSettingsToForm);
-console.log("nav read settings form");
 			}	
 		}catch(error){
 			console.log(error);
@@ -49,7 +40,6 @@ console.log("nav read settings form");
 	}
 	
 	async function fetchPage(page, id){
-console.log("fetch page");
 			//Fetch page content
 			//fetch(page + '.html')
 			fetch('html/' + page + '.html', { cache: 'no-store'})
@@ -61,11 +51,9 @@ console.log("fetch page");
 			})
 			.then(html => {
 				document.getElementById(id).innerHTML = html;
-console.log("fetch page success");
 			})
 			.catch(error => {
 				console.error('Fetch error:', error);
-console.log("fetch page error");
 			});
 	}
 

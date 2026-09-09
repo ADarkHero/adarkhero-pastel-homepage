@@ -37,6 +37,7 @@ function readSettings(){
 			document.documentElement.style.setProperty('--slide-in-animation', 'unset');
 			document.documentElement.style.setProperty('--slide-out-animation', 'unset');
 			document.documentElement.style.setProperty('--oppacity-animation', 'unset');
+			document.documentElement.style.setProperty('--resize-button-animation', 'unset');
 		}
 		
 		if(localStorage.getItem("maximizeWindows") === 'true'){

@@ -30,7 +30,7 @@ function lightboxChangelog(){
 	//Reset content first. Looks cleaner while loading.
 	document.getElementById('lightbox').innerHTML = "";
 	
-	document.getElementById('lightbox').innerHTML = document.getElementById('changelog').innerHTML;
+	fetchPage('changelog', 'lightbox');
 	
 	lightbox.showModal();
 }
