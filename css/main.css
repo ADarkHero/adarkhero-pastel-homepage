@@ -143,7 +143,7 @@ footer > ul, .horizontal-list > ul, .horizontal-ul{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
 	flex-wrap: wrap; /* multiple lines */
-	gap: var(--distance-4);     /* gap between elements */
+	gap: var(--distance-4); /* gap between elements */
 	list-style: none; /* No dots in front of list */
 	padding: 0;
 }
@@ -208,7 +208,7 @@ section > img, section > p > img, section > p > a > img{
 
 iframe{
 	border: 0;
-	min-height: 768px;
+	min-height: 625px;
 }
 
 
@@ -228,6 +228,7 @@ h2{
 h3{
 	font-size: 18px;
 	line-height: 22px;
+	text-transform: uppercase;
 }
 
 
@@ -704,9 +705,6 @@ Classes - sections
 	border-radius: var(--distance-2) var(--distance-2) 0 0;
 }
 
-.section-image{
-	padding-right: var(--distance-2);
-}
 .section-image img{
 	max-width: 100%;
 }
@@ -1025,7 +1023,11 @@ Classes - Columns
 
 .column-4{
 	display: grid;
-    grid-template-columns: 25% 25% 25% 25%; /* 5 colums */
+    grid-template-columns: 25% 25% 25% 25%; /* 4 colums */
+}
+.column-6{
+	display: grid;
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%; /* 6 colums */
 }
 
 
@@ -1120,6 +1122,38 @@ Classes - borders
 	border-right: 0;
 }
 
+.border-tr-bl {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.border-tr-bl img{
+	margin-top: var(--distance-2);
+	padding-bottom: var(--distance);
+}
+
+.border-tr-bl::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--distance-5);
+    height: var(--distance-5);
+    border-top: var(--distance) solid var(--border-color);
+    border-right: var(--distance) solid var(--border-color);
+}
+
+.border-tr-bl::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--distance-5);
+    height: var(--distance-5);
+    border-left: var(--distance) solid var(--border-color);
+    border-bottom: var(--distance) solid var(--border-color);
+}
 
 
 /*****************************************
@@ -1229,6 +1263,11 @@ Classes - Helper classes
 	justify-content: center; /* center content */
 }
 
+.flex-left-spacebetween {
+	display: flex;
+	justify-content: space-between;
+}
+
 .full-size{
 	height: 100%;
 	width: 100%;
@@ -1272,6 +1311,11 @@ Classes - Helper classes
 
 .sepia-filter {
     filter: var(--sepia-filter);
+}
+
+.w-80{
+	width: 80%;
+	max-width: 80%;
 }
 
 .x-small{
@@ -1373,6 +1417,48 @@ Pages - root
 
 .profile-img-img{
 	width: 200px;
+}
+
+.earthbound-text{
+	height: 150px;
+	max-width: 100%;
+	background-color: transparent;
+	margin-top: 0;
+}
+
+
+
+/*****************************************
+Pages - pkmn-teams
+*****************************************/
+.team-overview{
+	padding-bottom: var(--distance-2);
+}
+.team-overview > div{
+	border-right: 2px dotted var(--border-color);
+	padding: var(--distance-2);
+}
+.team-overview > div:last-child{
+	border-right: 0;
+}
+.team-overview > div > div{
+	background-image: url("../img/fun-corner/pkmn-teams/background.png");
+	background-position: center;
+}
+.team-overview p{
+	margin-top: var(--distance);
+	padding-top: var(--distance);
+
+	border-top: 2px dotted var(--border-color);
+
+	text-align: justify;
+}
+.team-overview > div > div > img{
+	image-rendering: pixelated; /* pixelated upscaling */
+
+	height: 80px;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 
@@ -1584,7 +1670,7 @@ Mobile Styles
     	padding: var(--distance-2);
 	}
 	
-	.column-2, .column-3, .column-4, .column-2-smallbig{
+	.column-2, .column-3, .column-4, .column-6, .column-2-smallbig{
 		display: block;
 	}
 
@@ -1603,6 +1689,14 @@ Mobile Styles
 
 	.snail-race{
 		display: grid;
+	}
+
+	.team-overview > div{
+		border-right: 0;
+		border-bottom: 2px dotted var(--border-color);
+	}
+	.team-overview p{
+		border: 0;
 	}
 }
 
@@ -1655,9 +1749,7 @@ Support for none mobile devices with small height
 	
 }
 
-.flex-left-spacebetween {
-  display: flex;
-  justify-content: space-between;
-}
+
+
 
 
