@@ -430,6 +430,20 @@ Keyframes (animations)
 	}
 }
 
+@keyframes snailMove {
+    0% {
+		transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 
 /*****************************************
 Div ids - header
@@ -1066,11 +1080,9 @@ Classes - margin padding
 .mt{
 	margin-top: var(--distance);
 }
-
 .mt-2{
 	margin-top: var(--distance-2);
 }
-
 .mt-3{
 	margin-top: var(--distance-3);
 }
@@ -1080,6 +1092,10 @@ Classes - margin padding
 }
 .mb-3{
 	margin-bottom: var(--distance-3);
+}
+
+.pt{
+	padding-top: var(--distance);
 }
 
 .pr-10{
@@ -1223,6 +1239,9 @@ Classes - stamps
 
 .bg-stamp-music{
 	background-image: url(../img/likes/currently_listening.webp)
+}
+.bg-stamp-podcast{
+	background-image: url(../img/likes/currently_listening.png)
 }
 .bg-stamp-game{
 	background-image: url(../img/likes/currently_playing.webp)
@@ -1461,6 +1480,12 @@ Pages - pkmn-teams
 	max-height: 100%;
 }
 
+.team-overview-multiple{
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: var(--distance-2);
+	margin-bottom: var(--distance-2);
+}
+
 
 
 /*****************************************
@@ -1694,6 +1719,9 @@ Mobile Styles
 	.team-overview > div{
 		border-right: 0;
 		border-bottom: 2px dotted var(--border-color);
+	}
+	.team-overview > div:last-child{
+		border-bottom: 0;
 	}
 	.team-overview p{
 		border: 0;
