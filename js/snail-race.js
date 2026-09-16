@@ -6,7 +6,6 @@ let intervals = [];
 let timeouts = [];
 let goal = 0;
 let alerts = document.getElementById("alerts");
-console.log(alerts);
 
 //Variables (config game speed)
 const movementMin = 5;

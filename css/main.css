@@ -719,8 +719,13 @@ Classes - sections
 	border-radius: var(--distance-2) var(--distance-2) 0 0;
 }
 
+.section-image{
+	padding-left: 0;
+	padding-right: var(--distance-2);
+}
 .section-image img{
-	max-width: 100%;
+	max-width: 90%;
+	max-height: 200px;
 }
 
 .section-full-size-img{
@@ -890,6 +895,9 @@ Classes - Background images
 .bg-music {
     background-image: url("../img/smileys/note.gif");
 }
+.bg-ring {
+    background-image: url("../img/smileys/ring.gif");
+}
 .bg-server {
     background-image: url("../img/smileys/computer.gif");
 }
@@ -898,6 +906,9 @@ Classes - Background images
 }
 .bg-stopwatch {
 	background-image: url("../img/smileys/clock.gif");
+}
+.bg-tool {
+    background-image: url("../img/smileys/wrench.gif");
 }
 .bg-video {
     background-image: url("../img/smileys/filmstrip.gif");
