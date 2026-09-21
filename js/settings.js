@@ -98,6 +98,18 @@ function readSettings(){
 			document.documentElement.style.setProperty('--color-green', '#222222');
 			document.documentElement.style.setProperty('--color-light-green', '#222222');
 		}
+		else if(color_scheme === "waluigi"){
+			document.documentElement.style.setProperty('--color-yellow', '#FFA11F');
+			document.documentElement.style.setProperty('--color-orange', '#FAC593');
+			document.documentElement.style.setProperty('--color-red', '#B05A7F');
+			document.documentElement.style.setProperty('--color-pink', '#F286BA');
+			document.documentElement.style.setProperty('--color-violet', '#F5E93F');
+			document.documentElement.style.setProperty('--color-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-light-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-turquoise', '#99E3FF');
+			document.documentElement.style.setProperty('--color-green', '#99E3FF');
+			document.documentElement.style.setProperty('--color-light-green', '#99E3FF');
+		}
 	}
 }
 

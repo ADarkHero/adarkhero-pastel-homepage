@@ -101,6 +101,8 @@ body::before {
 
 header{
 	background-color: var(--color-violet);
+	background-image: url("../img/paper.png");
+	
 	height: var(--header-height);
 	font-size: 18px;
 	font-weight: bold;
@@ -112,6 +114,7 @@ header{
 
 nav{
 	background-color: var(--color-red);
+	background-image: url("../img/paper.png");
 	text-align: center;
 	
 	border-radius: 0 var(--distance-4) 0 0;
@@ -166,6 +169,7 @@ footer{
 	width: 100%;
 	
 	background-color: var(--color-yellow);
+	background-image: url("../img/paper.png");
 
 	border-top: 1px black solid;
 	
@@ -186,7 +190,8 @@ section{
 	display: block;
 	
 	background-color: var(--color-orange);
-	
+	background-image: url("../img/paper.png");
+
 	border: 1px var(--border-color) solid;
 	border-radius: var(--distance-2);
 	margin: var(--distance-2);
@@ -252,8 +257,8 @@ a > img:hover{
 HTML Tags - img / Images
 *****************************************/
 img{
-	max-width: 80%;
-	max-height: 80%;
+	max-width: 100%;
+	max-height: 100%;
 	filter: var(--sepia-filter);
 }
 
@@ -462,6 +467,7 @@ Div ids - header
 }
 #header-buttons > button{
 	background-color: transparent;
+	background-image: url("../img/transparent.png");
 	border: 0;
 }
 
@@ -639,6 +645,7 @@ Classes - nav
 	padding-left: var(--distance);
 	
 	background-color: var(--color-pink);
+	background-image: url("../img/paper.png");
 
 	overflow: clip;
 }
@@ -655,6 +662,7 @@ Classes - nav
 
 .update-nav{
 	background-color: var(--color-yellow);
+	background-image: url("../img/paper.png");
 	
 	padding-left: 0;
 	padding-right: 0;
@@ -712,6 +720,8 @@ Classes - sections
 *****************************************/
 .section-headline{
 	background-color: var(--color-violet);
+	background-image: url("../img/paper.png");
+
 	margin: calc(var(--distance-2)*-1);
 	margin-bottom: var(--distance);
 	padding-left: var(--distance);
@@ -730,6 +740,8 @@ Classes - sections
 
 .section-full-size-img{
 	background-color: transparent;
+	background-image: url("../img/transparent.png");
+
 	border: 0;
 	padding-top: 0;
 	padding-bottom: 0;
@@ -750,6 +762,16 @@ Classes - tabs
 .tab-selected{
 	background-color: var(--color-blue) !important;
 }
+
+
+
+/*****************************************
+Classes - images
+*****************************************/
+.img-80{
+	max-width: 80%;
+}
+
 
 
 /*****************************************
@@ -805,19 +827,21 @@ Classes - marquee
 Classes - Background images
 *****************************************/
 .headline-bg, .header-bg, .table-bg{
-	background-position: 99%;
-    background-repeat: no-repeat;
+	background-position: 99%, center;
+    background-repeat: no-repeat, repeat;
+	background-image: url("../img/transparent.png"), url("../img/paper.png");
+
 	image-rendering: pixelated; /* pixelated upscaling */
 	image-rendering: -moz-crisp-edges;
 	image-rendering: crisp-edges;
 }
 
 .header-bg{
-	background-size: calc(var(--header-height) + var(--distance));
+	background-size: calc(var(--header-height) + var(--distance)), cover;
 }
 
 .headline-bg{
-	background-size: 30px;
+	background-size: 30px, cover;
 }
 .headline-bg h2{
 	max-width: 85%;
@@ -825,99 +849,99 @@ Classes - Background images
 
 /* main menu backgrounds */
 .bg-root {
-    background-image: url("../img/smileys/frog.gif");
+    background-image: url("../img/smileys/frog.gif"), url("../img/paper.png");
 }
 .bg-projects {
-    background-image: url("../img/smileys/scroll.gif");
+    background-image: url("../img/smileys/scroll.gif"), url("../img/paper.png");
 }
 .bg-likes {
-    background-image: url("../img/smileys/heart.gif");
+    background-image: url("../img/smileys/heart.gif"), url("../img/paper.png");
 }
 .bg-lifegoals {
-    background-image: url("../img/smileys/lifepreserver.gif");
+    background-image: url("../img/smileys/lifepreserver.gif"), url("../img/paper.png");
 }
 .bg-rabbit-holes {
-    background-image: url("../img/smileys/rabbit.gif");
+    background-image: url("../img/smileys/rabbit.gif"), url("../img/paper.png");
 }
 .bg-fun {
-    background-image: url("../img/smileys/sun.gif");
+    background-image: url("../img/smileys/sun.gif"), url("../img/paper.png");
 }
 .bg-external {
-    background-image: url("../img/smileys/esckey.gif");
+    background-image: url("../img/smileys/esckey.gif"), url("../img/paper.png");
 }
 .bg-book {
-    background-image: url("../img/smileys/book.gif");
+    background-image: url("../img/smileys/book.gif"), url("../img/paper.png");
 }
 .bg-blog {
-    background-image: url("../img/smileys/pencil.gif");
+    background-image: url("../img/smileys/pencil.gif"), url("../img/paper.png");
 }
 .bg-cv {
-    background-image: url("../img/smileys/document.gif");
+    background-image: url("../img/smileys/document.gif"), url("../img/paper.png");
 }
 
 /* headline backgrounds */
 .bg-achievement {
-    background-image: url("../img/smileys/star.gif");
+    background-image: url("../img/smileys/star.gif"), url("../img/paper.png");
 }
 .bg-audio {
-    background-image: url("../img/smileys/note.gif");
+    background-image: url("../img/smileys/note.gif"), url("../img/paper.png");
 }
 .bg-button {
-    background-image: url("../img/button88x31.gif");
+    background-image: url("../img/button88x31.gif"), url("../img/paper.png");
 }
 .bg-clothing {
-    background-image: url("../img/smileys/necktie.gif");
+    background-image: url("../img/smileys/necktie.gif"), url("../img/paper.png");
 }
 .bg-coding {
-    background-image: url("../img/smileys/folder.gif");
+    background-image: url("../img/smileys/folder.gif"), url("../img/paper.png");
 }
 .bg-collecting {
-    background-image: url("../img/smileys/treasure.gif");
+    background-image: url("../img/smileys/treasure.gif"), url("../img/paper.png");
 }
 .bg-design {
-    background-image: url("../img/bg-img/palette.svg");
+    background-image: url("../img/bg-img/palette.svg"), url("../img/paper.png");
 }
 .bg-education {
-    background-image: url("../img/smileys/graduatescap.gif");
+    background-image: url("../img/smileys/graduatescap.gif"), url("../img/paper.png");
 }
 .bg-game {
-    background-image: url("../img/smileys/dice.gif");
+    background-image: url("../img/smileys/dice.gif"), url("../img/paper.png");
 }
 .bg-guide {
-    background-image: url("../img/smileys/point.gif");
+    background-image: url("../img/smileys/point.gif"), url("../img/paper.png");
 }
 .bg-link {
-    background-image: url("../img/smileys/link.gif");
+    background-image: url("../img/smileys/link.gif"), url("../img/paper.png");
 }
 .bg-love {
-    background-image: url("../img/smileys/candyheart.gif");
+    background-image: url("../img/smileys/candyheart.gif"), url("../img/paper.png");
 }
 .bg-music {
-    background-image: url("../img/smileys/note.gif");
+    background-image: url("../img/smileys/note.gif"), url("../img/paper.png");
 }
 .bg-ring {
-    background-image: url("../img/smileys/ring.gif");
+    background-image: url("../img/smileys/ring.gif"), url("../img/paper.png");
 }
 .bg-server {
-    background-image: url("../img/smileys/computer.gif");
+    background-image: url("../img/smileys/computer.gif"), url("../img/paper.png");
 }
 .bg-spreadsheet {
-    background-image: url("../img/smileys/calendar.gif");
+    background-image: url("../img/smileys/calendar.gif"), url("../img/paper.png");
 }
 .bg-stopwatch {
-	background-image: url("../img/smileys/clock.gif");
+	background-image: url("../img/smileys/clock.gif"), url("../img/paper.png");
 }
 .bg-tool {
-    background-image: url("../img/smileys/wrench.gif");
+    background-image: url("../img/smileys/wrench.gif"), url("../img/paper.png");
 }
 .bg-video {
-    background-image: url("../img/smileys/filmstrip.gif");
+    background-image: url("../img/smileys/filmstrip.gif"), url("../img/paper.png");
 }
 .bg-work {
-    background-image: url("../img/smileys/toolbox.gif");
+    background-image: url("../img/smileys/toolbox.gif"), url("../img/paper.png");
 }
 .bg-writing {
-    background-image: url("../img/smileys/book.gif");
+    background-image: url("../img/smileys/book.gif"), url("../img/paper.png");
 }
 
 .bg-size-unset{
@@ -980,7 +1004,9 @@ Classes - Buttons
 .button-right{
 	position: relative;
 	z-index: 10;
+
 	background-color: var(--color-pink);
+	background-image: url("../img/paper.png");
 
 	text-decoration: none;
     font-weight: bold;
@@ -1445,16 +1471,105 @@ Pages - root
 	width: var(--distance-5);
 }
 
-.profile-img-img{
-	width: 200px;
+.profile-img{
+	width: 80%;
 }
 
 .earthbound-text{
 	height: 150px;
 	max-width: 100%;
+
 	background-color: transparent;
+	background-image: url("../img/transparent.png");
+
 	margin-top: 0;
 }
+
+
+
+/*****************************************
+Pages - links
+*****************************************/
+.button-wall{
+	padding: 0;
+	margin: 0;
+	margin-left: var(--distance-2);
+	margin-right: var(--distance-2);
+}
+
+.button-wall > div{
+	margin: 0;
+	padding: 0;
+	padding-left: var(--distance);
+}
+
+.button-wall h2{
+	text-align: left;
+}
+
+.button-wall-buttons {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8 colums */
+
+    align-items: center;
+    justify-content: center;
+
+	margin-left: calc(var(--distance) * -1) !important;
+}
+
+.button-wall-buttons-compact{
+    grid-template-columns: repeat(10, 1fr); /* 10 colums */
+}
+
+.button-wall-buttons a, .button-wall-buttons img{
+	width: 88px;
+	height: 31px;
+	filter: unset;
+}
+
+.button-wall-buttons > span{
+	display: flex;
+	flex-wrap: wrap;
+
+	text-align: center;
+	align-items: center; /* center content */
+	justify-content: center; /* center content */
+
+	width: 100%;
+	height: 62px; 
+
+	border: 1px dotted var(--border-color);
+}
+
+.button-wall-buttons-compact > span{
+    height: 43px;
+}
+
+.button-wall-button-bg{
+	background: var(--button-background);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.button-wall-button-bg-repeat{
+	background: var(--button-background);
+	background-size: auto !important;
+	background-position: center;
+	background-repeat: repeat;
+}
+.button-wall-button-bg-neighbor{
+	background: url('../img/smileys/heart.gif'), var(--button-background);
+	background-size: auto, cover;
+	background-position: 98% 5%, center;
+	background-repeat: no-repeat, no-repeat;
+}
+.button-wall-button-bg-follow{
+	background: url('../img/smileys/star.gif'), var(--button-background);
+	background-size: auto, cover;
+	background-position: 98% 5%, center;
+	background-repeat: no-repeat, no-repeat;
+}
+
 
 
 
@@ -1546,6 +1661,7 @@ dialog[open]{
 	justify-content: center; /* center content */
 	
 	background-color: var(--color-yellow);
+	background-image: url("../img/paper.png");
 	
 	border: 5px var(--border-color) double;
 	
@@ -1716,6 +1832,15 @@ Mobile Styles
 
 	.desktop-only{
 		display: none;
+	}
+
+	.button-wall-buttons{
+		display: grid;
+    	grid-template-columns: repeat(3, 1fr); /* 3 colums */
+	}
+
+	.button-wall-buttons-compact{
+		grid-template-columns: repeat(3, 1fr); /* 3 colums */
 	}
 
 	.dress-up-left, .dress-up-right{

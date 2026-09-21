@@ -57,7 +57,6 @@ function closeSpeechbubble(text){
 
 
 function changeRootIcon(){
-    try{
         // Source - https://stackoverflow.com/a/8619946
         // Posted by Alex Turpin, modified by community. See post 'Timeline' for change history
         // Retrieved 2026-08-14, License - CC BY-SA 3.0
@@ -75,10 +74,8 @@ function changeRootIcon(){
             day = day - smileys.length; //Support for less than 365 smileys
         }
 
-        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "')";
-    }catch(error){
-        console.log(error);
-    }
+        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), url('img/paper.png')";
+
 }
 
 //Used at links.html
@@ -154,5 +151,19 @@ function draggable(){
 
         activeElement.style.cursor = "url('cursor/Move_2.cur'), grab";
         activeElement = null;
+    });
+}
+
+
+function changeCompactMode(){
+    document.querySelectorAll('.button-wall-buttons').forEach(el => {
+        if(el.classList.contains("button-wall-buttons-compact")){
+            el.classList.remove("button-wall-buttons-compact");
+            document.getElementById("compact-mode").innerHTML = "enable compact mode";
+        }
+        else{
+            el.classList.add("button-wall-buttons-compact");
+            document.getElementById("compact-mode").innerHTML = "disable compact mode";
+        }   
     });
 }

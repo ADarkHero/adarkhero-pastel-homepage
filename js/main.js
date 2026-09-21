@@ -64,7 +64,6 @@ function closeSpeechbubble(text){
 
 
 function changeRootIcon(){
-    try{
         // Source - https://stackoverflow.com/a/8619946
         // Posted by Alex Turpin, modified by community. See post 'Timeline' for change history
         // Retrieved 2026-08-14, License - CC BY-SA 3.0
@@ -82,10 +81,8 @@ function changeRootIcon(){
             day = day - smileys.length; //Support for less than 365 smileys
         }
 
-        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "')";
-    }catch(error){
-        console.log(error);
-    }
+        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), url('img/paper.png')";
+
 }
 
 //Used at links.html
@@ -164,6 +161,20 @@ function draggable(){
     });
 }
 
+
+function changeCompactMode(){
+    document.querySelectorAll('.button-wall-buttons').forEach(el => {
+        if(el.classList.contains("button-wall-buttons-compact")){
+            el.classList.remove("button-wall-buttons-compact");
+            document.getElementById("compact-mode").innerHTML = "enable compact mode";
+        }
+        else{
+            el.classList.add("button-wall-buttons-compact");
+            document.getElementById("compact-mode").innerHTML = "disable compact mode";
+        }   
+    });
+}
+
 /* ========================== 
  lightbox.js
 ========================== */
@@ -216,7 +227,26 @@ function shareMe(){
 
 	url = 'https://www.adarkhero.de/' + param;
 	
-	document.getElementById('lightbox').innerHTML = '<h2>Share this page</h2><a href="' + url + '" target="_blank">' + url + '</a> ' + '<a onclick="copyToClipboard(\'' + url + '\', \'copy-btn-page\')" class="inline-button" id="copy-btn-page">copy</a>';
+	document.getElementById('lightbox').innerHTML = '<h2>Share this page</h2><a href="' + url + '" target="_blank">' + url + '</a> ' + '<a onclick="copyToClipboard(\'' + url + '\', \'copy-btn-page\')" class="inline-button" id="copy-btn-page">copy</a><br>' +
+	'<div class="socials center-me horizontal-list mt">' +
+		'<ul>' +
+			'<li>' +
+				'<a href="https://reddit.com/submit?url=' + url + '" target="_blank">' +
+					'<img src="img/root/sm/reddit.svg" title="reddit" alt="icon of reddit"></img>' +
+				'</a>' +
+			'</li>' +
+			'<li>' +
+				'<a href="https://x.com/intent/post?url=' + url + '" target="_blank">' +
+					'<img src="img/root/sm/twitter.svg" title="x" alt="icon of twitter"></img>' +
+				'</a>' +
+			'</li>' +
+			'<li>' +
+				'<a href="mailto:?subject=check+out+this+awesome+homepage&body=' + url + '" target="_blank">' +
+					'<img src="img/root/sm/mail.svg" title="mail" alt="icon of mail"></img>' +
+				'</a>' +
+			'</li>' +
+		'</ul>' +
+	'</div>';
 	
 	lightbox.showModal();
 }
@@ -724,6 +754,18 @@ function readSettings(){
 			document.documentElement.style.setProperty('--color-green', '#222222');
 			document.documentElement.style.setProperty('--color-light-green', '#222222');
 		}
+		else if(color_scheme === "waluigi"){
+			document.documentElement.style.setProperty('--color-yellow', '#FFA11F');
+			document.documentElement.style.setProperty('--color-orange', '#FAC593');
+			document.documentElement.style.setProperty('--color-red', '#B05A7F');
+			document.documentElement.style.setProperty('--color-pink', '#F286BA');
+			document.documentElement.style.setProperty('--color-violet', '#F5E93F');
+			document.documentElement.style.setProperty('--color-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-light-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-turquoise', '#99E3FF');
+			document.documentElement.style.setProperty('--color-green', '#99E3FF');
+			document.documentElement.style.setProperty('--color-light-green', '#99E3FF');
+		}
 	}
 }
 
@@ -771,7 +813,6 @@ let intervals = [];
 let timeouts = [];
 let goal = 0;
 let alerts = document.getElementById("alerts");
-console.log(alerts);
 
 //Variables (config game speed)
 const movementMin = 5;
