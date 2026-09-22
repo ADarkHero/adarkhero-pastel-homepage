@@ -1916,4 +1916,15 @@ Support for none mobile devices with small height
 
 
 
+.color-scheme-container {
+    display: inline-flex;
+    gap: 0;
+}
+.color-scheme{
+	display: inline-block;
 
+	width: var(--distance-2);
+	height: var(--distance-2);
+
+	background-color: var(--scheme-color);
+}
