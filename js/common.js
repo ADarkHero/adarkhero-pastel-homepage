@@ -74,8 +74,11 @@ function changeRootIcon(){
             day = day - smileys.length; //Support for less than 365 smileys
         }
 
-        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), url('img/paper.png')";
+       //Different paths than css, so we need a more complicated way
+        let paperTexture = window.getComputedStyle(document.documentElement).getPropertyValue('--paper-texture');
+        paperTexture = paperTexture.replace("../", "");
 
+        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), " + paperTexture;
 }
 
 //Used at links.html

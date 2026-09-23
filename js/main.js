@@ -81,8 +81,11 @@ function changeRootIcon(){
             day = day - smileys.length; //Support for less than 365 smileys
         }
 
-        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), url('img/paper.png')";
+       //Different paths than css, so we need a more complicated way
+        let paperTexture = window.getComputedStyle(document.documentElement).getPropertyValue('--paper-texture');
+        paperTexture = paperTexture.replace("../", "");
 
+        document.getElementById("root").style.backgroundImage = "url('img/smileys/" + smileys[day] + "'), " + paperTexture;
 }
 
 //Used at links.html
@@ -662,6 +665,7 @@ function saveSettings(){
     localStorage.setItem("maximizeWindows", document.getElementById("maximizeWindows").checked)
     localStorage.setItem("disableAnimations", document.getElementById("disableAnimations").checked);
     localStorage.setItem("disablePokeneko", document.getElementById("disablePokeneko").checked);
+    localStorage.setItem("disablePaperTexture", document.getElementById("disablePaperTexture").checked);
     localStorage.setItem("backgroundVideo", document.getElementById("backgroundVideo").checked);
     localStorage.setItem("disableSounds", document.getElementById("disableSounds").checked);
 
@@ -695,7 +699,7 @@ function readSettings(){
 			document.documentElement.style.setProperty('--oppacity-animation', 'unset');
 			document.documentElement.style.setProperty('--resize-button-animation', 'unset');
 		}
-		
+
 		if(localStorage.getItem("maximizeWindows") === 'true'){
 			resizePage();
 		}
@@ -721,28 +725,44 @@ function readSettings(){
 			document.documentElement.style.setProperty('--color-red', '#eddcff'); 
 			document.documentElement.style.setProperty('--color-pink', '#eddcff');
 			document.documentElement.style.setProperty('--color-violet', '#d7b8ff');
-			document.documentElement.style.setProperty('--color-blue', '#BECAD3'); 
+			document.documentElement.style.setProperty('--color-blue', '#a0a6ab'); 
 			document.documentElement.style.setProperty('--color-light-blue', '#e2fbf9');
 			document.documentElement.style.setProperty('--color-turquoise', '#e2fbf9');
 			document.documentElement.style.setProperty('--color-green', '#eddcff');
 			document.documentElement.style.setProperty('--color-light-green', '#eddcff');
 		}
+		else if(color_scheme === "waluigi"){
+			document.documentElement.style.setProperty('--color-yellow', '#F5E93F');
+			document.documentElement.style.setProperty('--color-orange', '#FAC593');
+			document.documentElement.style.setProperty('--color-red', '#B05A7F');
+			document.documentElement.style.setProperty('--color-pink', '#F5E93F');
+			document.documentElement.style.setProperty('--color-violet', '#772BBE');
+			document.documentElement.style.setProperty('--color-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-light-blue', '#772BBE');
+			document.documentElement.style.setProperty('--color-turquoise', '#99E3FF');
+			document.documentElement.style.setProperty('--color-green', '#99E3FF');
+			document.documentElement.style.setProperty('--color-light-green', '#F5E93F');
+		}
 		else if(color_scheme === "dark"){
-			document.documentElement.style.setProperty('--font-color', '#FAF9F6');
-			document.documentElement.style.setProperty('--color-yellow', '#612D53');
-			document.documentElement.style.setProperty('--color-orange', '#853953');
+			document.documentElement.style.setProperty('--font-color', '#dbdbdb');
+
+			document.documentElement.style.setProperty('--color-yellow', '#853953');
+			document.documentElement.style.setProperty('--color-orange', '#612D53');
 			document.documentElement.style.setProperty('--color-red', '#8B4000');
 			document.documentElement.style.setProperty('--color-pink', '#C11C84');
-			document.documentElement.style.setProperty('--color-violet', '#412B6B');
-			document.documentElement.style.setProperty('--color-blue', '#2C2C2C');
+			document.documentElement.style.setProperty('--color-violet', '#2C2C2C');
+			document.documentElement.style.setProperty('--color-blue', '#412B6B');
 			document.documentElement.style.setProperty('--color-light-blue', '#121358');
 			document.documentElement.style.setProperty('--color-turquoise', '#121358');
 			document.documentElement.style.setProperty('--color-green', '#2B5748');
 			document.documentElement.style.setProperty('--color-light-green', '#2B5748');
+
+			document.documentElement.style.setProperty('--sepia-filter', 'grayscale(var(--sepia-value))');
+			document.documentElement.style.setProperty('--paper-texture', 'url("../img/paper_dark.png")');
 		}
 		else if(color_scheme === "grey"){
-			document.documentElement.style.setProperty('--sepia-filter', 'grayscale(var(--sepia-value))');
-			document.documentElement.style.setProperty('--font-color', '#FAF9F6');
+			document.documentElement.style.setProperty('--font-color', '#dbdbdb');
+
 			document.documentElement.style.setProperty('--color-yellow', '#656565');
 			document.documentElement.style.setProperty('--color-orange', '#4d4d4d');
 			document.documentElement.style.setProperty('--color-red', '#656565');
@@ -751,20 +771,15 @@ function readSettings(){
 			document.documentElement.style.setProperty('--color-blue', '#000000');
 			document.documentElement.style.setProperty('--color-light-blue', '#000000');
 			document.documentElement.style.setProperty('--color-turquoise', '#000000');
-			document.documentElement.style.setProperty('--color-green', '#222222');
-			document.documentElement.style.setProperty('--color-light-green', '#222222');
+			document.documentElement.style.setProperty('--color-green', '#4d4d4d');
+			document.documentElement.style.setProperty('--color-light-green', '#4d4d4d');
+
+			document.documentElement.style.setProperty('--sepia-filter', 'grayscale(var(--sepia-value))');
+			document.documentElement.style.setProperty('--paper-texture', 'url("../img/paper_dark.png")');
 		}
-		else if(color_scheme === "waluigi"){
-			document.documentElement.style.setProperty('--color-yellow', '#FFA11F');
-			document.documentElement.style.setProperty('--color-orange', '#FAC593');
-			document.documentElement.style.setProperty('--color-red', '#B05A7F');
-			document.documentElement.style.setProperty('--color-pink', '#F286BA');
-			document.documentElement.style.setProperty('--color-violet', '#F5E93F');
-			document.documentElement.style.setProperty('--color-blue', '#772BBE');
-			document.documentElement.style.setProperty('--color-light-blue', '#772BBE');
-			document.documentElement.style.setProperty('--color-turquoise', '#99E3FF');
-			document.documentElement.style.setProperty('--color-green', '#99E3FF');
-			document.documentElement.style.setProperty('--color-light-green', '#99E3FF');
+
+		if(localStorage.getItem("disablePaperTexture") === 'true'){
+			document.documentElement.style.setProperty('--paper-texture', 'url("../img/transparent.png")');
 		}
 	}
 }
@@ -782,6 +797,10 @@ function readSettingsToForm(){
 
 		if(localStorage.getItem("disablePokeneko") === "true"){
 			document.getElementById("disablePokeneko").checked = true;
+		}
+		
+		if(localStorage.getItem("disablePaperTexture") === "true"){
+			document.getElementById("disablePaperTexture").checked = true;
 		}
 
 		if(localStorage.getItem("backgroundVideo") === "true"){

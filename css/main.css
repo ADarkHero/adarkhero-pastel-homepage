@@ -17,8 +17,8 @@ Variables
 	--color-white: #FAF9F6;
 	--color-black: #343231;
 	--color-gray: #555555; /* clicked link */
-	--color-yellow: #FBF8CC; /* footer, section, textarea, main-container, speech-bubble, update-nav, lightbox */
-	--color-orange: #FDE4CF; /* body, section>section */
+	--color-yellow: #FBF8CC; /* section, textarea, main-container, speech-bubble, lightbox */
+	--color-orange: #FDE4CF; /*  footer, update-nav, body, section>section */
 	--color-red: #FFCFD2; /* nav, scrollbar */
 	--color-pink: #F1C0E8; /* nav button */
 	--color-violet: #CFBAF0; /* header, section headline */
@@ -43,6 +43,7 @@ Variables
 
 	/* the following values can be overridden via settings js */
 	--background-image: url("../img/background-body.png"); 
+	--paper-texture: url("../img/paper.png");
 	--sepia-value: 0.75; 
 	--sepia-filter: sepia(var(--sepia-value));
 	--hover-effect: scale(1.2) rotate(5deg);
@@ -90,7 +91,8 @@ body::before {
 	content: "";
     position: fixed;
     inset: 0;
-
+	
+	background-image: var(--paper-texture);
     background-color: var(--color-yellow);
 
     -webkit-mask: var(--background-image) repeat;
@@ -101,7 +103,7 @@ body::before {
 
 header{
 	background-color: var(--color-violet);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 	
 	height: var(--header-height);
 	font-size: 18px;
@@ -114,7 +116,7 @@ header{
 
 nav{
 	background-color: var(--color-red);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 	text-align: center;
 	
 	border-radius: 0 var(--distance-4) 0 0;
@@ -168,8 +170,8 @@ main{
 footer{
 	width: 100%;
 	
-	background-color: var(--color-yellow);
-	background-image: url("../img/paper.png");
+	background-color: var(--color-orange);
+	background-image: var(--paper-texture);
 
 	border-top: 1px black solid;
 	
@@ -190,7 +192,7 @@ section{
 	display: block;
 	
 	background-color: var(--color-orange);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 
 	border: 1px var(--border-color) solid;
 	border-radius: var(--distance-2);
@@ -285,6 +287,9 @@ table td {
     border-right: 1px dotted var(--border-color);
     border-bottom: 1px dotted var(--border-color);
 	padding-left: var(--distance);
+	padding-right: var(--distance);
+
+	position: relative;
 }
 table td:last-child {
     border-right: none; /* only inner borders */
@@ -294,6 +299,15 @@ table tr:last-child td {
 }
 table td:first-child {    
 	font-weight: bold; /* left column bold */
+}
+
+
+
+/*****************************************
+Inputs
+*****************************************/
+input[type="text"], input[type="range"]{
+	width: stretch;
 }
 
 
@@ -507,6 +521,7 @@ Div ids - container
 	*/
 
 	background-color: var(--color-yellow);
+	background-image: var(--paper-texture);
 	background-repeat: repeat;
 	
 	width: var(--base-width);
@@ -556,18 +571,43 @@ Div ids - content
 
 	position: relative;
 
+	/* rainbow */
 	background:
 		linear-gradient(
 			150deg,
-			transparent calc(100% - 12rem),
-			var(--color-red) calc(100% - 12rem) calc(100% - 10rem),
-			var(--color-orange) calc(100% - 10rem) calc(100% - 8rem),
-			var(--color-yellow) calc(100% - 8rem) calc(100% - 6rem),
-			var(--color-green) calc(100% - 6rem) calc(100% - 4rem),
-			var(--color-blue) calc(100% - 4rem) calc(100% - 2rem),
-			var(--color-violet) calc(100% - 2rem) 100%
+			transparent calc(100% - 6rem),
+			var(--color-red) calc(100% - 6rem) calc(100% - 5rem),
+			var(--color-orange) calc(100% - 5rem) calc(100% - 4rem),
+			var(--color-yellow) calc(100% - 4rem) calc(100% - 3rem),
+			var(--color-green) calc(100% - 3rem) calc(100% - 2rem),
+			var(--color-blue) calc(100% - 2rem) calc(100% - 1rem),
+			var(--color-violet) calc(100% - 1rem) 100%
 		);
+}
+/* Paper overlay on rainbow */
+#main-content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 
+    background: var(--paper-texture)
+        bottom right / cover no-repeat;
+
+    -webkit-mask:
+        linear-gradient(
+            150deg,
+            transparent calc(100% - 6rem),
+            #000 calc(100% - 6rem)
+        );
+
+    mask:
+        linear-gradient(
+            150deg,
+            transparent calc(100% - 6rem),
+            #000 calc(100% - 6rem)
+        );
+
+    pointer-events: none;
 }
 
 /*****************************************
@@ -593,7 +633,10 @@ Speech bubble
 *****************************************/
 .speech-bubble {
 	position: relative;
+
 	background: var(--color-yellow);
+	background-image: var(--paper-texture);
+
 	border-radius: var(--distance-2);
 	width: 200px;
 	min-height: 100px;
@@ -645,7 +688,7 @@ Classes - nav
 	padding-left: var(--distance);
 	
 	background-color: var(--color-pink);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 
 	overflow: clip;
 }
@@ -661,8 +704,8 @@ Classes - nav
 }
 
 .update-nav{
-	background-color: var(--color-yellow);
-	background-image: url("../img/paper.png");
+	background-color: var(--color-orange);
+	background-image: var(--paper-texture);
 	
 	padding-left: 0;
 	padding-right: 0;
@@ -720,7 +763,7 @@ Classes - sections
 *****************************************/
 .section-headline{
 	background-color: var(--color-violet);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 
 	margin: calc(var(--distance-2)*-1);
 	margin-bottom: var(--distance);
@@ -829,7 +872,7 @@ Classes - Background images
 .headline-bg, .header-bg, .table-bg{
 	background-position: 99%, center;
     background-repeat: no-repeat, repeat;
-	background-image: url("../img/transparent.png"), url("../img/paper.png");
+	background-image: url("../img/transparent.png"), var(--paper-texture);
 
 	image-rendering: pixelated; /* pixelated upscaling */
 	image-rendering: -moz-crisp-edges;
@@ -849,99 +892,99 @@ Classes - Background images
 
 /* main menu backgrounds */
 .bg-root {
-    background-image: url("../img/smileys/frog.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/frog.gif"), var(--paper-texture);
 }
 .bg-projects {
-    background-image: url("../img/smileys/scroll.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/scroll.gif"), var(--paper-texture);
 }
 .bg-likes {
-    background-image: url("../img/smileys/heart.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/heart.gif"), var(--paper-texture);
 }
 .bg-lifegoals {
-    background-image: url("../img/smileys/lifepreserver.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/lifepreserver.gif"), var(--paper-texture);
 }
 .bg-rabbit-holes {
-    background-image: url("../img/smileys/rabbit.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/rabbit.gif"), var(--paper-texture);
 }
 .bg-fun {
-    background-image: url("../img/smileys/sun.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/sun.gif"), var(--paper-texture);
 }
 .bg-external {
-    background-image: url("../img/smileys/esckey.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/esckey.gif"), var(--paper-texture);
 }
 .bg-book {
-    background-image: url("../img/smileys/book.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/book.gif"), var(--paper-texture);
 }
 .bg-blog {
-    background-image: url("../img/smileys/pencil.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/pencil.gif"), var(--paper-texture);
 }
 .bg-cv {
-    background-image: url("../img/smileys/document.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/document.gif"), var(--paper-texture);
 }
 
 /* headline backgrounds */
 .bg-achievement {
-    background-image: url("../img/smileys/star.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/star.gif"), var(--paper-texture);
 }
 .bg-audio {
-    background-image: url("../img/smileys/note.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/note.gif"), var(--paper-texture);
 }
 .bg-button {
-    background-image: url("../img/button88x31.gif"), url("../img/paper.png");
+    background-image: url("../img/button88x31.gif"), var(--paper-texture);
 }
 .bg-clothing {
-    background-image: url("../img/smileys/necktie.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/necktie.gif"), var(--paper-texture);
 }
 .bg-coding {
-    background-image: url("../img/smileys/folder.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/folder.gif"), var(--paper-texture);
 }
 .bg-collecting {
-    background-image: url("../img/smileys/treasure.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/treasure.gif"), var(--paper-texture);
 }
 .bg-design {
-    background-image: url("../img/bg-img/palette.svg"), url("../img/paper.png");
+    background-image: url("../img/bg-img/palette.svg"), var(--paper-texture);
 }
 .bg-education {
-    background-image: url("../img/smileys/graduatescap.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/graduatescap.gif"), var(--paper-texture);
 }
 .bg-game {
-    background-image: url("../img/smileys/dice.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/dice.gif"), var(--paper-texture);
 }
 .bg-guide {
-    background-image: url("../img/smileys/point.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/point.gif"), var(--paper-texture);
 }
 .bg-link {
-    background-image: url("../img/smileys/link.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/link.gif"), var(--paper-texture);
 }
 .bg-love {
-    background-image: url("../img/smileys/candyheart.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/candyheart.gif"), var(--paper-texture);
 }
 .bg-music {
-    background-image: url("../img/smileys/note.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/note.gif"), var(--paper-texture);
 }
 .bg-ring {
-    background-image: url("../img/smileys/ring.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/ring.gif"), var(--paper-texture);
 }
 .bg-server {
-    background-image: url("../img/smileys/computer.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/computer.gif"), var(--paper-texture);
 }
 .bg-spreadsheet {
-    background-image: url("../img/smileys/calendar.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/calendar.gif"), var(--paper-texture);
 }
 .bg-stopwatch {
-	background-image: url("../img/smileys/clock.gif"), url("../img/paper.png");
+	background-image: url("../img/smileys/clock.gif"), var(--paper-texture);
 }
 .bg-tool {
-    background-image: url("../img/smileys/wrench.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/wrench.gif"), var(--paper-texture);
 }
 .bg-video {
-    background-image: url("../img/smileys/filmstrip.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/filmstrip.gif"), var(--paper-texture);
 }
 .bg-work {
-    background-image: url("../img/smileys/toolbox.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/toolbox.gif"), var(--paper-texture);
 }
 .bg-writing {
-    background-image: url("../img/smileys/book.gif"), url("../img/paper.png");
+    background-image: url("../img/smileys/book.gif"), var(--paper-texture);
 }
 
 .bg-size-unset{
@@ -952,19 +995,24 @@ Classes - Background images
 	background-size: contain;
 }
 .table-bg-oversized{
-	background-size: 15% auto;
+	background-size: 15%;
 }
-.bg-enby{
-	background-image: url("../img/enby.png");
-}
-.bg-pelipper{
-	background-image: url("../img/likes/pelipper.png");
-}
+
 .bg-red{
 	background-color: var(--color-red);
 }
 .bg-violet{
 	background-color: var(--color-violet);
+}
+
+.table-bg-enby{
+	background-image: url("../img/enby.png");
+}
+.table-bg-love {
+    background-image: url("../img/smileys/candyheart.gif");
+}
+.table-bg-pelipper{
+	background-image: url("../img/likes/pelipper.png");
 }
 
 
@@ -1006,7 +1054,7 @@ Classes - Buttons
 	z-index: 10;
 
 	background-color: var(--color-pink);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 
 	text-decoration: none;
     font-weight: bold;
@@ -1305,6 +1353,10 @@ Classes - Helper classes
 	z-index: 9001;
 }
 
+.align-left, .align-left > li{
+	text-align: left;
+}
+
 .align-right{
 	text-align: right;
 	display: flex;
@@ -1488,6 +1540,53 @@ Pages - root
 
 
 /*****************************************
+pages - Dress-Up
+*****************************************/
+.draggable{
+	user-select: all;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	touch-action: none;
+}
+.dress-up-char{
+	height: 560px;
+}
+
+.shirt1{ z-index: 100; top:  25px; }
+.shirt2{ z-index: 101; top:  25px; left: 100px; }
+.shirt3{ z-index: 102; top:  75px; }
+.shirt4{ z-index: 103; top:  75px; left: 100px; }
+.shirt5{ z-index: 104; top: 125px; }
+.shirt6{ z-index: 105; top: 125px; left: 100px; }
+.shirt7{ z-index: 106; top: 175px; }
+.shirt8{ z-index: 107; top: 175px; left: 100px; }
+.shirt9{ z-index: 108; top: 225px; }
+.shirt10{ z-index: 109; top: 255px; left: 100px; }
+/* pants always below tops */
+.pants1{ z-index: 50; top:  25px; right: 0; }
+.pants2{ z-index: 51; top:  75px; right: 0; }
+.pants3{ z-index: 52; top:  125px; right: 0; }
+.pants4{ z-index: 53; top:  175px; right: 0; }
+/* skirts always above pants but below shirts */
+.skirt1{ z-index: 71; top: 225px; right: 0; }
+.skirt2{ z-index: 72; top: 275px; right: 0; }
+.skirt3{ z-index: 73; top: 325px; right: 0; }
+/* hats above all */
+.hat1{ z-index: 150; top: 375px; right: 0; }
+.hat2{ z-index: 151; top: 375px; right: 100px; }
+.hat3{ z-index: 152; top: 425px; right: 0; }
+.hat4{ z-index: 153; top: 425px; right: 100px; }
+/* shoes always below everything else */
+.shoe1{ z-index: 10; top: 525px; right: 0; }
+.shoe2{ z-index: 11; top: 525px; right: 50px; }
+.shoe3{ z-index: 12; top: 550px; right: 0; }
+.shoe4{ z-index: 13; top: 550px; right: 50px; }
+.shoe5{ z-index: 14; top: 575px; right: 0; }
+.shoe6{ z-index: 15; top: 575px; right: 50px; }
+
+
+
+/*****************************************
 Pages - links
 *****************************************/
 .button-wall{
@@ -1524,7 +1623,6 @@ Pages - links
 .button-wall-buttons a, .button-wall-buttons img{
 	width: 88px;
 	height: 31px;
-	filter: unset;
 }
 
 .button-wall-buttons > span{
@@ -1550,24 +1648,32 @@ Pages - links
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+
+	backdrop-filter: var(--sepia-filter);
 }
 .button-wall-button-bg-repeat{
 	background: var(--button-background);
 	background-size: auto !important;
 	background-position: center;
 	background-repeat: repeat;
+
+	backdrop-filter: var(--sepia-filter);
 }
 .button-wall-button-bg-neighbor{
 	background: url('../img/smileys/heart.gif'), var(--button-background);
 	background-size: auto, cover;
 	background-position: 98% 5%, center;
 	background-repeat: no-repeat, no-repeat;
+
+	backdrop-filter: var(--sepia-filter);
 }
 .button-wall-button-bg-follow{
 	background: url('../img/smileys/star.gif'), var(--button-background);
 	background-size: auto, cover;
 	background-position: 98% 5%, center;
 	background-repeat: no-repeat, no-repeat;
+
+	backdrop-filter: var(--sepia-filter);
 }
 
 
@@ -1610,6 +1716,37 @@ Pages - pkmn-teams
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: var(--distance-2);
 	margin-bottom: var(--distance-2);
+}
+
+
+
+/*****************************************
+Pages - settings
+*****************************************/
+.color-scheme-container {
+    display: inline-flex;
+	gap: 0;
+
+	border: 1px solid var(--border-color);
+
+	margin-right: var(--distance);
+}
+.color-scheme{
+	display: inline-block;
+
+	width: var(--distance-2);
+	height: var(--distance-2);
+
+	background-color: var(--scheme-color);
+	background-image: url("../img/paper.png");
+
+	border-right: 1px dotted var(--border-color);
+}
+.color-scheme-dark{
+	background-image: url("../img/paper_dark.png");
+}
+.color-scheme:last-child{
+	border: 0;
 }
 
 
@@ -1661,7 +1798,7 @@ dialog[open]{
 	justify-content: center; /* center content */
 	
 	background-color: var(--color-yellow);
-	background-image: url("../img/paper.png");
+	background-image: var(--paper-texture);
 	
 	border: 5px var(--border-color) double;
 	
@@ -1696,53 +1833,6 @@ dialog[open]{
 .lightbox:has(> ul) {
     text-align: left;
 }
-
-
-
-/*****************************************
-Dress-Up
-*****************************************/
-.draggable{
-	user-select: all;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
-	touch-action: none;
-}
-.dress-up-char{
-	height: 560px;
-}
-
-.shirt1{ z-index: 100; top:  25px; }
-.shirt2{ z-index: 101; top:  25px; left: 100px; }
-.shirt3{ z-index: 102; top:  75px; }
-.shirt4{ z-index: 103; top:  75px; left: 100px; }
-.shirt5{ z-index: 104; top: 125px; }
-.shirt6{ z-index: 105; top: 125px; left: 100px; }
-.shirt7{ z-index: 106; top: 175px; }
-.shirt8{ z-index: 107; top: 175px; left: 100px; }
-.shirt9{ z-index: 108; top: 225px; }
-.shirt10{ z-index: 109; top: 255px; left: 100px; }
-/* pants always below tops */
-.pants1{ z-index: 50; top:  25px; right: 0; }
-.pants2{ z-index: 51; top:  75px; right: 0; }
-.pants3{ z-index: 52; top:  125px; right: 0; }
-.pants4{ z-index: 53; top:  175px; right: 0; }
-/* skirts always above pants but below shirts */
-.skirt1{ z-index: 71; top: 225px; right: 0; }
-.skirt2{ z-index: 72; top: 275px; right: 0; }
-.skirt3{ z-index: 73; top: 325px; right: 0; }
-/* hats above all */
-.hat1{ z-index: 150; top: 375px; right: 0; }
-.hat2{ z-index: 151; top: 375px; right: 100px; }
-.hat3{ z-index: 152; top: 425px; right: 0; }
-.hat4{ z-index: 153; top: 425px; right: 100px; }
-/* shoes always below everything else */
-.shoe1{ z-index: 10; top: 525px; right: 0; }
-.shoe2{ z-index: 11; top: 525px; right: 50px; }
-.shoe3{ z-index: 12; top: 550px; right: 0; }
-.shoe4{ z-index: 13; top: 550px; right: 50px; }
-.shoe5{ z-index: 14; top: 575px; right: 0; }
-.shoe6{ z-index: 15; top: 575px; right: 50px; }
 
 
 
@@ -1843,9 +1933,17 @@ Mobile Styles
 		grid-template-columns: repeat(3, 1fr); /* 3 colums */
 	}
 
+	.color-scheme{
+		width: var(--distance);
+	}
+
 	.dress-up-left, .dress-up-right{
 		height: 600px; /* specific boxes for the dress-up items */
 		position: relative;
+	}
+
+	.earthbound-text{
+		height: unset;
 	}
 
 	.snail-race{
@@ -1916,15 +2014,3 @@ Support for none mobile devices with small height
 
 
 
-.color-scheme-container {
-    display: inline-flex;
-    gap: 0;
-}
-.color-scheme{
-	display: inline-block;
-
-	width: var(--distance-2);
-	height: var(--distance-2);
-
-	background-color: var(--scheme-color);
-}
