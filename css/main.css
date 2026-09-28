@@ -584,7 +584,7 @@ Div ids - content
 			var(--color-violet) calc(100% - 1rem) 100%
 		);
 }
-/* Paper overlay on rainbow */
+/* Paper overlay on rainbow 
 #main-content::after {
     content: "";
     position: absolute;
@@ -609,6 +609,7 @@ Div ids - content
 
     pointer-events: none;
 }
+*/
 
 /*****************************************
 Div ids - settings
@@ -1488,6 +1489,10 @@ Classes - disable stuff
 
 .no-margin{
 	margin: 0;
+}
+
+.no-max-height{
+	max-height: 100%;
 }
 
 .no-padding{
