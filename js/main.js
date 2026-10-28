@@ -705,6 +705,18 @@ function readSettings(){
 		}
 
 		var color_scheme = localStorage.getItem("color_scheme");
+		if(color_scheme === "standard"){
+			document.documentElement.style.setProperty('--color-yellow', '#FBF8CC');
+			document.documentElement.style.setProperty('--color-orange', '#FDE4CF');
+			document.documentElement.style.setProperty('--color-red', '#FFCFD2');
+			document.documentElement.style.setProperty('--color-pink', '#F1C0E8');
+			document.documentElement.style.setProperty('--color-violet', '#CFBAF0');
+			document.documentElement.style.setProperty('--color-blue', '#A3C4F3');
+			document.documentElement.style.setProperty('--color-light-blue', '#90DBF4');
+			document.documentElement.style.setProperty('--color-turquoise', '#8EECF5');
+			document.documentElement.style.setProperty('--color-green', '#98F5E1');
+			document.documentElement.style.setProperty('--color-light-green', '#B9FBC0');
+		}
 		if(color_scheme === "girlypop"){
 			document.documentElement.style.setProperty('--color-yellow', '#f9d889');
 			document.documentElement.style.setProperty('--color-orange', '#ffb9ad');
@@ -776,6 +788,18 @@ function readSettings(){
 
 			document.documentElement.style.setProperty('--sepia-filter', 'grayscale(var(--sepia-value))');
 			document.documentElement.style.setProperty('--paper-texture', 'url("../img/paper_dark.png")');
+		}
+		else if(color_scheme === "spoopy"){
+			document.documentElement.style.setProperty('--color-yellow', '#f5d015');
+			document.documentElement.style.setProperty('--color-orange', '#f1792c');
+			document.documentElement.style.setProperty('--color-red', '#cf1011');
+			document.documentElement.style.setProperty('--color-pink', '#9C90BC');
+			document.documentElement.style.setProperty('--color-violet', '#5C58A4');
+			document.documentElement.style.setProperty('--color-blue', '#389092');
+			document.documentElement.style.setProperty('--color-light-blue', '#5FCFC3');
+			document.documentElement.style.setProperty('--color-turquoise', '#121358');
+			document.documentElement.style.setProperty('--color-green', '#40A231');
+			document.documentElement.style.setProperty('--color-light-green', '#40A231');
 		}
 
 		if(localStorage.getItem("disablePaperTexture") === 'true'){

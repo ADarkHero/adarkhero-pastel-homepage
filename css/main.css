@@ -55,7 +55,7 @@ Variables
 	--slide-out-animation: slideOutAnimation 0.5s ease 0s 1 normal forwards; 
 	--resize-button-animation: all 0.25s linear;
 	--opacity-animation: opacity 0.5s ease; 
-	--marquee-animation: marquee 15s linear infinite;
+	--marquee-animation: marquee 20s linear infinite;
 	/* reset values for js */
 	--base-width-const: 1024px;
 	--base-height-const: 768px;
@@ -144,7 +144,7 @@ nav > ul > li > a{
 	align-items: center;
 	justify-content: flex-start;
 }
-footer > ul, .horizontal-list > ul, .horizontal-ul{
+footer > ul, .horizontal-list > ul, .horizontal-ul, .horizontal-list{
 	display: flex; /* horizontal list */
 	justify-content: center; /* center list */
 	flex-wrap: wrap; /* multiple lines */
@@ -328,6 +328,7 @@ textarea{
 
 ul{
 	margin: 0;
+	padding-left: var(--distance-5);
 }
 
 li{
@@ -560,9 +561,8 @@ Div ids - container
 Div ids - content
 *****************************************/
 #main-content {
-	/*background-image: url(../img/pastel-rainbow.png);*/
-	background-position-y: bottom;
-    background-position-x: right;
+	background-position-y: 99%;
+    background-position-x: 98%;
 	background-repeat: no-repeat;
 
 	height: var(--content-height);
@@ -572,6 +572,7 @@ Div ids - content
 	position: relative;
 
 	/* rainbow */
+	
 	background:
 		linear-gradient(
 			150deg,
@@ -777,9 +778,12 @@ Classes - sections
 	padding-left: 0;
 	padding-right: var(--distance-2);
 }
+.section-image-right{
+	padding-right: 0;
+	padding-left: var(--distance-2);
+}
 .section-image img{
 	max-width: 90%;
-	max-height: 200px;
 }
 
 .section-full-size-img{
@@ -963,13 +967,16 @@ Classes - Background images
 .bg-music {
     background-image: url("../img/smileys/note.gif"), var(--paper-texture);
 }
+.bg-pride, .bg-rainbow {
+    background-image: url("../img/smileys/rainbow.gif"), var(--paper-texture);
+}
 .bg-ring {
     background-image: url("../img/smileys/ring.gif"), var(--paper-texture);
 }
 .bg-server {
     background-image: url("../img/smileys/computer.gif"), var(--paper-texture);
 }
-.bg-spreadsheet {
+.bg-spreadsheet, .bg-diary {
     background-image: url("../img/smileys/calendar.gif"), var(--paper-texture);
 }
 .bg-stopwatch {
@@ -1791,6 +1798,19 @@ Pages - snail-race
 
 
 /*****************************************
+Pages - diary
+*****************************************/
+.list-stars-10{
+	gap: var(--distance);
+}
+.list-stars-10 > li:nth-child(6){
+	margin-left: var(--distance);
+}
+
+
+
+
+/*****************************************
 Lightbox
 *****************************************/
 dialog[open]{
@@ -1949,6 +1969,15 @@ Mobile Styles
 
 	.earthbound-text{
 		height: unset;
+	}
+
+	.list-stars-10{
+		display: grid;
+		grid-template-columns: repeat(5, auto); /* 5 stars per line, line break after */
+		gap: 0;
+	}
+	.list-stars-10 > li{
+		margin-left: var(--distance);
 	}
 
 	.snail-race{
