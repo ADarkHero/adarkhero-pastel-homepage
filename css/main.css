@@ -1810,6 +1810,9 @@ Pages - diary
 	height: 200px;
 	width: 75%;
 }
+.diary-video > img, .diary-video > a > img{
+	height: 200px;
+}
 
 
 
@@ -1841,12 +1844,12 @@ dialog[open]{
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.lightbox > img{
+.lightbox > img, .lightbox > a > img{
 	filter: unset;
 	max-width: 79vw; 
 	max-height: 79vh; /* one smaller than lightbox size to remove scroll bar */
 }
-.lightbox > img:hover, #lightbox > a:hover{
+.lightbox > img:hover, #lightbox > a:hover, .lightbox > a > img{
 	transform: unset !important;
 }
 
