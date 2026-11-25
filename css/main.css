@@ -1397,6 +1397,10 @@ Classes - Helper classes
 	height: 100%
 }
 
+.height-100px, .height-100px img{
+	height: 100px;
+}
+
 .inline-img{
 	height: var(--font-size);
 	max-width: unset;
